@@ -1,0 +1,49 @@
+configVersion: 2.0.0
+generation:
+  sdkClassName: Nest
+  maintainOpenAPIOrder: true
+  usageSnippets:
+    optionalPropertyRendering: withExample
+    sdkInitStyle: constructor
+  useClassNamesForArrayFields: true
+  fixes:
+    nameResolutionDec2023: true
+    nameResolutionFeb2025: true
+    parameterOrderingFeb2024: true
+    requestResponseComponentNamesFeb2024: true
+    securityFeb2025: true
+    sharedErrorComponentsApr2025: true
+  auth:
+    oAuth2ClientCredentialsEnabled: false
+    oAuth2PasswordEnabled: false
+  inferSSEOverload: true
+  sdkHooksConfigAccess: true
+  tests:
+    generateTests: false
+    generateNewTests: true
+    skipResponseBodyAssertions: false
+go:
+  version: 0.0.1
+  additionalDependencies: {}
+  baseErrorName: NestError
+  clientServerStatusCodesAsErrors: true
+  defaultErrorName: NestAPIError
+  envVarPrefix: NEST
+  flattenGlobalSecurity: true
+  imports:
+    option: openapi
+    paths:
+      callbacks: models/callbacks
+      errors: models/apierrors
+      operations: models/operations
+      shared: models/components
+      webhooks: models/webhooks
+  inputModelSuffix: input
+  maxMethodParams: 4
+  methodArguments: require-security-and-request
+  modulePath: github.com/owasp/nest-sdk
+  outputModelSuffix: output
+  packageName: nest
+  respectRequiredFields: false
+  responseFormat: envelope-http
+  sdkPackageName: nest

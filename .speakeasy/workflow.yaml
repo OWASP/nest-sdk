@@ -1,0 +1,19 @@
+workflowVersion: 1.0.0
+speakeasyVersion: latest
+sources:
+    nest-sdk-go:
+        inputs:
+            - location: https://nest.owasp.org/api/v1/openapi.json
+        registry:
+            location: registry.speakeasyapi.dev/owasp/nest/go-sdk
+targets:
+    nest-sdk-go:
+        target: go
+        source: nest-sdk-go
+        output: .
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/owasp/nest/go-code-samples
+            labelOverride:
+                fixedValue: Go SDK
+            blocking: false
