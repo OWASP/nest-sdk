@@ -1,0 +1,261 @@
+lockVersion: 2.0.0
+id: 474e3505-9fbc-4c93-940d-6ce113ca53b0
+management:
+  docChecksum: 002c96341dae75b1dab75a590156aa93
+  docVersion: 1.0.0
+  speakeasyVersion: 1.613.0
+  generationVersion: 2.696.0
+  releaseVersion: 0.0.1
+  configChecksum: 73676b1b7128c4e96f81d311f2b27bf4
+  repoURL: https://github.com/OWASP/nest-sdk.git
+  installationURL: https://github.com/OWASP/nest-sdk
+features:
+  go:
+    additionalDependencies: 0.1.0
+    constsAndDefaults: 0.1.12
+    core: 3.9.6
+    defaultEnabledRetries: 0.2.0
+    envVarSecurityUsage: 0.3.2
+    flattening: 2.81.1
+    globalSecurity: 2.82.11
+    globalSecurityCallbacks: 0.1.0
+    globalSecurityFlattening: 0.1.0
+    globalServerURLs: 2.82.3
+    intellisenseMarkdownSupport: 0.1.0
+    nullables: 0.1.1
+    responseFormat: 0.1.2
+    retries: 2.84.2
+    sdkHooks: 0.2.0
+generatedFiles:
+  - .gitattributes
+  - /models/apierrors/chaptererrorresponse.go
+  - /models/apierrors/membererrorresponse.go
+  - /models/components/chapterschema.go
+  - /models/components/committeeschema.go
+  - /models/components/eventschema.go
+  - /models/components/httpmetadata.go
+  - /models/components/issueschema.go
+  - /models/components/memberschema.go
+  - /models/components/organizationschema.go
+  - /models/components/pagedchapterschema.go
+  - /models/components/pagedcommitteeschema.go
+  - /models/components/pagedeventschema.go
+  - /models/components/pagedissueschema.go
+  - /models/components/pagedmemberschema.go
+  - /models/components/pagedorganizationschema.go
+  - /models/components/pagedprojectschema.go
+  - /models/components/pagedreleaseschema.go
+  - /models/components/pagedrepositoryschema.go
+  - /models/components/projectlevel.go
+  - /models/components/projectschema.go
+  - /models/components/releaseschema.go
+  - /models/components/repositoryschema.go
+  - /models/components/security.go
+  - /models/components/state.go
+  - /models/operations/getchapter.go
+  - /models/operations/getmember.go
+  - /models/operations/listchapters.go
+  - /models/operations/listcommittees.go
+  - /models/operations/listevents.go
+  - /models/operations/listissues.go
+  - /models/operations/listmembers.go
+  - /models/operations/listorganizations.go
+  - /models/operations/listprojects.go
+  - /models/operations/listreleases.go
+  - /models/operations/listrepositories.go
+  - USAGE.md
+  - chapters.go
+  - committees.go
+  - community.go
+  - docs/models/apierrors/chaptererrorresponse.md
+  - docs/models/apierrors/membererrorresponse.md
+  - docs/models/components/chapterschema.md
+  - docs/models/components/committeeschema.md
+  - docs/models/components/eventschema.md
+  - docs/models/components/httpmetadata.md
+  - docs/models/components/issueschema.md
+  - docs/models/components/memberschema.md
+  - docs/models/components/organizationschema.md
+  - docs/models/components/pagedchapterschema.md
+  - docs/models/components/pagedcommitteeschema.md
+  - docs/models/components/pagedeventschema.md
+  - docs/models/components/pagedissueschema.md
+  - docs/models/components/pagedmemberschema.md
+  - docs/models/components/pagedorganizationschema.md
+  - docs/models/components/pagedprojectschema.md
+  - docs/models/components/pagedreleaseschema.md
+  - docs/models/components/pagedrepositoryschema.md
+  - docs/models/components/projectlevel.md
+  - docs/models/components/projectschema.md
+  - docs/models/components/releaseschema.md
+  - docs/models/components/repositoryschema.md
+  - docs/models/components/security.md
+  - docs/models/components/state.md
+  - docs/models/operations/getchapterrequest.md
+  - docs/models/operations/getchapterresponse.md
+  - docs/models/operations/getmemberrequest.md
+  - docs/models/operations/getmemberresponse.md
+  - docs/models/operations/listchaptersordering.md
+  - docs/models/operations/listchaptersrequest.md
+  - docs/models/operations/listchaptersresponse.md
+  - docs/models/operations/listcommitteesordering.md
+  - docs/models/operations/listcommitteesrequest.md
+  - docs/models/operations/listcommitteesresponse.md
+  - docs/models/operations/listeventsordering.md
+  - docs/models/operations/listeventsrequest.md
+  - docs/models/operations/listeventsresponse.md
+  - docs/models/operations/listissuesordering.md
+  - docs/models/operations/listissuesrequest.md
+  - docs/models/operations/listissuesresponse.md
+  - docs/models/operations/listmembersordering.md
+  - docs/models/operations/listmembersrequest.md
+  - docs/models/operations/listmembersresponse.md
+  - docs/models/operations/listorganizationsordering.md
+  - docs/models/operations/listorganizationsrequest.md
+  - docs/models/operations/listorganizationsresponse.md
+  - docs/models/operations/listprojectsordering.md
+  - docs/models/operations/listprojectsrequest.md
+  - docs/models/operations/listprojectsresponse.md
+  - docs/models/operations/listreleasesordering.md
+  - docs/models/operations/listreleasesrequest.md
+  - docs/models/operations/listreleasesresponse.md
+  - docs/models/operations/listrepositoriesordering.md
+  - docs/models/operations/listrepositoriesrequest.md
+  - docs/models/operations/listrepositoriesresponse.md
+  - docs/models/operations/option.md
+  - docs/sdks/chapters/README.md
+  - docs/sdks/committees/README.md
+  - docs/sdks/community/README.md
+  - docs/sdks/events/README.md
+  - docs/sdks/issues/README.md
+  - docs/sdks/nest/README.md
+  - docs/sdks/projects/README.md
+  - docs/sdks/releases/README.md
+  - docs/sdks/repositories/README.md
+  - events.go
+  - go.mod
+  - internal/config/sdkconfiguration.go
+  - internal/hooks/hooks.go
+  - internal/utils/contenttype.go
+  - internal/utils/env.go
+  - internal/utils/form.go
+  - internal/utils/headers.go
+  - internal/utils/json.go
+  - internal/utils/pathparams.go
+  - internal/utils/queryparams.go
+  - internal/utils/requestbody.go
+  - internal/utils/retries.go
+  - internal/utils/security.go
+  - internal/utils/utils.go
+  - issues.go
+  - models/apierrors/nestapierror.go
+  - models/operations/options.go
+  - nest.go
+  - projects.go
+  - releases.go
+  - repositories.go
+  - retry/config.go
+  - types/bigint.go
+  - types/date.go
+  - types/datetime.go
+  - types/decimal.go
+  - types/pointers.go
+examples:
+  list_chapters:
+    speakeasy-default-list-chapters:
+      parameters:
+        query:
+          country: "India"
+          region: "Asia"
+          page: 1
+      responses:
+        "200":
+          application/json: {"items": [{"country": "Slovenia", "created_at": "2025-04-17T12:05:02.463Z", "name": "<value>", "region": "<value>", "updated_at": "2023-05-06T16:21:25.155Z"}], "count": 769051}
+  get_chapter:
+    speakeasy-default-get-chapter:
+      parameters:
+        path:
+          key: "<key>"
+      responses:
+        "200":
+          application/json: {"country": "Hungary", "created_at": "2024-10-15T07:48:29.830Z", "name": "<value>", "region": "<value>", "updated_at": "2023-12-24T21:08:33.483Z"}
+        "404":
+          application/json: {"message": "<value>"}
+  list_committees:
+    speakeasy-default-list-committees:
+      parameters:
+        query:
+          page: 1
+      responses:
+        "200":
+          application/json: {"items": [{"name": "<value>", "description": "boo per while sunbathe likewise yeast quizzically expansion eek", "created_at": "2025-03-16T20:29:18.773Z", "updated_at": "2023-06-13T22:21:50.847Z"}], "count": 288373}
+  list_members:
+    speakeasy-default-list-members:
+      parameters:
+        query:
+          location: "India"
+          page: 1
+      responses:
+        "200":
+          application/json: {"items": [{"avatar_url": "https://noxious-promise.info", "bio": "<value>", "company": "Schmeler and Sons", "created_at": "2023-10-11T15:28:15.365Z", "email": "Marie_Lesch@hotmail.com", "followers_count": 650853, "following_count": 788452, "location": "<value>", "login": "Emie.Jenkins79", "name": "<value>", "public_repositories_count": 740999, "title": "<value>", "twitter_username": "<value>", "updated_at": "2023-03-27T20:40:12.982Z", "url": "https://old-fashioned-provider.biz/"}], "count": 381744}
+  get_member:
+    speakeasy-default-get-member:
+      parameters:
+        path:
+          login: "Stanton97"
+      responses:
+        "200":
+          application/json: {"avatar_url": "https://winged-help.net", "bio": "<value>", "company": "Jacobson and Sons", "created_at": "2024-03-25T14:53:31.200Z", "email": "Viva91@hotmail.com", "followers_count": 877273, "following_count": 836968, "location": "<value>", "login": "Rodolfo.Lindgren", "name": "<value>", "public_repositories_count": 289203, "title": "<value>", "twitter_username": "<value>", "updated_at": "2023-12-31T23:08:06.768Z", "url": "https://yummy-colon.org"}
+        "404":
+          application/json: {"message": "<value>"}
+  list_organizations:
+    speakeasy-default-list-organizations:
+      parameters:
+        query:
+          location: "United States of America"
+          page: 1
+      responses:
+        "200":
+          application/json: {"items": [{"company": "Grady LLC", "created_at": "2025-12-31T23:31:01.740Z", "location": "<value>", "login": "Rosina11", "name": "<value>", "updated_at": "2024-09-05T17:30:42.265Z"}], "count": 150206}
+  list_events:
+    speakeasy-default-list-events:
+      parameters:
+        query:
+          page: 1
+      responses:
+        "200":
+          application/json: {"items": [], "count": 957493}
+  list_issues:
+    speakeasy-default-list-issues:
+      parameters:
+        query:
+          page: 1
+      responses:
+        "200":
+          application/json: {"items": [{"body": "<value>", "created_at": "2025-07-18T12:46:15.645Z", "title": "<value>", "state": "closed", "updated_at": "2023-02-19T06:46:47.973Z", "url": "https://victorious-glider.info"}], "count": 209946}
+  list_projects:
+    speakeasy-default-list-projects:
+      parameters:
+        query:
+          page: 1
+      responses:
+        "200":
+          application/json: {"items": [], "count": 820243}
+  list_releases:
+    speakeasy-default-list-releases:
+      parameters:
+        query:
+          tag_name: "v1.0.0"
+          page: 1
+      responses:
+        "200":
+          application/json: {"items": [], "count": 732904}
+  list_repositories:
+    speakeasy-default-list-repositories:
+      parameters:
+        query:
+          page: 1
+      responses:
+        "200":
+          application/json: {"items": [], "count": 331323}
+examplesVersion: 1.0.2
