@@ -9,11 +9,6 @@ Developer-friendly & type-safe Go SDK specifically catered to leverage *nest* AP
     </a>
 </div>
 
-
-<br /><br />
-> [!IMPORTANT]
-> This SDK is not yet ready for production use. To complete setup please follow the steps outlined in your [workspace](https://app.speakeasy.com/org/owasp/nest). Delete this section before > publishing to a package manager.
-
 <!-- Start Summary [summary] -->
 ## Summary
 
@@ -42,6 +37,7 @@ OWASP Nest: Open Worldwide Application Security Project API
 ## SDK Installation
 
 To add the SDK as a dependency to your project:
+
 ```bash
 go get github.com/owasp/nest-sdk
 ```
@@ -56,30 +52,30 @@ go get github.com/owasp/nest-sdk
 package main
 
 import (
-	"context"
-	nest "github.com/owasp/nest-sdk"
-	"github.com/owasp/nest-sdk/models/operations"
-	"log"
-	"os"
+ "context"
+ nest "github.com/owasp/nest-sdk"
+ "github.com/owasp/nest-sdk/models/operations"
+ "log"
+ "os"
 )
 
 func main() {
-	ctx := context.Background()
+ ctx := context.Background()
 
-	s := nest.New(
-		nest.WithSecurity(os.Getenv("NEST_API_KEY_AUTH")),
-	)
+ s := nest.New(
+  nest.WithSecurity(os.Getenv("NEST_API_KEY_AUTH")),
+ )
 
-	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
-		Country: nest.String("India"),
-		Region:  nest.String("Asia"),
-	})
-	if err != nil {
-		log.Fatal(err)
-	}
-	if res.PagedChapterSchema != nil {
-		// handle response
-	}
+ res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
+  Country: nest.String("India"),
+  Region:  nest.String("Asia"),
+ })
+ if err != nil {
+  log.Fatal(err)
+ }
+ if res.PagedChapterSchema != nil {
+  // handle response
+ }
 }
 
 ```
@@ -97,34 +93,35 @@ This SDK supports the following security scheme globally:
 | `APIKeyAuth` | apiKey | API key | `NEST_API_KEY_AUTH`  |
 
 You can configure it using the `WithSecurity` option when initializing the SDK client instance. For example:
+
 ```go
 package main
 
 import (
-	"context"
-	nest "github.com/owasp/nest-sdk"
-	"github.com/owasp/nest-sdk/models/operations"
-	"log"
-	"os"
+ "context"
+ nest "github.com/owasp/nest-sdk"
+ "github.com/owasp/nest-sdk/models/operations"
+ "log"
+ "os"
 )
 
 func main() {
-	ctx := context.Background()
+ ctx := context.Background()
 
-	s := nest.New(
-		nest.WithSecurity(os.Getenv("NEST_API_KEY_AUTH")),
-	)
+ s := nest.New(
+  nest.WithSecurity(os.Getenv("NEST_API_KEY_AUTH")),
+ )
 
-	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
-		Country: nest.String("India"),
-		Region:  nest.String("Asia"),
-	})
-	if err != nil {
-		log.Fatal(err)
-	}
-	if res.PagedChapterSchema != nil {
-		// handle response
-	}
+ res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
+  Country: nest.String("India"),
+  Region:  nest.String("Asia"),
+ })
+ if err != nil {
+  log.Fatal(err)
+ }
+ if res.PagedChapterSchema != nil {
+  // handle response
+ }
 }
 
 ```
@@ -159,7 +156,6 @@ func main() {
 
 * [ListIssues](docs/sdks/issues/README.md#listissues) - List issues
 
-
 ### [Projects](docs/sdks/projects/README.md)
 
 * [ListProjects](docs/sdks/projects/README.md#listprojects) - List projects
@@ -181,91 +177,93 @@ func main() {
 Some of the endpoints in this SDK support retries. If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API. However, the default retry strategy can be overridden on a per-operation basis, or across the entire SDK.
 
 To change the default retry strategy for a single API call, simply provide a `retry.Config` object to the call by using the `WithRetries` option:
+
 ```go
 package main
 
 import (
-	"context"
-	nest "github.com/owasp/nest-sdk"
-	"github.com/owasp/nest-sdk/models/operations"
-	"github.com/owasp/nest-sdk/retry"
-	"log"
-	"models/operations"
-	"os"
+ "context"
+ nest "github.com/owasp/nest-sdk"
+ "github.com/owasp/nest-sdk/models/operations"
+ "github.com/owasp/nest-sdk/retry"
+ "log"
+ "models/operations"
+ "os"
 )
 
 func main() {
-	ctx := context.Background()
+ ctx := context.Background()
 
-	s := nest.New(
-		nest.WithSecurity(os.Getenv("NEST_API_KEY_AUTH")),
-	)
+ s := nest.New(
+  nest.WithSecurity(os.Getenv("NEST_API_KEY_AUTH")),
+ )
 
-	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
-		Country: nest.String("India"),
-		Region:  nest.String("Asia"),
-	}, operations.WithRetries(
-		retry.Config{
-			Strategy: "backoff",
-			Backoff: &retry.BackoffStrategy{
-				InitialInterval: 1,
-				MaxInterval:     50,
-				Exponent:        1.1,
-				MaxElapsedTime:  100,
-			},
-			RetryConnectionErrors: false,
-		}))
-	if err != nil {
-		log.Fatal(err)
-	}
-	if res.PagedChapterSchema != nil {
-		// handle response
-	}
+ res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
+  Country: nest.String("India"),
+  Region:  nest.String("Asia"),
+ }, operations.WithRetries(
+  retry.Config{
+   Strategy: "backoff",
+   Backoff: &retry.BackoffStrategy{
+    InitialInterval: 1,
+    MaxInterval:     50,
+    Exponent:        1.1,
+    MaxElapsedTime:  100,
+   },
+   RetryConnectionErrors: false,
+  }))
+ if err != nil {
+  log.Fatal(err)
+ }
+ if res.PagedChapterSchema != nil {
+  // handle response
+ }
 }
 
 ```
 
 If you'd like to override the default retry strategy for all operations that support retries, you can use the `WithRetryConfig` option at SDK initialization:
+
 ```go
 package main
 
 import (
-	"context"
-	nest "github.com/owasp/nest-sdk"
-	"github.com/owasp/nest-sdk/models/operations"
-	"github.com/owasp/nest-sdk/retry"
-	"log"
-	"os"
+ "context"
+ nest "github.com/owasp/nest-sdk"
+ "github.com/owasp/nest-sdk/models/operations"
+ "github.com/owasp/nest-sdk/retry"
+ "log"
+ "os"
 )
 
 func main() {
-	ctx := context.Background()
+ ctx := context.Background()
 
-	s := nest.New(
-		nest.WithRetryConfig(
-			retry.Config{
-				Strategy: "backoff",
-				Backoff: &retry.BackoffStrategy{
-					InitialInterval: 1,
-					MaxInterval:     50,
-					Exponent:        1.1,
-					MaxElapsedTime:  100,
-				},
-				RetryConnectionErrors: false,
-			}),
-		nest.WithSecurity(os.Getenv("NEST_API_KEY_AUTH")),
-	)
+ s := nest.New(
+  nest.WithRetryConfig(
+   retry.Config{
+    Strategy: "backoff",
+    Backoff: &retry.BackoffStrategy{
+     InitialInterval: 1,
+     MaxInterval:     50,
+     Exponent:        1.1,
+     MaxElapsedTime:  100,
+    },
+    RetryConnectionErrors: false,
+   }),
+  nest.WithSecurity(os.Getenv("NEST_API_KEY_AUTH")),
+ )
 
-	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
-		Country: nest.String("India"),
-		Region:  nest.String("Asia"),
-	})
-	if err != nil {
-		log.Fatal(err)
-	}
-	if res.PagedChapterSchema != nil {
-		// handle response
-	}
+ res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
+  Country: nest.String("India"),
+  Region:  nest.String("Asia"),
+ })
+ if err != nil {
+  log.Fatal(err)
+ }
+ if res.PagedChapterSchema != nil {
+  // handle response
+ }
 }
 
 ```
@@ -291,36 +289,36 @@ For example, the `GetChapter` function may return the following errors:
 package main
 
 import (
-	"context"
-	"errors"
-	nest "github.com/owasp/nest-sdk"
-	"github.com/owasp/nest-sdk/models/apierrors"
-	"log"
-	"os"
+ "context"
+ "errors"
+ nest "github.com/owasp/nest-sdk"
+ "github.com/owasp/nest-sdk/models/apierrors"
+ "log"
+ "os"
 )
 
 func main() {
-	ctx := context.Background()
+ ctx := context.Background()
 
-	s := nest.New(
-		nest.WithSecurity(os.Getenv("NEST_API_KEY_AUTH")),
-	)
+ s := nest.New(
+  nest.WithSecurity(os.Getenv("NEST_API_KEY_AUTH")),
+ )
 
-	res, err := s.Chapters.GetChapter(ctx, "<key>")
-	if err != nil {
+ res, err := s.Chapters.GetChapter(ctx, "<key>")
+ if err != nil {
 
-		var e *apierrors.ChapterErrorResponse
-		if errors.As(err, &e) {
-			// handle error
-			log.Fatal(e.Error())
-		}
+  var e *apierrors.ChapterErrorResponse
+  if errors.As(err, &e) {
+   // handle error
+   log.Fatal(e.Error())
+  }
 
-		var e *apierrors.NestAPIError
-		if errors.As(err, &e) {
-			// handle error
-			log.Fatal(e.Error())
-		}
-	}
+  var e *apierrors.NestAPIError
+  if errors.As(err, &e) {
+   // handle error
+   log.Fatal(e.Error())
+  }
+ }
 }
 
 ```
@@ -332,35 +330,36 @@ func main() {
 ### Override Server URL Per-Client
 
 The default server can be overridden globally using the `WithServerURL(serverURL string)` option when initializing the SDK client instance. For example:
+
 ```go
 package main
 
 import (
-	"context"
-	nest "github.com/owasp/nest-sdk"
-	"github.com/owasp/nest-sdk/models/operations"
-	"log"
-	"os"
+ "context"
+ nest "github.com/owasp/nest-sdk"
+ "github.com/owasp/nest-sdk/models/operations"
+ "log"
+ "os"
 )
 
 func main() {
-	ctx := context.Background()
+ ctx := context.Background()
 
-	s := nest.New(
-		nest.WithServerURL("https://nest.owasp.org"),
-		nest.WithSecurity(os.Getenv("NEST_API_KEY_AUTH")),
-	)
+ s := nest.New(
+  nest.WithServerURL("https://nest.owasp.org"),
+  nest.WithSecurity(os.Getenv("NEST_API_KEY_AUTH")),
+ )
 
-	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
-		Country: nest.String("India"),
-		Region:  nest.String("Asia"),
-	})
-	if err != nil {
-		log.Fatal(err)
-	}
-	if res.PagedChapterSchema != nil {
-		// handle response
-	}
+ res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
+  Country: nest.String("India"),
+  Region:  nest.String("Asia"),
+ })
+ if err != nil {
+  log.Fatal(err)
+ }
+ if res.PagedChapterSchema != nil {
+  // handle response
+ }
 }
 
 ```
@@ -373,7 +372,7 @@ The Go SDK makes API calls that wrap an internal HTTP client. The requirements f
 
 ```go
 type HTTPClient interface {
-	Do(req *http.Request) (*http.Response, error)
+ Do(req *http.Request) (*http.Response, error)
 }
 ```
 
@@ -381,15 +380,15 @@ The built-in `net/http` client satisfies this interface and a default client bas
 
 ```go
 import (
-	"net/http"
-	"time"
+ "net/http"
+ "time"
 
-	"github.com/owasp/nest-sdk"
+ "github.com/owasp/nest-sdk"
 )
 
 var (
-	httpClient = &http.Client{Timeout: 30 * time.Second}
-	sdkClient  = nest.New(nest.WithClient(httpClient))
+ httpClient = &http.Client{Timeout: 30 * time.Second}
+ sdkClient  = nest.New(nest.WithClient(httpClient))
 )
 ```
 
@@ -408,7 +407,7 @@ looking for the latest version.
 
 ## Contributions
 
-While we value open-source contributions to this SDK, this library is generated programmatically. Any manual changes added to internal files will be overwritten on the next generation. 
-We look forward to hearing your feedback. Feel free to open a PR or an issue with a proof of concept and we'll do our best to include it in a future release. 
+While we value open-source contributions to this SDK, this library is generated programmatically. Any manual changes added to internal files will be overwritten on the next generation.
+We look forward to hearing your feedback. Feel free to open a PR or an issue with a proof of concept and we'll do our best to include it in a future release.
 
 ### SDK Created by [Speakeasy](https://www.speakeasy.com/?utm_source=nest&utm_campaign=go)
