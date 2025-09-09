@@ -1,0 +1,11 @@
+# ListIssuesRequest
+
+
+## Fields
+
+| Field                                                                           | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `State`                                                                         | [*components.State](../../models/components/state.md)                           | :heavy_minus_sign:                                                              | State of the issue                                                              |
+| `Ordering`                                                                      | [*operations.ListIssuesOrdering](../../models/operations/listissuesordering.md) | :heavy_minus_sign:                                                              | Ordering field                                                                  |
+| `Page`                                                                          | **int64*                                                                        | :heavy_minus_sign:                                                              | N/A                                                                             |
+| `PageSize`                                                                      | **int64*                                                                        | :heavy_minus_sign:                                                              | N/A                                                                             |

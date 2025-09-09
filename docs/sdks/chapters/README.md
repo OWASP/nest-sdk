@@ -1,0 +1,118 @@
+# Chapters
+(*Chapters*)
+
+## Overview
+
+### Available Operations
+
+* [ListChapters](#listchapters) - List chapters
+* [GetChapter](#getchapter) - Get chapter
+
+## ListChapters
+
+Retrieve a paginated list of OWASP chapters.
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="list_chapters" method="get" path="/api/v1/chapters/" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	nest "github.com/owasp/nest-sdk"
+	"github.com/owasp/nest-sdk/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := nest.New(
+        nest.WithSecurity(os.Getenv("NEST_API_KEY_AUTH")),
+    )
+
+    res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
+        Country: nest.String("India"),
+        Region: nest.String("Asia"),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.PagedChapterSchema != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
+| `request`                                                                        | [operations.ListChaptersRequest](../../models/operations/listchaptersrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `opts`                                                                           | [][operations.Option](../../models/operations/option.md)                         | :heavy_minus_sign:                                                               | The options for this request.                                                    |
+
+### Response
+
+**[*operations.ListChaptersResponse](../../models/operations/listchaptersresponse.md), error**
+
+### Errors
+
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| apierrors.NestAPIError | 4XX, 5XX               | \*/\*                  |
+
+## GetChapter
+
+Retrieve chapter details.
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="get_chapter" method="get" path="/api/v1/chapters/{key}" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	nest "github.com/owasp/nest-sdk"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := nest.New(
+        nest.WithSecurity(os.Getenv("NEST_API_KEY_AUTH")),
+    )
+
+    res, err := s.Chapters.GetChapter(ctx, "<key>")
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.ChapterSchema != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
+| `key`                                                    | *string*                                                 | :heavy_check_mark:                                       | N/A                                                      |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+
+### Response
+
+**[*operations.GetChapterResponse](../../models/operations/getchapterresponse.md), error**
+
+### Errors
+
+| Error Type                     | Status Code                    | Content Type                   |
+| ------------------------------ | ------------------------------ | ------------------------------ |
+| apierrors.ChapterErrorResponse | 404                            | application/json               |
+| apierrors.NestAPIError         | 4XX, 5XX                       | \*/\*                          |
