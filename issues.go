@@ -59,7 +59,7 @@ func (s *Issues) ListIssues(ctx context.Context, state *components.State, orderi
 	} else {
 		baseURL = *o.ServerURL
 	}
-	opURL, err := url.JoinPath(baseURL, "/api/v1/issues/")
+	opURL, err := url.JoinPath(baseURL, "/api/v0/issues/")
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}

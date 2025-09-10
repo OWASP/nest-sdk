@@ -52,7 +52,7 @@ func (s *Community) ListMembers(ctx context.Context, request operations.ListMemb
 	} else {
 		baseURL = *o.ServerURL
 	}
-	opURL, err := url.JoinPath(baseURL, "/api/v1/members/")
+	opURL, err := url.JoinPath(baseURL, "/api/v0/members/")
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
@@ -265,7 +265,7 @@ func (s *Community) GetMember(ctx context.Context, login string, opts ...operati
 	} else {
 		baseURL = *o.ServerURL
 	}
-	opURL, err := utils.GenerateURL(ctx, baseURL, "/api/v1/members/{login}", request, nil)
+	opURL, err := utils.GenerateURL(ctx, baseURL, "/api/v0/members/{login}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
@@ -502,7 +502,7 @@ func (s *Community) ListOrganizations(ctx context.Context, location *string, ord
 	} else {
 		baseURL = *o.ServerURL
 	}
-	opURL, err := url.JoinPath(baseURL, "/api/v1/organizations/")
+	opURL, err := url.JoinPath(baseURL, "/api/v0/organizations/")
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}

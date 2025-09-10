@@ -58,7 +58,7 @@ func (s *Committees) ListCommittees(ctx context.Context, ordering *operations.Li
 	} else {
 		baseURL = *o.ServerURL
 	}
-	opURL, err := url.JoinPath(baseURL, "/api/v1/committees/")
+	opURL, err := url.JoinPath(baseURL, "/api/v0/committees/")
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}

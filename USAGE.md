@@ -14,7 +14,7 @@ func main() {
 	ctx := context.Background()
 
 	s := nest.New(
-		nest.WithSecurity(os.Getenv("NEST_API_KEY_AUTH")),
+		nest.WithSecurity(os.Getenv("NEST_API_KEY_HEADER")),
 	)
 
 	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 474e3505-9fbc-4c93-940d-6ce113ca53b0
 management:
-  docChecksum: 002c96341dae75b1dab75a590156aa93
-  docVersion: 1.0.0
-  speakeasyVersion: 1.613.0
-  generationVersion: 2.696.0
-  releaseVersion: 0.0.1
-  configChecksum: 73676b1b7128c4e96f81d311f2b27bf4
+  docChecksum: 3d8ba3359a1f6c19c566d99105773e26
+  docVersion: 0.2.0
+  speakeasyVersion: 1.615.0
+  generationVersion: 2.698.0
+  releaseVersion: 0.2.0
+  configChecksum: 17ce27ff25720c48af88bf8b238b4c1f
   repoURL: https://github.com/OWASP/nest-sdk.git
   installationURL: https://github.com/OWASP/nest-sdk
 features:

@@ -13,7 +13,7 @@ Retrieve a paginated list of GitHub releases.
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="list_releases" method="get" path="/api/v1/releases/" -->
+<!-- UsageSnippet language="go" operationID="list_releases" method="get" path="/api/v0/releases/" -->
 ```go
 package main
 
@@ -28,7 +28,7 @@ func main() {
     ctx := context.Background()
 
     s := nest.New(
-        nest.WithSecurity(os.Getenv("NEST_API_KEY_AUTH")),
+        nest.WithSecurity(os.Getenv("NEST_API_KEY_HEADER")),
     )
 
     res, err := s.Releases.ListReleases(ctx, nest.String("v1.0.0"), nil, nest.Int64(1), nil)

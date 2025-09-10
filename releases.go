@@ -59,7 +59,7 @@ func (s *Releases) ListReleases(ctx context.Context, tagName *string, ordering *
 	} else {
 		baseURL = *o.ServerURL
 	}
-	opURL, err := url.JoinPath(baseURL, "/api/v1/releases/")
+	opURL, err := url.JoinPath(baseURL, "/api/v0/releases/")
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}

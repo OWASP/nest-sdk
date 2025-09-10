@@ -13,7 +13,7 @@ Retrieve a paginated list of OWASP committees.
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="list_committees" method="get" path="/api/v1/committees/" -->
+<!-- UsageSnippet language="go" operationID="list_committees" method="get" path="/api/v0/committees/" -->
 ```go
 package main
 
@@ -28,7 +28,7 @@ func main() {
     ctx := context.Background()
 
     s := nest.New(
-        nest.WithSecurity(os.Getenv("NEST_API_KEY_AUTH")),
+        nest.WithSecurity(os.Getenv("NEST_API_KEY_HEADER")),
     )
 
     res, err := s.Committees.ListCommittees(ctx, nil, nest.Int64(1), nil)
