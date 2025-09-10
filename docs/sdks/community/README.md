@@ -15,7 +15,7 @@ Retrieve a paginated list of OWASP community members.
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="list_members" method="get" path="/api/v1/members/" -->
+<!-- UsageSnippet language="go" operationID="list_members" method="get" path="/api/v0/members/" -->
 ```go
 package main
 
@@ -31,7 +31,7 @@ func main() {
     ctx := context.Background()
 
     s := nest.New(
-        nest.WithSecurity(os.Getenv("NEST_API_KEY_AUTH")),
+        nest.WithSecurity(os.Getenv("NEST_API_KEY_HEADER")),
     )
 
     res, err := s.Community.ListMembers(ctx, operations.ListMembersRequest{
@@ -70,7 +70,7 @@ Retrieve a member by login.
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="get_member" method="get" path="/api/v1/members/{login}" -->
+<!-- UsageSnippet language="go" operationID="get_member" method="get" path="/api/v0/members/{login}" -->
 ```go
 package main
 
@@ -85,7 +85,7 @@ func main() {
     ctx := context.Background()
 
     s := nest.New(
-        nest.WithSecurity(os.Getenv("NEST_API_KEY_AUTH")),
+        nest.WithSecurity(os.Getenv("NEST_API_KEY_HEADER")),
     )
 
     res, err := s.Community.GetMember(ctx, "Stanton97")
@@ -123,7 +123,7 @@ Retrieve a paginated list of GitHub organizations.
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="list_organizations" method="get" path="/api/v1/organizations/" -->
+<!-- UsageSnippet language="go" operationID="list_organizations" method="get" path="/api/v0/organizations/" -->
 ```go
 package main
 
@@ -138,7 +138,7 @@ func main() {
     ctx := context.Background()
 
     s := nest.New(
-        nest.WithSecurity(os.Getenv("NEST_API_KEY_AUTH")),
+        nest.WithSecurity(os.Getenv("NEST_API_KEY_HEADER")),
     )
 
     res, err := s.Community.ListOrganizations(ctx, nest.String("United States of America"), nil, nest.Int64(1), nil)

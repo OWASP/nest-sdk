@@ -58,7 +58,7 @@ func (s *Repositories) ListRepositories(ctx context.Context, ordering *operation
 	} else {
 		baseURL = *o.ServerURL
 	}
-	opURL, err := url.JoinPath(baseURL, "/api/v1/repositories/")
+	opURL, err := url.JoinPath(baseURL, "/api/v0/repositories/")
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}

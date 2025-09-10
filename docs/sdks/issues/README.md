@@ -13,7 +13,7 @@ Retrieve a paginated list of GitHub issues.
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="list_issues" method="get" path="/api/v1/issues/" -->
+<!-- UsageSnippet language="go" operationID="list_issues" method="get" path="/api/v0/issues/" -->
 ```go
 package main
 
@@ -28,7 +28,7 @@ func main() {
     ctx := context.Background()
 
     s := nest.New(
-        nest.WithSecurity(os.Getenv("NEST_API_KEY_AUTH")),
+        nest.WithSecurity(os.Getenv("NEST_API_KEY_HEADER")),
     )
 
     res, err := s.Issues.ListIssues(ctx, nil, nil, nest.Int64(1), nil)

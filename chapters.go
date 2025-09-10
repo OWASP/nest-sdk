@@ -52,7 +52,7 @@ func (s *Chapters) ListChapters(ctx context.Context, request operations.ListChap
 	} else {
 		baseURL = *o.ServerURL
 	}
-	opURL, err := url.JoinPath(baseURL, "/api/v1/chapters/")
+	opURL, err := url.JoinPath(baseURL, "/api/v0/chapters/")
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
@@ -265,7 +265,7 @@ func (s *Chapters) GetChapter(ctx context.Context, key string, opts ...operation
 	} else {
 		baseURL = *o.ServerURL
 	}
-	opURL, err := utils.GenerateURL(ctx, baseURL, "/api/v1/chapters/{key}", request, nil)
+	opURL, err := utils.GenerateURL(ctx, baseURL, "/api/v0/chapters/{key}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}

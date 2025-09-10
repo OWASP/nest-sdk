@@ -3,12 +3,12 @@
 package components
 
 type Security struct {
-	APIKeyAuth *string `security:"scheme,type=apiKey,subtype=header,name=X-API-Key,env=nest_api_key_auth"`
+	APIKeyHeader *string `security:"scheme,type=apiKey,subtype=header,name=X-API-Key,env=nest_api_key_header"`
 }
 
-func (o *Security) GetAPIKeyAuth() *string {
+func (o *Security) GetAPIKeyHeader() *string {
 	if o == nil {
 		return nil
 	}
-	return o.APIKeyAuth
+	return o.APIKeyHeader
 }

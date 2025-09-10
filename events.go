@@ -58,7 +58,7 @@ func (s *Events) ListEvents(ctx context.Context, ordering *operations.ListEvents
 	} else {
 		baseURL = *o.ServerURL
 	}
-	opURL, err := url.JoinPath(baseURL, "/api/v1/events/")
+	opURL, err := url.JoinPath(baseURL, "/api/v0/events/")
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
