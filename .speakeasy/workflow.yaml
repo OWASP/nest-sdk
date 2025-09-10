@@ -3,7 +3,7 @@ speakeasyVersion: latest
 sources:
     nest-sdk-go:
         inputs:
-            - location: https://nest.owasp.org/api/v1/openapi.json
+            - location: https://nest.owasp.dev/api/v0/openapi.json
         registry:
             location: registry.speakeasyapi.dev/owasp/nest/go-sdk
 targets:
