@@ -1,4 +1,4 @@
-# ListChaptersResponse
+# AppsAPIRestV0ProjectListProjectsResponse
 
 
 ## Fields
@@ -6,4 +6,4 @@
 | Field                                                                           | Type                                                                            | Required                                                                        | Description                                                                     |
 | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
 | `HTTPMeta`                                                                      | [components.HTTPMetadata](../../models/components/httpmetadata.md)              | :heavy_check_mark:                                                              | N/A                                                                             |
-| `PagedChapterSchema`                                                            | [*components.PagedChapterSchema](../../models/components/pagedchapterschema.md) | :heavy_minus_sign:                                                              | OK                                                                              |
+| `PagedProjectSchema`                                                            | [*components.PagedProjectSchema](../../models/components/pagedprojectschema.md) | :heavy_minus_sign:                                                              | OK                                                                              |

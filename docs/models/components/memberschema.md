@@ -11,7 +11,6 @@ Schema for Member.
 | `Bio`                                     | *string*                                  | :heavy_check_mark:                        | N/A                                       |
 | `Company`                                 | *string*                                  | :heavy_check_mark:                        | N/A                                       |
 | `CreatedAt`                               | [time.Time](https://pkg.go.dev/time#Time) | :heavy_check_mark:                        | N/A                                       |
-| `Email`                                   | *string*                                  | :heavy_check_mark:                        | N/A                                       |
 | `FollowersCount`                          | *int64*                                   | :heavy_check_mark:                        | N/A                                       |
 | `FollowingCount`                          | *int64*                                   | :heavy_check_mark:                        | N/A                                       |
 | `Location`                                | *string*                                  | :heavy_check_mark:                        | N/A                                       |

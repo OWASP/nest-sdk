@@ -1,4 +1,4 @@
-# GetChapterResponse
+# AppsAPIRestV0ChapterGetChapterResponse
 
 
 ## Fields

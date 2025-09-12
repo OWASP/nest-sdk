@@ -2,7 +2,7 @@
 
 package nest
 
-// Generated from OpenAPI doc version 0.2.0 and generator version 2.698.0
+// Generated from OpenAPI doc version 0.2.1 and generator version 2.698.4
 
 import (
 	"context"
@@ -135,9 +135,9 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Nest {
 	sdk := &Nest{
-		SDKVersion: "0.2.0",
+		SDKVersion: "0.2.1",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:  "speakeasy-sdk/go 0.2.0 2.698.0 0.2.0 github.com/owasp/nest-sdk",
+			UserAgent:  "speakeasy-sdk/go 0.2.1 2.698.4 0.2.1 github.com/owasp/nest-sdk",
 			ServerList: ServerList,
 		},
 		hooks: hooks.New(),

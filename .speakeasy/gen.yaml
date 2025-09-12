@@ -16,6 +16,7 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
+    hoistGlobalSecurity: true
   inferSSEOverload: true
   sdkHooksConfigAccess: true
   tests:
@@ -23,7 +24,7 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: false
 go:
-  version: 0.2.0
+  version: 0.2.1
   additionalDependencies: {}
   baseErrorName: NestError
   clientServerStatusCodesAsErrors: true
