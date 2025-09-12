@@ -13,7 +13,6 @@ type MemberSchema struct {
 	Bio                     string    `json:"bio"`
 	Company                 string    `json:"company"`
 	CreatedAt               time.Time `json:"created_at"`
-	Email                   string    `json:"email"`
 	FollowersCount          int64     `json:"followers_count"`
 	FollowingCount          int64     `json:"following_count"`
 	Location                string    `json:"location"`
@@ -31,7 +30,7 @@ func (m MemberSchema) MarshalJSON() ([]byte, error) {
 }
 
 func (m *MemberSchema) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &m, "", false, []string{"avatar_url", "bio", "company", "created_at", "email", "followers_count", "following_count", "location", "login", "name", "public_repositories_count", "title", "twitter_username", "updated_at", "url"}); err != nil {
+	if err := utils.UnmarshalJSON(data, &m, "", false, []string{"avatar_url", "bio", "company", "created_at", "followers_count", "following_count", "location", "login", "name", "public_repositories_count", "title", "twitter_username", "updated_at", "url"}); err != nil {
 		return err
 	}
 	return nil
@@ -63,13 +62,6 @@ func (o *MemberSchema) GetCreatedAt() time.Time {
 		return time.Time{}
 	}
 	return o.CreatedAt
-}
-
-func (o *MemberSchema) GetEmail() string {
-	if o == nil {
-		return ""
-	}
-	return o.Email
 }
 
 func (o *MemberSchema) GetFollowersCount() int64 {

@@ -17,10 +17,7 @@ func main() {
 		nest.WithSecurity(os.Getenv("NEST_API_KEY_HEADER")),
 	)
 
-	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
-		Country: nest.String("India"),
-		Region:  nest.String("Asia"),
-	})
+	res, err := s.Chapters.AppsAPIRestV0ChapterListChapters(ctx, operations.AppsAPIRestV0ChapterListChaptersRequest{})
 	if err != nil {
 		log.Fatal(err)
 	}

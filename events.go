@@ -31,10 +31,10 @@ func newEvents(rootSDK *Nest, sdkConfig config.SDKConfiguration, hooks *hooks.Ho
 	}
 }
 
-// ListEvents - List events
+// AppsAPIRestV0EventListEvents - List events
 // Retrieve a paginated list of OWASP events.
-func (s *Events) ListEvents(ctx context.Context, ordering *operations.ListEventsOrdering, page *int64, pageSize *int64, opts ...operations.Option) (*operations.ListEventsResponse, error) {
-	request := operations.ListEventsRequest{
+func (s *Events) AppsAPIRestV0EventListEvents(ctx context.Context, ordering *operations.AppsAPIRestV0EventListEventsOrdering, page *int64, pageSize *int64, opts ...operations.Option) (*operations.AppsAPIRestV0EventListEventsResponse, error) {
+	request := operations.AppsAPIRestV0EventListEventsRequest{
 		Ordering: ordering,
 		Page:     page,
 		PageSize: pageSize,
@@ -68,7 +68,7 @@ func (s *Events) ListEvents(ctx context.Context, ordering *operations.ListEvents
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "list_events",
+		OperationID:      "apps_api_rest_v0_event_list_events",
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -193,7 +193,7 @@ func (s *Events) ListEvents(ctx context.Context, ordering *operations.ListEvents
 		}
 	}
 
-	res := &operations.ListEventsResponse{
+	res := &operations.AppsAPIRestV0EventListEventsResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,

@@ -65,10 +65,7 @@ func main() {
 		nest.WithSecurity(os.Getenv("NEST_API_KEY_HEADER")),
 	)
 
-	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
-		Country: nest.String("India"),
-		Region:  nest.String("Asia"),
-	})
+	res, err := s.Chapters.AppsAPIRestV0ChapterListChapters(ctx, operations.AppsAPIRestV0ChapterListChaptersRequest{})
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -110,10 +107,7 @@ func main() {
 		nest.WithSecurity(os.Getenv("NEST_API_KEY_HEADER")),
 	)
 
-	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
-		Country: nest.String("India"),
-		Region:  nest.String("Asia"),
-	})
+	res, err := s.Chapters.AppsAPIRestV0ChapterListChapters(ctx, operations.AppsAPIRestV0ChapterListChaptersRequest{})
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -133,22 +127,24 @@ func main() {
 
 ### [Chapters](docs/sdks/chapters/README.md)
 
-* [ListChapters](docs/sdks/chapters/README.md#listchapters) - List chapters
-* [GetChapter](docs/sdks/chapters/README.md#getchapter) - Get chapter
+* [AppsAPIRestV0ChapterListChapters](docs/sdks/chapters/README.md#appsapirestv0chapterlistchapters) - List chapters
+* [AppsAPIRestV0ChapterGetChapter](docs/sdks/chapters/README.md#appsapirestv0chaptergetchapter) - Get chapter
 
 ### [Committees](docs/sdks/committees/README.md)
 
 * [ListCommittees](docs/sdks/committees/README.md#listcommittees) - List committees
+* [AppsAPIRestV0CommitteeGetChapter](docs/sdks/committees/README.md#appsapirestv0committeegetchapter) - Get committee
 
 ### [Community](docs/sdks/community/README.md)
 
 * [ListMembers](docs/sdks/community/README.md#listmembers) - List members
-* [GetMember](docs/sdks/community/README.md#getmember) - Get member by login
-* [ListOrganizations](docs/sdks/community/README.md#listorganizations) - List organizations
+* [AppsAPIRestV0MemberGetMember](docs/sdks/community/README.md#appsapirestv0membergetmember) - Get member
+* [AppsAPIRestV0OrganizationListOrganization](docs/sdks/community/README.md#appsapirestv0organizationlistorganization) - List organizations
+* [AppsAPIRestV0OrganizationGetOrganization](docs/sdks/community/README.md#appsapirestv0organizationgetorganization) - Get organization
 
 ### [Events](docs/sdks/events/README.md)
 
-* [ListEvents](docs/sdks/events/README.md#listevents) - List events
+* [AppsAPIRestV0EventListEvents](docs/sdks/events/README.md#appsapirestv0eventlistevents) - List events
 
 ### [Issues](docs/sdks/issues/README.md)
 
@@ -157,7 +153,8 @@ func main() {
 
 ### [Projects](docs/sdks/projects/README.md)
 
-* [ListProjects](docs/sdks/projects/README.md#listprojects) - List projects
+* [AppsAPIRestV0ProjectListProjects](docs/sdks/projects/README.md#appsapirestv0projectlistprojects) - List projects
+* [AppsAPIRestV0ProjectGetProject](docs/sdks/projects/README.md#appsapirestv0projectgetproject) - Get project
 
 ### [Releases](docs/sdks/releases/README.md)
 
@@ -196,10 +193,7 @@ func main() {
 		nest.WithSecurity(os.Getenv("NEST_API_KEY_HEADER")),
 	)
 
-	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
-		Country: nest.String("India"),
-		Region:  nest.String("Asia"),
-	}, operations.WithRetries(
+	res, err := s.Chapters.AppsAPIRestV0ChapterListChapters(ctx, operations.AppsAPIRestV0ChapterListChaptersRequest{}, operations.WithRetries(
 		retry.Config{
 			Strategy: "backoff",
 			Backoff: &retry.BackoffStrategy{
@@ -251,10 +245,7 @@ func main() {
 		nest.WithSecurity(os.Getenv("NEST_API_KEY_HEADER")),
 	)
 
-	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
-		Country: nest.String("India"),
-		Region:  nest.String("Asia"),
-	})
+	res, err := s.Chapters.AppsAPIRestV0ChapterListChapters(ctx, operations.AppsAPIRestV0ChapterListChaptersRequest{})
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -273,7 +264,7 @@ Handling errors in this SDK should largely match your expectations. All operatio
 
 By Default, an API error will return `apierrors.NestAPIError`. When custom error responses are specified for an operation, the SDK may also return their associated error. You can refer to respective *Errors* tables in SDK docs for more details on possible error types for each operation.
 
-For example, the `GetChapter` function may return the following errors:
+For example, the `AppsAPIRestV0ChapterGetChapter` function may return the following errors:
 
 | Error Type                     | Status Code | Content Type     |
 | ------------------------------ | ----------- | ---------------- |
@@ -301,7 +292,7 @@ func main() {
 		nest.WithSecurity(os.Getenv("NEST_API_KEY_HEADER")),
 	)
 
-	res, err := s.Chapters.GetChapter(ctx, "<key>")
+	res, err := s.Chapters.AppsAPIRestV0ChapterGetChapter(ctx, "London")
 	if err != nil {
 
 		var e *apierrors.ChapterErrorResponse
@@ -346,10 +337,7 @@ func main() {
 		nest.WithSecurity(os.Getenv("NEST_API_KEY_HEADER")),
 	)
 
-	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
-		Country: nest.String("India"),
-		Region:  nest.String("Asia"),
-	})
+	res, err := s.Chapters.AppsAPIRestV0ChapterListChapters(ctx, operations.AppsAPIRestV0ChapterListChaptersRequest{})
 	if err != nil {
 		log.Fatal(err)
 	}
