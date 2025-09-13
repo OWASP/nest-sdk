@@ -1,8 +1,8 @@
-# AppsAPIRestV0ProjectGetProjectRequest
+# GetOrganizationRequest
 
 
 ## Fields
 
 | Field              | Type               | Required           | Description        | Example            |
 | ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
-| `ProjectID`        | *string*           | :heavy_check_mark: | N/A                | Nest               |
+| `OrganizationID`   | *string*           | :heavy_check_mark: | N/A                | OWASP              |

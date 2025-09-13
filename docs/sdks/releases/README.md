@@ -28,7 +28,7 @@ func main() {
     ctx := context.Background()
 
     s := nest.New(
-        nest.WithSecurity(os.Getenv("NEST_API_KEY_HEADER")),
+        nest.WithSecurity(os.Getenv("NEST_API_KEY")),
     )
 
     res, err := s.Releases.ListReleases(ctx, nest.String("v1.0.0"), nil, nest.Int64(1), nil)

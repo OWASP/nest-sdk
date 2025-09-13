@@ -1,4 +1,4 @@
-# AppsAPIRestV0CommitteeGetChapterResponse
+# GetCommitteeResponse
 
 
 ## Fields

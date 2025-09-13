@@ -1,4 +1,4 @@
-# AppsAPIRestV0ProjectGetProjectResponse
+# GetChapterResponse
 
 
 ## Fields
@@ -6,4 +6,4 @@
 | Field                                                                 | Type                                                                  | Required                                                              | Description                                                           |
 | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
 | `HTTPMeta`                                                            | [components.HTTPMetadata](../../models/components/httpmetadata.md)    | :heavy_check_mark:                                                    | N/A                                                                   |
-| `ProjectSchema`                                                       | [*components.ProjectSchema](../../models/components/projectschema.md) | :heavy_minus_sign:                                                    | OK                                                                    |
+| `ChapterSchema`                                                       | [*components.ChapterSchema](../../models/components/chapterschema.md) | :heavy_minus_sign:                                                    | OK                                                                    |

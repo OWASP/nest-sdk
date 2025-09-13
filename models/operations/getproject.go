@@ -6,31 +6,31 @@ import (
 	"github.com/owasp/nest-sdk/models/components"
 )
 
-type AppsAPIRestV0ProjectGetProjectRequest struct {
+type GetProjectRequest struct {
 	ProjectID string `pathParam:"style=simple,explode=false,name=project_id"`
 }
 
-func (o *AppsAPIRestV0ProjectGetProjectRequest) GetProjectID() string {
+func (o *GetProjectRequest) GetProjectID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ProjectID
 }
 
-type AppsAPIRestV0ProjectGetProjectResponse struct {
+type GetProjectResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// OK
 	ProjectSchema *components.ProjectSchema
 }
 
-func (o *AppsAPIRestV0ProjectGetProjectResponse) GetHTTPMeta() components.HTTPMetadata {
+func (o *GetProjectResponse) GetHTTPMeta() components.HTTPMetadata {
 	if o == nil {
 		return components.HTTPMetadata{}
 	}
 	return o.HTTPMeta
 }
 
-func (o *AppsAPIRestV0ProjectGetProjectResponse) GetProjectSchema() *components.ProjectSchema {
+func (o *GetProjectResponse) GetProjectSchema() *components.ProjectSchema {
 	if o == nil {
 		return nil
 	}

@@ -1,4 +1,4 @@
-# AppsAPIRestV0MemberGetMemberRequest
+# GetMemberRequest
 
 
 ## Fields

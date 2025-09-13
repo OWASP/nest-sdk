@@ -6,7 +6,7 @@
 ### Available Operations
 
 * [ListCommittees](#listcommittees) - List committees
-* [AppsAPIRestV0CommitteeGetChapter](#appsapirestv0committeegetchapter) - Get committee
+* [GetCommittee](#getcommittee) - Get committee
 
 ## ListCommittees
 
@@ -29,7 +29,7 @@ func main() {
     ctx := context.Background()
 
     s := nest.New(
-        nest.WithSecurity(os.Getenv("NEST_API_KEY_HEADER")),
+        nest.WithSecurity(os.Getenv("NEST_API_KEY")),
     )
 
     res, err := s.Committees.ListCommittees(ctx, nil, nest.Int64(1), nil)
@@ -62,13 +62,13 @@ func main() {
 | ---------------------- | ---------------------- | ---------------------- |
 | apierrors.NestAPIError | 4XX, 5XX               | \*/\*                  |
 
-## AppsAPIRestV0CommitteeGetChapter
+## GetCommittee
 
 Retrieve committee details.
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="apps_api_rest_v0_committee_get_chapter" method="get" path="/api/v0/committees/{committee_id}" -->
+<!-- UsageSnippet language="go" operationID="get_committee" method="get" path="/api/v0/committees/{committee_id}" -->
 ```go
 package main
 
@@ -83,10 +83,10 @@ func main() {
     ctx := context.Background()
 
     s := nest.New(
-        nest.WithSecurity(os.Getenv("NEST_API_KEY_HEADER")),
+        nest.WithSecurity(os.Getenv("NEST_API_KEY")),
     )
 
-    res, err := s.Committees.AppsAPIRestV0CommitteeGetChapter(ctx, "project")
+    res, err := s.Committees.GetCommittee(ctx, "project")
     if err != nil {
         log.Fatal(err)
     }
@@ -106,7 +106,7 @@ func main() {
 
 ### Response
 
-**[*operations.AppsAPIRestV0CommitteeGetChapterResponse](../../models/operations/appsapirestv0committeegetchapterresponse.md), error**
+**[*operations.GetCommitteeResponse](../../models/operations/getcommitteeresponse.md), error**
 
 ### Errors
 

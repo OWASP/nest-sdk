@@ -6,31 +6,31 @@ import (
 	"github.com/owasp/nest-sdk/models/components"
 )
 
-type AppsAPIRestV0OrganizationGetOrganizationRequest struct {
+type GetOrganizationRequest struct {
 	OrganizationID string `pathParam:"style=simple,explode=false,name=organization_id"`
 }
 
-func (o *AppsAPIRestV0OrganizationGetOrganizationRequest) GetOrganizationID() string {
+func (o *GetOrganizationRequest) GetOrganizationID() string {
 	if o == nil {
 		return ""
 	}
 	return o.OrganizationID
 }
 
-type AppsAPIRestV0OrganizationGetOrganizationResponse struct {
+type GetOrganizationResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// OK
 	OrganizationSchema *components.OrganizationSchema
 }
 
-func (o *AppsAPIRestV0OrganizationGetOrganizationResponse) GetHTTPMeta() components.HTTPMetadata {
+func (o *GetOrganizationResponse) GetHTTPMeta() components.HTTPMetadata {
 	if o == nil {
 		return components.HTTPMetadata{}
 	}
 	return o.HTTPMeta
 }
 
-func (o *AppsAPIRestV0OrganizationGetOrganizationResponse) GetOrganizationSchema() *components.OrganizationSchema {
+func (o *GetOrganizationResponse) GetOrganizationSchema() *components.OrganizationSchema {
 	if o == nil {
 		return nil
 	}

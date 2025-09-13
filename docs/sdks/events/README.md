@@ -5,15 +5,15 @@
 
 ### Available Operations
 
-* [AppsAPIRestV0EventListEvents](#appsapirestv0eventlistevents) - List events
+* [ListEvents](#listevents) - List events
 
-## AppsAPIRestV0EventListEvents
+## ListEvents
 
 Retrieve a paginated list of OWASP events.
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="apps_api_rest_v0_event_list_events" method="get" path="/api/v0/events/" -->
+<!-- UsageSnippet language="go" operationID="list_events" method="get" path="/api/v0/events/" -->
 ```go
 package main
 
@@ -28,10 +28,10 @@ func main() {
     ctx := context.Background()
 
     s := nest.New(
-        nest.WithSecurity(os.Getenv("NEST_API_KEY_HEADER")),
+        nest.WithSecurity(os.Getenv("NEST_API_KEY")),
     )
 
-    res, err := s.Events.AppsAPIRestV0EventListEvents(ctx, nil, nest.Int64(1), nil)
+    res, err := s.Events.ListEvents(ctx, nil, nest.Int64(1), nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -43,17 +43,17 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
-| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                               | [context.Context](https://pkg.go.dev/context#Context)                                                               | :heavy_check_mark:                                                                                                  | The context to use for the request.                                                                                 |
-| `ordering`                                                                                                          | [*operations.AppsAPIRestV0EventListEventsOrdering](../../models/operations/appsapirestv0eventlisteventsordering.md) | :heavy_minus_sign:                                                                                                  | Ordering field                                                                                                      |
-| `page`                                                                                                              | **int64*                                                                                                            | :heavy_minus_sign:                                                                                                  | N/A                                                                                                                 |
-| `pageSize`                                                                                                          | **int64*                                                                                                            | :heavy_minus_sign:                                                                                                  | N/A                                                                                                                 |
-| `opts`                                                                                                              | [][operations.Option](../../models/operations/option.md)                                                            | :heavy_minus_sign:                                                                                                  | The options for this request.                                                                                       |
+| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `ctx`                                                                           | [context.Context](https://pkg.go.dev/context#Context)                           | :heavy_check_mark:                                                              | The context to use for the request.                                             |
+| `ordering`                                                                      | [*operations.ListEventsOrdering](../../models/operations/listeventsordering.md) | :heavy_minus_sign:                                                              | Ordering field                                                                  |
+| `page`                                                                          | **int64*                                                                        | :heavy_minus_sign:                                                              | N/A                                                                             |
+| `pageSize`                                                                      | **int64*                                                                        | :heavy_minus_sign:                                                              | N/A                                                                             |
+| `opts`                                                                          | [][operations.Option](../../models/operations/option.md)                        | :heavy_minus_sign:                                                              | The options for this request.                                                   |
 
 ### Response
 
-**[*operations.AppsAPIRestV0EventListEventsResponse](../../models/operations/appsapirestv0eventlisteventsresponse.md), error**
+**[*operations.ListEventsResponse](../../models/operations/listeventsresponse.md), error**
 
 ### Errors
 

@@ -5,4 +5,4 @@
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `APIKeyHeader`     | **string*          | :heavy_minus_sign: | N/A                |
+| `APIKey`           | **string*          | :heavy_minus_sign: | N/A                |

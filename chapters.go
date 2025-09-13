@@ -31,9 +31,9 @@ func newChapters(rootSDK *Nest, sdkConfig config.SDKConfiguration, hooks *hooks.
 	}
 }
 
-// AppsAPIRestV0ChapterListChapters - List chapters
+// ListChapters - List chapters
 // Retrieve a paginated list of OWASP chapters.
-func (s *Chapters) AppsAPIRestV0ChapterListChapters(ctx context.Context, request operations.AppsAPIRestV0ChapterListChaptersRequest, opts ...operations.Option) (*operations.AppsAPIRestV0ChapterListChaptersResponse, error) {
+func (s *Chapters) ListChapters(ctx context.Context, request operations.ListChaptersRequest, opts ...operations.Option) (*operations.ListChaptersResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -62,7 +62,7 @@ func (s *Chapters) AppsAPIRestV0ChapterListChapters(ctx context.Context, request
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "apps_api_rest_v0_chapter_list_chapters",
+		OperationID:      "list_chapters",
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -187,7 +187,7 @@ func (s *Chapters) AppsAPIRestV0ChapterListChapters(ctx context.Context, request
 		}
 	}
 
-	res := &operations.AppsAPIRestV0ChapterListChaptersResponse{
+	res := &operations.ListChaptersResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,
@@ -240,10 +240,10 @@ func (s *Chapters) AppsAPIRestV0ChapterListChapters(ctx context.Context, request
 
 }
 
-// AppsAPIRestV0ChapterGetChapter - Get chapter
+// GetChapter - Get chapter
 // Retrieve chapter details.
-func (s *Chapters) AppsAPIRestV0ChapterGetChapter(ctx context.Context, chapterID string, opts ...operations.Option) (*operations.AppsAPIRestV0ChapterGetChapterResponse, error) {
-	request := operations.AppsAPIRestV0ChapterGetChapterRequest{
+func (s *Chapters) GetChapter(ctx context.Context, chapterID string, opts ...operations.Option) (*operations.GetChapterResponse, error) {
+	request := operations.GetChapterRequest{
 		ChapterID: chapterID,
 	}
 
@@ -275,7 +275,7 @@ func (s *Chapters) AppsAPIRestV0ChapterGetChapter(ctx context.Context, chapterID
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "apps_api_rest_v0_chapter_get_chapter",
+		OperationID:      "get_chapter",
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -396,7 +396,7 @@ func (s *Chapters) AppsAPIRestV0ChapterGetChapter(ctx context.Context, chapterID
 		}
 	}
 
-	res := &operations.AppsAPIRestV0ChapterGetChapterResponse{
+	res := &operations.GetChapterResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,

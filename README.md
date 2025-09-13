@@ -62,10 +62,13 @@ func main() {
 	ctx := context.Background()
 
 	s := nest.New(
-		nest.WithSecurity(os.Getenv("NEST_API_KEY_HEADER")),
+		nest.WithSecurity(os.Getenv("NEST_API_KEY")),
 	)
 
-	res, err := s.Chapters.AppsAPIRestV0ChapterListChapters(ctx, operations.AppsAPIRestV0ChapterListChaptersRequest{})
+	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
+		Country: nest.String("India"),
+		Region:  nest.String("Asia"),
+	})
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -84,9 +87,9 @@ func main() {
 
 This SDK supports the following security scheme globally:
 
-| Name           | Type   | Scheme  | Environment Variable  |
-| -------------- | ------ | ------- | --------------------- |
-| `APIKeyHeader` | apiKey | API key | `NEST_API_KEY_HEADER` |
+| Name     | Type   | Scheme  | Environment Variable |
+| -------- | ------ | ------- | -------------------- |
+| `APIKey` | apiKey | API key | `NEST_API_KEY`       |
 
 You can configure it using the `WithSecurity` option when initializing the SDK client instance. For example:
 ```go
@@ -104,10 +107,13 @@ func main() {
 	ctx := context.Background()
 
 	s := nest.New(
-		nest.WithSecurity(os.Getenv("NEST_API_KEY_HEADER")),
+		nest.WithSecurity(os.Getenv("NEST_API_KEY")),
 	)
 
-	res, err := s.Chapters.AppsAPIRestV0ChapterListChapters(ctx, operations.AppsAPIRestV0ChapterListChaptersRequest{})
+	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
+		Country: nest.String("India"),
+		Region:  nest.String("Asia"),
+	})
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -127,24 +133,24 @@ func main() {
 
 ### [Chapters](docs/sdks/chapters/README.md)
 
-* [AppsAPIRestV0ChapterListChapters](docs/sdks/chapters/README.md#appsapirestv0chapterlistchapters) - List chapters
-* [AppsAPIRestV0ChapterGetChapter](docs/sdks/chapters/README.md#appsapirestv0chaptergetchapter) - Get chapter
+* [ListChapters](docs/sdks/chapters/README.md#listchapters) - List chapters
+* [GetChapter](docs/sdks/chapters/README.md#getchapter) - Get chapter
 
 ### [Committees](docs/sdks/committees/README.md)
 
 * [ListCommittees](docs/sdks/committees/README.md#listcommittees) - List committees
-* [AppsAPIRestV0CommitteeGetChapter](docs/sdks/committees/README.md#appsapirestv0committeegetchapter) - Get committee
+* [GetCommittee](docs/sdks/committees/README.md#getcommittee) - Get committee
 
 ### [Community](docs/sdks/community/README.md)
 
 * [ListMembers](docs/sdks/community/README.md#listmembers) - List members
-* [AppsAPIRestV0MemberGetMember](docs/sdks/community/README.md#appsapirestv0membergetmember) - Get member
-* [AppsAPIRestV0OrganizationListOrganization](docs/sdks/community/README.md#appsapirestv0organizationlistorganization) - List organizations
-* [AppsAPIRestV0OrganizationGetOrganization](docs/sdks/community/README.md#appsapirestv0organizationgetorganization) - Get organization
+* [GetMember](docs/sdks/community/README.md#getmember) - Get member
+* [ListOrganizations](docs/sdks/community/README.md#listorganizations) - List organizations
+* [GetOrganization](docs/sdks/community/README.md#getorganization) - Get organization
 
 ### [Events](docs/sdks/events/README.md)
 
-* [AppsAPIRestV0EventListEvents](docs/sdks/events/README.md#appsapirestv0eventlistevents) - List events
+* [ListEvents](docs/sdks/events/README.md#listevents) - List events
 
 ### [Issues](docs/sdks/issues/README.md)
 
@@ -153,8 +159,8 @@ func main() {
 
 ### [Projects](docs/sdks/projects/README.md)
 
-* [AppsAPIRestV0ProjectListProjects](docs/sdks/projects/README.md#appsapirestv0projectlistprojects) - List projects
-* [AppsAPIRestV0ProjectGetProject](docs/sdks/projects/README.md#appsapirestv0projectgetproject) - Get project
+* [ListProjects](docs/sdks/projects/README.md#listprojects) - List projects
+* [GetProject](docs/sdks/projects/README.md#getproject) - Get project
 
 ### [Releases](docs/sdks/releases/README.md)
 
@@ -190,10 +196,13 @@ func main() {
 	ctx := context.Background()
 
 	s := nest.New(
-		nest.WithSecurity(os.Getenv("NEST_API_KEY_HEADER")),
+		nest.WithSecurity(os.Getenv("NEST_API_KEY")),
 	)
 
-	res, err := s.Chapters.AppsAPIRestV0ChapterListChapters(ctx, operations.AppsAPIRestV0ChapterListChaptersRequest{}, operations.WithRetries(
+	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
+		Country: nest.String("India"),
+		Region:  nest.String("Asia"),
+	}, operations.WithRetries(
 		retry.Config{
 			Strategy: "backoff",
 			Backoff: &retry.BackoffStrategy{
@@ -242,10 +251,13 @@ func main() {
 				},
 				RetryConnectionErrors: false,
 			}),
-		nest.WithSecurity(os.Getenv("NEST_API_KEY_HEADER")),
+		nest.WithSecurity(os.Getenv("NEST_API_KEY")),
 	)
 
-	res, err := s.Chapters.AppsAPIRestV0ChapterListChapters(ctx, operations.AppsAPIRestV0ChapterListChaptersRequest{})
+	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
+		Country: nest.String("India"),
+		Region:  nest.String("Asia"),
+	})
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -264,7 +276,7 @@ Handling errors in this SDK should largely match your expectations. All operatio
 
 By Default, an API error will return `apierrors.NestAPIError`. When custom error responses are specified for an operation, the SDK may also return their associated error. You can refer to respective *Errors* tables in SDK docs for more details on possible error types for each operation.
 
-For example, the `AppsAPIRestV0ChapterGetChapter` function may return the following errors:
+For example, the `GetChapter` function may return the following errors:
 
 | Error Type                     | Status Code | Content Type     |
 | ------------------------------ | ----------- | ---------------- |
@@ -289,10 +301,10 @@ func main() {
 	ctx := context.Background()
 
 	s := nest.New(
-		nest.WithSecurity(os.Getenv("NEST_API_KEY_HEADER")),
+		nest.WithSecurity(os.Getenv("NEST_API_KEY")),
 	)
 
-	res, err := s.Chapters.AppsAPIRestV0ChapterGetChapter(ctx, "London")
+	res, err := s.Chapters.GetChapter(ctx, "London")
 	if err != nil {
 
 		var e *apierrors.ChapterErrorResponse
@@ -334,10 +346,13 @@ func main() {
 
 	s := nest.New(
 		nest.WithServerURL("https://nest.owasp.dev"),
-		nest.WithSecurity(os.Getenv("NEST_API_KEY_HEADER")),
+		nest.WithSecurity(os.Getenv("NEST_API_KEY")),
 	)
 
-	res, err := s.Chapters.AppsAPIRestV0ChapterListChapters(ctx, operations.AppsAPIRestV0ChapterListChaptersRequest{})
+	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
+		Country: nest.String("India"),
+		Region:  nest.String("Asia"),
+	})
 	if err != nil {
 		log.Fatal(err)
 	}
