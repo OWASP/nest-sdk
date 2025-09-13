@@ -103,9 +103,9 @@ func WithClient(client HTTPClient) SDKOption {
 }
 
 // WithSecurity configures the SDK to use the provided security details
-func WithSecurity(apiKeyHeader string) SDKOption {
+func WithSecurity(apiKey string) SDKOption {
 	return func(sdk *Nest) {
-		security := components.Security{APIKeyHeader: &apiKeyHeader}
+		security := components.Security{APIKey: &apiKey}
 		sdk.sdkConfiguration.Security = utils.AsSecuritySource(&security)
 	}
 }
@@ -135,9 +135,9 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Nest {
 	sdk := &Nest{
-		SDKVersion: "0.2.1",
+		SDKVersion: "0.2.2",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:  "speakeasy-sdk/go 0.2.1 2.698.4 0.2.1 github.com/owasp/nest-sdk",
+			UserAgent:  "speakeasy-sdk/go 0.2.2 2.698.4 0.2.1 github.com/owasp/nest-sdk",
 			ServerList: ServerList,
 		},
 		hooks: hooks.New(),

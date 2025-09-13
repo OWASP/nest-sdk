@@ -31,10 +31,10 @@ func newProjects(rootSDK *Nest, sdkConfig config.SDKConfiguration, hooks *hooks.
 	}
 }
 
-// AppsAPIRestV0ProjectListProjects - List projects
+// ListProjects - List projects
 // Retrieve a paginated list of OWASP projects.
-func (s *Projects) AppsAPIRestV0ProjectListProjects(ctx context.Context, level *components.ProjectLevel, ordering *operations.AppsAPIRestV0ProjectListProjectsOrdering, page *int64, pageSize *int64, opts ...operations.Option) (*operations.AppsAPIRestV0ProjectListProjectsResponse, error) {
-	request := operations.AppsAPIRestV0ProjectListProjectsRequest{
+func (s *Projects) ListProjects(ctx context.Context, level *components.ProjectLevel, ordering *operations.ListProjectsOrdering, page *int64, pageSize *int64, opts ...operations.Option) (*operations.ListProjectsResponse, error) {
+	request := operations.ListProjectsRequest{
 		Level:    level,
 		Ordering: ordering,
 		Page:     page,
@@ -69,7 +69,7 @@ func (s *Projects) AppsAPIRestV0ProjectListProjects(ctx context.Context, level *
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "apps_api_rest_v0_project_list_projects",
+		OperationID:      "list_projects",
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -194,7 +194,7 @@ func (s *Projects) AppsAPIRestV0ProjectListProjects(ctx context.Context, level *
 		}
 	}
 
-	res := &operations.AppsAPIRestV0ProjectListProjectsResponse{
+	res := &operations.ListProjectsResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,
@@ -247,10 +247,10 @@ func (s *Projects) AppsAPIRestV0ProjectListProjects(ctx context.Context, level *
 
 }
 
-// AppsAPIRestV0ProjectGetProject - Get project
+// GetProject - Get project
 // Retrieve project details.
-func (s *Projects) AppsAPIRestV0ProjectGetProject(ctx context.Context, projectID string, opts ...operations.Option) (*operations.AppsAPIRestV0ProjectGetProjectResponse, error) {
-	request := operations.AppsAPIRestV0ProjectGetProjectRequest{
+func (s *Projects) GetProject(ctx context.Context, projectID string, opts ...operations.Option) (*operations.GetProjectResponse, error) {
+	request := operations.GetProjectRequest{
 		ProjectID: projectID,
 	}
 
@@ -282,7 +282,7 @@ func (s *Projects) AppsAPIRestV0ProjectGetProject(ctx context.Context, projectID
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "apps_api_rest_v0_project_get_project",
+		OperationID:      "get_project",
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -403,7 +403,7 @@ func (s *Projects) AppsAPIRestV0ProjectGetProject(ctx context.Context, projectID
 		}
 	}
 
-	res := &operations.AppsAPIRestV0ProjectGetProjectResponse{
+	res := &operations.GetProjectResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,

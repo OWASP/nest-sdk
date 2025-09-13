@@ -1,8 +1,8 @@
-# AppsAPIRestV0ChapterGetChapterRequest
+# GetCommitteeRequest
 
 
 ## Fields
 
 | Field              | Type               | Required           | Description        | Example            |
 | ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
-| `ChapterID`        | *string*           | :heavy_check_mark: | N/A                | London             |
+| `CommitteeID`      | *string*           | :heavy_check_mark: | N/A                | project            |

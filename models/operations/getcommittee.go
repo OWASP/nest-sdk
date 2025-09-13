@@ -6,31 +6,31 @@ import (
 	"github.com/owasp/nest-sdk/models/components"
 )
 
-type AppsAPIRestV0CommitteeGetChapterRequest struct {
+type GetCommitteeRequest struct {
 	CommitteeID string `pathParam:"style=simple,explode=false,name=committee_id"`
 }
 
-func (o *AppsAPIRestV0CommitteeGetChapterRequest) GetCommitteeID() string {
+func (o *GetCommitteeRequest) GetCommitteeID() string {
 	if o == nil {
 		return ""
 	}
 	return o.CommitteeID
 }
 
-type AppsAPIRestV0CommitteeGetChapterResponse struct {
+type GetCommitteeResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// OK
 	CommitteeSchema *components.CommitteeSchema
 }
 
-func (o *AppsAPIRestV0CommitteeGetChapterResponse) GetHTTPMeta() components.HTTPMetadata {
+func (o *GetCommitteeResponse) GetHTTPMeta() components.HTTPMetadata {
 	if o == nil {
 		return components.HTTPMetadata{}
 	}
 	return o.HTTPMeta
 }
 
-func (o *AppsAPIRestV0CommitteeGetChapterResponse) GetCommitteeSchema() *components.CommitteeSchema {
+func (o *GetCommitteeResponse) GetCommitteeSchema() *components.CommitteeSchema {
 	if o == nil {
 		return nil
 	}

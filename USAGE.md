@@ -14,10 +14,13 @@ func main() {
 	ctx := context.Background()
 
 	s := nest.New(
-		nest.WithSecurity(os.Getenv("NEST_API_KEY_HEADER")),
+		nest.WithSecurity(os.Getenv("NEST_API_KEY")),
 	)
 
-	res, err := s.Chapters.AppsAPIRestV0ChapterListChapters(ctx, operations.AppsAPIRestV0ChapterListChaptersRequest{})
+	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
+		Country: nest.String("India"),
+		Region:  nest.String("Asia"),
+	})
 	if err != nil {
 		log.Fatal(err)
 	}

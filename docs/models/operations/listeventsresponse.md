@@ -1,4 +1,4 @@
-# AppsAPIRestV0EventListEventsResponse
+# ListEventsResponse
 
 
 ## Fields

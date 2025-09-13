@@ -1,4 +1,4 @@
-# AppsAPIRestV0OrganizationListOrganizationResponse
+# ListOrganizationsResponse
 
 
 ## Fields

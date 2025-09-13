@@ -6,9 +6,9 @@
 ### Available Operations
 
 * [ListMembers](#listmembers) - List members
-* [AppsAPIRestV0MemberGetMember](#appsapirestv0membergetmember) - Get member
-* [AppsAPIRestV0OrganizationListOrganization](#appsapirestv0organizationlistorganization) - List organizations
-* [AppsAPIRestV0OrganizationGetOrganization](#appsapirestv0organizationgetorganization) - Get organization
+* [GetMember](#getmember) - Get member
+* [ListOrganizations](#listorganizations) - List organizations
+* [GetOrganization](#getorganization) - Get organization
 
 ## ListMembers
 
@@ -32,7 +32,7 @@ func main() {
     ctx := context.Background()
 
     s := nest.New(
-        nest.WithSecurity(os.Getenv("NEST_API_KEY_HEADER")),
+        nest.WithSecurity(os.Getenv("NEST_API_KEY")),
     )
 
     res, err := s.Community.ListMembers(ctx, operations.ListMembersRequest{
@@ -65,13 +65,13 @@ func main() {
 | ---------------------- | ---------------------- | ---------------------- |
 | apierrors.NestAPIError | 4XX, 5XX               | \*/\*                  |
 
-## AppsAPIRestV0MemberGetMember
+## GetMember
 
 Retrieve member details.
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="apps_api_rest_v0_member_get_member" method="get" path="/api/v0/members/{member_id}" -->
+<!-- UsageSnippet language="go" operationID="get_member" method="get" path="/api/v0/members/{member_id}" -->
 ```go
 package main
 
@@ -86,10 +86,10 @@ func main() {
     ctx := context.Background()
 
     s := nest.New(
-        nest.WithSecurity(os.Getenv("NEST_API_KEY_HEADER")),
+        nest.WithSecurity(os.Getenv("NEST_API_KEY")),
     )
 
-    res, err := s.Community.AppsAPIRestV0MemberGetMember(ctx, "OWASP")
+    res, err := s.Community.GetMember(ctx, "OWASP")
     if err != nil {
         log.Fatal(err)
     }
@@ -109,7 +109,7 @@ func main() {
 
 ### Response
 
-**[*operations.AppsAPIRestV0MemberGetMemberResponse](../../models/operations/appsapirestv0membergetmemberresponse.md), error**
+**[*operations.GetMemberResponse](../../models/operations/getmemberresponse.md), error**
 
 ### Errors
 
@@ -118,13 +118,13 @@ func main() {
 | apierrors.MemberErrorResponse | 404                           | application/json              |
 | apierrors.NestAPIError        | 4XX, 5XX                      | \*/\*                         |
 
-## AppsAPIRestV0OrganizationListOrganization
+## ListOrganizations
 
 Retrieve a paginated list of GitHub organizations.
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="apps_api_rest_v0_organization_list_organization" method="get" path="/api/v0/organizations/" -->
+<!-- UsageSnippet language="go" operationID="list_organizations" method="get" path="/api/v0/organizations/" -->
 ```go
 package main
 
@@ -139,10 +139,10 @@ func main() {
     ctx := context.Background()
 
     s := nest.New(
-        nest.WithSecurity(os.Getenv("NEST_API_KEY_HEADER")),
+        nest.WithSecurity(os.Getenv("NEST_API_KEY")),
     )
 
-    res, err := s.Community.AppsAPIRestV0OrganizationListOrganization(ctx, nest.String("United States of America"), nil, nest.Int64(1), nil)
+    res, err := s.Community.ListOrganizations(ctx, nest.String("United States of America"), nil, nest.Int64(1), nil)
     if err != nil {
         log.Fatal(err)
     }
@@ -154,18 +154,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                                                     | Type                                                                                                                                          | Required                                                                                                                                      | Description                                                                                                                                   | Example                                                                                                                                       |
-| --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                                                         | [context.Context](https://pkg.go.dev/context#Context)                                                                                         | :heavy_check_mark:                                                                                                                            | The context to use for the request.                                                                                                           |                                                                                                                                               |
-| `location`                                                                                                                                    | **string*                                                                                                                                     | :heavy_minus_sign:                                                                                                                            | Location of the organization                                                                                                                  | United States of America                                                                                                                      |
-| `ordering`                                                                                                                                    | [*operations.AppsAPIRestV0OrganizationListOrganizationOrdering](../../models/operations/appsapirestv0organizationlistorganizationordering.md) | :heavy_minus_sign:                                                                                                                            | Ordering field                                                                                                                                |                                                                                                                                               |
-| `page`                                                                                                                                        | **int64*                                                                                                                                      | :heavy_minus_sign:                                                                                                                            | N/A                                                                                                                                           |                                                                                                                                               |
-| `pageSize`                                                                                                                                    | **int64*                                                                                                                                      | :heavy_minus_sign:                                                                                                                            | N/A                                                                                                                                           |                                                                                                                                               |
-| `opts`                                                                                                                                        | [][operations.Option](../../models/operations/option.md)                                                                                      | :heavy_minus_sign:                                                                                                                            | The options for this request.                                                                                                                 |                                                                                                                                               |
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                         | [context.Context](https://pkg.go.dev/context#Context)                                         | :heavy_check_mark:                                                                            | The context to use for the request.                                                           |                                                                                               |
+| `location`                                                                                    | **string*                                                                                     | :heavy_minus_sign:                                                                            | Location of the organization                                                                  | United States of America                                                                      |
+| `ordering`                                                                                    | [*operations.ListOrganizationsOrdering](../../models/operations/listorganizationsordering.md) | :heavy_minus_sign:                                                                            | Ordering field                                                                                |                                                                                               |
+| `page`                                                                                        | **int64*                                                                                      | :heavy_minus_sign:                                                                            | N/A                                                                                           |                                                                                               |
+| `pageSize`                                                                                    | **int64*                                                                                      | :heavy_minus_sign:                                                                            | N/A                                                                                           |                                                                                               |
+| `opts`                                                                                        | [][operations.Option](../../models/operations/option.md)                                      | :heavy_minus_sign:                                                                            | The options for this request.                                                                 |                                                                                               |
 
 ### Response
 
-**[*operations.AppsAPIRestV0OrganizationListOrganizationResponse](../../models/operations/appsapirestv0organizationlistorganizationresponse.md), error**
+**[*operations.ListOrganizationsResponse](../../models/operations/listorganizationsresponse.md), error**
 
 ### Errors
 
@@ -173,13 +173,13 @@ func main() {
 | ---------------------- | ---------------------- | ---------------------- |
 | apierrors.NestAPIError | 4XX, 5XX               | \*/\*                  |
 
-## AppsAPIRestV0OrganizationGetOrganization
+## GetOrganization
 
 Retrieve project details.
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="apps_api_rest_v0_organization_get_organization" method="get" path="/api/v0/organizations/{organization_id}" -->
+<!-- UsageSnippet language="go" operationID="get_organization" method="get" path="/api/v0/organizations/{organization_id}" -->
 ```go
 package main
 
@@ -194,10 +194,10 @@ func main() {
     ctx := context.Background()
 
     s := nest.New(
-        nest.WithSecurity(os.Getenv("NEST_API_KEY_HEADER")),
+        nest.WithSecurity(os.Getenv("NEST_API_KEY")),
     )
 
-    res, err := s.Community.AppsAPIRestV0OrganizationGetOrganization(ctx, "OWASP")
+    res, err := s.Community.GetOrganization(ctx, "OWASP")
     if err != nil {
         log.Fatal(err)
     }
@@ -217,7 +217,7 @@ func main() {
 
 ### Response
 
-**[*operations.AppsAPIRestV0OrganizationGetOrganizationResponse](../../models/operations/appsapirestv0organizationgetorganizationresponse.md), error**
+**[*operations.GetOrganizationResponse](../../models/operations/getorganizationresponse.md), error**
 
 ### Errors
 

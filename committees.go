@@ -246,10 +246,10 @@ func (s *Committees) ListCommittees(ctx context.Context, ordering *operations.Li
 
 }
 
-// AppsAPIRestV0CommitteeGetChapter - Get committee
+// GetCommittee - Get committee
 // Retrieve committee details.
-func (s *Committees) AppsAPIRestV0CommitteeGetChapter(ctx context.Context, committeeID string, opts ...operations.Option) (*operations.AppsAPIRestV0CommitteeGetChapterResponse, error) {
-	request := operations.AppsAPIRestV0CommitteeGetChapterRequest{
+func (s *Committees) GetCommittee(ctx context.Context, committeeID string, opts ...operations.Option) (*operations.GetCommitteeResponse, error) {
+	request := operations.GetCommitteeRequest{
 		CommitteeID: committeeID,
 	}
 
@@ -281,7 +281,7 @@ func (s *Committees) AppsAPIRestV0CommitteeGetChapter(ctx context.Context, commi
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "apps_api_rest_v0_committee_get_chapter",
+		OperationID:      "get_committee",
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -402,7 +402,7 @@ func (s *Committees) AppsAPIRestV0CommitteeGetChapter(ctx context.Context, commi
 		}
 	}
 
-	res := &operations.AppsAPIRestV0CommitteeGetChapterResponse{
+	res := &operations.GetCommitteeResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,

@@ -240,10 +240,10 @@ func (s *Community) ListMembers(ctx context.Context, request operations.ListMemb
 
 }
 
-// AppsAPIRestV0MemberGetMember - Get member
+// GetMember - Get member
 // Retrieve member details.
-func (s *Community) AppsAPIRestV0MemberGetMember(ctx context.Context, memberID string, opts ...operations.Option) (*operations.AppsAPIRestV0MemberGetMemberResponse, error) {
-	request := operations.AppsAPIRestV0MemberGetMemberRequest{
+func (s *Community) GetMember(ctx context.Context, memberID string, opts ...operations.Option) (*operations.GetMemberResponse, error) {
+	request := operations.GetMemberRequest{
 		MemberID: memberID,
 	}
 
@@ -275,7 +275,7 @@ func (s *Community) AppsAPIRestV0MemberGetMember(ctx context.Context, memberID s
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "apps_api_rest_v0_member_get_member",
+		OperationID:      "get_member",
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -396,7 +396,7 @@ func (s *Community) AppsAPIRestV0MemberGetMember(ctx context.Context, memberID s
 		}
 	}
 
-	res := &operations.AppsAPIRestV0MemberGetMemberResponse{
+	res := &operations.GetMemberResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,
@@ -474,10 +474,10 @@ func (s *Community) AppsAPIRestV0MemberGetMember(ctx context.Context, memberID s
 
 }
 
-// AppsAPIRestV0OrganizationListOrganization - List organizations
+// ListOrganizations - List organizations
 // Retrieve a paginated list of GitHub organizations.
-func (s *Community) AppsAPIRestV0OrganizationListOrganization(ctx context.Context, location *string, ordering *operations.AppsAPIRestV0OrganizationListOrganizationOrdering, page *int64, pageSize *int64, opts ...operations.Option) (*operations.AppsAPIRestV0OrganizationListOrganizationResponse, error) {
-	request := operations.AppsAPIRestV0OrganizationListOrganizationRequest{
+func (s *Community) ListOrganizations(ctx context.Context, location *string, ordering *operations.ListOrganizationsOrdering, page *int64, pageSize *int64, opts ...operations.Option) (*operations.ListOrganizationsResponse, error) {
+	request := operations.ListOrganizationsRequest{
 		Location: location,
 		Ordering: ordering,
 		Page:     page,
@@ -512,7 +512,7 @@ func (s *Community) AppsAPIRestV0OrganizationListOrganization(ctx context.Contex
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "apps_api_rest_v0_organization_list_organization",
+		OperationID:      "list_organizations",
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -637,7 +637,7 @@ func (s *Community) AppsAPIRestV0OrganizationListOrganization(ctx context.Contex
 		}
 	}
 
-	res := &operations.AppsAPIRestV0OrganizationListOrganizationResponse{
+	res := &operations.ListOrganizationsResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,
@@ -690,10 +690,10 @@ func (s *Community) AppsAPIRestV0OrganizationListOrganization(ctx context.Contex
 
 }
 
-// AppsAPIRestV0OrganizationGetOrganization - Get organization
+// GetOrganization - Get organization
 // Retrieve project details.
-func (s *Community) AppsAPIRestV0OrganizationGetOrganization(ctx context.Context, organizationID string, opts ...operations.Option) (*operations.AppsAPIRestV0OrganizationGetOrganizationResponse, error) {
-	request := operations.AppsAPIRestV0OrganizationGetOrganizationRequest{
+func (s *Community) GetOrganization(ctx context.Context, organizationID string, opts ...operations.Option) (*operations.GetOrganizationResponse, error) {
+	request := operations.GetOrganizationRequest{
 		OrganizationID: organizationID,
 	}
 
@@ -725,7 +725,7 @@ func (s *Community) AppsAPIRestV0OrganizationGetOrganization(ctx context.Context
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "apps_api_rest_v0_organization_get_organization",
+		OperationID:      "get_organization",
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
@@ -846,7 +846,7 @@ func (s *Community) AppsAPIRestV0OrganizationGetOrganization(ctx context.Context
 		}
 	}
 
-	res := &operations.AppsAPIRestV0OrganizationGetOrganizationResponse{
+	res := &operations.GetOrganizationResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,

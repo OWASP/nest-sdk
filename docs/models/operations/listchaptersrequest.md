@@ -1,0 +1,12 @@
+# ListChaptersRequest
+
+
+## Fields
+
+| Field                                                                               | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `Country`                                                                           | **string*                                                                           | :heavy_minus_sign:                                                                  | Country of the chapter                                                              |
+| `Region`                                                                            | **string*                                                                           | :heavy_minus_sign:                                                                  | Region of the chapter                                                               |
+| `Ordering`                                                                          | [*operations.ListChaptersOrdering](../../models/operations/listchaptersordering.md) | :heavy_minus_sign:                                                                  | Ordering field                                                                      |
+| `Page`                                                                              | **int64*                                                                            | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `PageSize`                                                                          | **int64*                                                                            | :heavy_minus_sign:                                                                  | N/A                                                                                 |

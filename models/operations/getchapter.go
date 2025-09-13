@@ -6,31 +6,31 @@ import (
 	"github.com/owasp/nest-sdk/models/components"
 )
 
-type AppsAPIRestV0ChapterGetChapterRequest struct {
+type GetChapterRequest struct {
 	ChapterID string `pathParam:"style=simple,explode=false,name=chapter_id"`
 }
 
-func (o *AppsAPIRestV0ChapterGetChapterRequest) GetChapterID() string {
+func (o *GetChapterRequest) GetChapterID() string {
 	if o == nil {
 		return ""
 	}
 	return o.ChapterID
 }
 
-type AppsAPIRestV0ChapterGetChapterResponse struct {
+type GetChapterResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// OK
 	ChapterSchema *components.ChapterSchema
 }
 
-func (o *AppsAPIRestV0ChapterGetChapterResponse) GetHTTPMeta() components.HTTPMetadata {
+func (o *GetChapterResponse) GetHTTPMeta() components.HTTPMetadata {
 	if o == nil {
 		return components.HTTPMetadata{}
 	}
 	return o.HTTPMeta
 }
 
-func (o *AppsAPIRestV0ChapterGetChapterResponse) GetChapterSchema() *components.ChapterSchema {
+func (o *GetChapterResponse) GetChapterSchema() *components.ChapterSchema {
 	if o == nil {
 		return nil
 	}
