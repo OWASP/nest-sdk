@@ -60,25 +60,25 @@ func (l *ListRepositoriesRequest) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *ListRepositoriesRequest) GetOrdering() *ListRepositoriesOrdering {
-	if o == nil {
+func (l *ListRepositoriesRequest) GetOrdering() *ListRepositoriesOrdering {
+	if l == nil {
 		return nil
 	}
-	return o.Ordering
+	return l.Ordering
 }
 
-func (o *ListRepositoriesRequest) GetPage() *int64 {
-	if o == nil {
+func (l *ListRepositoriesRequest) GetPage() *int64 {
+	if l == nil {
 		return nil
 	}
-	return o.Page
+	return l.Page
 }
 
-func (o *ListRepositoriesRequest) GetPageSize() *int64 {
-	if o == nil {
+func (l *ListRepositoriesRequest) GetPageSize() *int64 {
+	if l == nil {
 		return nil
 	}
-	return o.PageSize
+	return l.PageSize
 }
 
 type ListRepositoriesResponse struct {
@@ -87,16 +87,16 @@ type ListRepositoriesResponse struct {
 	PagedRepositorySchema *components.PagedRepositorySchema
 }
 
-func (o *ListRepositoriesResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (l *ListRepositoriesResponse) GetHTTPMeta() components.HTTPMetadata {
+	if l == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return l.HTTPMeta
 }
 
-func (o *ListRepositoriesResponse) GetPagedRepositorySchema() *components.PagedRepositorySchema {
-	if o == nil {
+func (l *ListRepositoriesResponse) GetPagedRepositorySchema() *components.PagedRepositorySchema {
+	if l == nil {
 		return nil
 	}
-	return o.PagedRepositorySchema
+	return l.PagedRepositorySchema
 }

@@ -31,7 +31,7 @@ func main() {
         nest.WithSecurity(os.Getenv("NEST_API_KEY")),
     )
 
-    res, err := s.Releases.ListReleases(ctx, nest.String("v1.0.0"), nil, nest.Int64(1), nil)
+    res, err := s.Releases.ListReleases(ctx, nest.Pointer("v1.0.0"), nil, nest.Pointer[int64](1), nil)
     if err != nil {
         log.Fatal(err)
     }

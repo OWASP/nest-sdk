@@ -26,30 +26,30 @@ func (c *CommitteeSchema) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *CommitteeSchema) GetName() string {
-	if o == nil {
+func (c *CommitteeSchema) GetName() string {
+	if c == nil {
 		return ""
 	}
-	return o.Name
+	return c.Name
 }
 
-func (o *CommitteeSchema) GetDescription() string {
-	if o == nil {
+func (c *CommitteeSchema) GetDescription() string {
+	if c == nil {
 		return ""
 	}
-	return o.Description
+	return c.Description
 }
 
-func (o *CommitteeSchema) GetCreatedAt() time.Time {
-	if o == nil {
+func (c *CommitteeSchema) GetCreatedAt() time.Time {
+	if c == nil {
 		return time.Time{}
 	}
-	return o.CreatedAt
+	return c.CreatedAt
 }
 
-func (o *CommitteeSchema) GetUpdatedAt() time.Time {
-	if o == nil {
+func (c *CommitteeSchema) GetUpdatedAt() time.Time {
+	if c == nil {
 		return time.Time{}
 	}
-	return o.UpdatedAt
+	return c.UpdatedAt
 }

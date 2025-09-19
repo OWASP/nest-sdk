@@ -62,32 +62,32 @@ func (l *ListReleasesRequest) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *ListReleasesRequest) GetTagName() *string {
-	if o == nil {
+func (l *ListReleasesRequest) GetTagName() *string {
+	if l == nil {
 		return nil
 	}
-	return o.TagName
+	return l.TagName
 }
 
-func (o *ListReleasesRequest) GetOrdering() *ListReleasesOrdering {
-	if o == nil {
+func (l *ListReleasesRequest) GetOrdering() *ListReleasesOrdering {
+	if l == nil {
 		return nil
 	}
-	return o.Ordering
+	return l.Ordering
 }
 
-func (o *ListReleasesRequest) GetPage() *int64 {
-	if o == nil {
+func (l *ListReleasesRequest) GetPage() *int64 {
+	if l == nil {
 		return nil
 	}
-	return o.Page
+	return l.Page
 }
 
-func (o *ListReleasesRequest) GetPageSize() *int64 {
-	if o == nil {
+func (l *ListReleasesRequest) GetPageSize() *int64 {
+	if l == nil {
 		return nil
 	}
-	return o.PageSize
+	return l.PageSize
 }
 
 type ListReleasesResponse struct {
@@ -96,16 +96,16 @@ type ListReleasesResponse struct {
 	PagedReleaseSchema *components.PagedReleaseSchema
 }
 
-func (o *ListReleasesResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (l *ListReleasesResponse) GetHTTPMeta() components.HTTPMetadata {
+	if l == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return l.HTTPMeta
 }
 
-func (o *ListReleasesResponse) GetPagedReleaseSchema() *components.PagedReleaseSchema {
-	if o == nil {
+func (l *ListReleasesResponse) GetPagedReleaseSchema() *components.PagedReleaseSchema {
+	if l == nil {
 		return nil
 	}
-	return o.PagedReleaseSchema
+	return l.PagedReleaseSchema
 }

@@ -10,11 +10,11 @@ type GetProjectRequest struct {
 	ProjectID string `pathParam:"style=simple,explode=false,name=project_id"`
 }
 
-func (o *GetProjectRequest) GetProjectID() string {
-	if o == nil {
+func (g *GetProjectRequest) GetProjectID() string {
+	if g == nil {
 		return ""
 	}
-	return o.ProjectID
+	return g.ProjectID
 }
 
 type GetProjectResponse struct {
@@ -23,16 +23,16 @@ type GetProjectResponse struct {
 	ProjectSchema *components.ProjectSchema
 }
 
-func (o *GetProjectResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetProjectResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetProjectResponse) GetProjectSchema() *components.ProjectSchema {
-	if o == nil {
+func (g *GetProjectResponse) GetProjectSchema() *components.ProjectSchema {
+	if g == nil {
 		return nil
 	}
-	return o.ProjectSchema
+	return g.ProjectSchema
 }

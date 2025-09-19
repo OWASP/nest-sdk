@@ -7,16 +7,16 @@ type PagedEventSchema struct {
 	Count int64         `json:"count"`
 }
 
-func (o *PagedEventSchema) GetItems() []EventSchema {
-	if o == nil {
+func (p *PagedEventSchema) GetItems() []EventSchema {
+	if p == nil {
 		return []EventSchema{}
 	}
-	return o.Items
+	return p.Items
 }
 
-func (o *PagedEventSchema) GetCount() int64 {
-	if o == nil {
+func (p *PagedEventSchema) GetCount() int64 {
+	if p == nil {
 		return 0
 	}
-	return o.Count
+	return p.Count
 }

@@ -62,32 +62,32 @@ func (l *ListOrganizationsRequest) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *ListOrganizationsRequest) GetLocation() *string {
-	if o == nil {
+func (l *ListOrganizationsRequest) GetLocation() *string {
+	if l == nil {
 		return nil
 	}
-	return o.Location
+	return l.Location
 }
 
-func (o *ListOrganizationsRequest) GetOrdering() *ListOrganizationsOrdering {
-	if o == nil {
+func (l *ListOrganizationsRequest) GetOrdering() *ListOrganizationsOrdering {
+	if l == nil {
 		return nil
 	}
-	return o.Ordering
+	return l.Ordering
 }
 
-func (o *ListOrganizationsRequest) GetPage() *int64 {
-	if o == nil {
+func (l *ListOrganizationsRequest) GetPage() *int64 {
+	if l == nil {
 		return nil
 	}
-	return o.Page
+	return l.Page
 }
 
-func (o *ListOrganizationsRequest) GetPageSize() *int64 {
-	if o == nil {
+func (l *ListOrganizationsRequest) GetPageSize() *int64 {
+	if l == nil {
 		return nil
 	}
-	return o.PageSize
+	return l.PageSize
 }
 
 type ListOrganizationsResponse struct {
@@ -96,16 +96,16 @@ type ListOrganizationsResponse struct {
 	PagedOrganizationSchema *components.PagedOrganizationSchema
 }
 
-func (o *ListOrganizationsResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (l *ListOrganizationsResponse) GetHTTPMeta() components.HTTPMetadata {
+	if l == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return l.HTTPMeta
 }
 
-func (o *ListOrganizationsResponse) GetPagedOrganizationSchema() *components.PagedOrganizationSchema {
-	if o == nil {
+func (l *ListOrganizationsResponse) GetPagedOrganizationSchema() *components.PagedOrganizationSchema {
+	if l == nil {
 		return nil
 	}
-	return o.PagedOrganizationSchema
+	return l.PagedOrganizationSchema
 }

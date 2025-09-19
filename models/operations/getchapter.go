@@ -10,11 +10,11 @@ type GetChapterRequest struct {
 	ChapterID string `pathParam:"style=simple,explode=false,name=chapter_id"`
 }
 
-func (o *GetChapterRequest) GetChapterID() string {
-	if o == nil {
+func (g *GetChapterRequest) GetChapterID() string {
+	if g == nil {
 		return ""
 	}
-	return o.ChapterID
+	return g.ChapterID
 }
 
 type GetChapterResponse struct {
@@ -23,16 +23,16 @@ type GetChapterResponse struct {
 	ChapterSchema *components.ChapterSchema
 }
 
-func (o *GetChapterResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetChapterResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetChapterResponse) GetChapterSchema() *components.ChapterSchema {
-	if o == nil {
+func (g *GetChapterResponse) GetChapterSchema() *components.ChapterSchema {
+	if g == nil {
 		return nil
 	}
-	return o.ChapterSchema
+	return g.ChapterSchema
 }

@@ -33,7 +33,7 @@ func main() {
         nest.WithSecurity(os.Getenv("NEST_API_KEY")),
     )
 
-    res, err := s.Projects.ListProjects(ctx, nil, operations.ListProjectsOrderingMinusCreatedAt.ToPointer(), nest.Int64(1), nil)
+    res, err := s.Projects.ListProjects(ctx, nil, operations.ListProjectsOrderingMinusCreatedAt.ToPointer(), nest.Pointer[int64](1), nil)
     if err != nil {
         log.Fatal(err)
     }

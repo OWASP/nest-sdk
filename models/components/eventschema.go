@@ -27,37 +27,37 @@ func (e *EventSchema) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *EventSchema) GetDescription() string {
-	if o == nil {
+func (e *EventSchema) GetDescription() string {
+	if e == nil {
 		return ""
 	}
-	return o.Description
+	return e.Description
 }
 
-func (o *EventSchema) GetName() string {
-	if o == nil {
+func (e *EventSchema) GetName() string {
+	if e == nil {
 		return ""
 	}
-	return o.Name
+	return e.Name
 }
 
-func (o *EventSchema) GetEndDate() time.Time {
-	if o == nil {
+func (e *EventSchema) GetEndDate() time.Time {
+	if e == nil {
 		return time.Time{}
 	}
-	return o.EndDate
+	return e.EndDate
 }
 
-func (o *EventSchema) GetStartDate() time.Time {
-	if o == nil {
+func (e *EventSchema) GetStartDate() time.Time {
+	if e == nil {
 		return time.Time{}
 	}
-	return o.StartDate
+	return e.StartDate
 }
 
-func (o *EventSchema) GetURL() string {
-	if o == nil {
+func (e *EventSchema) GetURL() string {
+	if e == nil {
 		return ""
 	}
-	return o.URL
+	return e.URL
 }

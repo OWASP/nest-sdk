@@ -60,25 +60,25 @@ func (l *ListCommitteesRequest) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *ListCommitteesRequest) GetOrdering() *ListCommitteesOrdering {
-	if o == nil {
+func (l *ListCommitteesRequest) GetOrdering() *ListCommitteesOrdering {
+	if l == nil {
 		return nil
 	}
-	return o.Ordering
+	return l.Ordering
 }
 
-func (o *ListCommitteesRequest) GetPage() *int64 {
-	if o == nil {
+func (l *ListCommitteesRequest) GetPage() *int64 {
+	if l == nil {
 		return nil
 	}
-	return o.Page
+	return l.Page
 }
 
-func (o *ListCommitteesRequest) GetPageSize() *int64 {
-	if o == nil {
+func (l *ListCommitteesRequest) GetPageSize() *int64 {
+	if l == nil {
 		return nil
 	}
-	return o.PageSize
+	return l.PageSize
 }
 
 type ListCommitteesResponse struct {
@@ -87,16 +87,16 @@ type ListCommitteesResponse struct {
 	PagedCommitteeSchema *components.PagedCommitteeSchema
 }
 
-func (o *ListCommitteesResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (l *ListCommitteesResponse) GetHTTPMeta() components.HTTPMetadata {
+	if l == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return l.HTTPMeta
 }
 
-func (o *ListCommitteesResponse) GetPagedCommitteeSchema() *components.PagedCommitteeSchema {
-	if o == nil {
+func (l *ListCommitteesResponse) GetPagedCommitteeSchema() *components.PagedCommitteeSchema {
+	if l == nil {
 		return nil
 	}
-	return o.PagedCommitteeSchema
+	return l.PagedCommitteeSchema
 }

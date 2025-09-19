@@ -27,37 +27,37 @@ func (c *ChapterSchema) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *ChapterSchema) GetCountry() string {
-	if o == nil {
+func (c *ChapterSchema) GetCountry() string {
+	if c == nil {
 		return ""
 	}
-	return o.Country
+	return c.Country
 }
 
-func (o *ChapterSchema) GetCreatedAt() time.Time {
-	if o == nil {
+func (c *ChapterSchema) GetCreatedAt() time.Time {
+	if c == nil {
 		return time.Time{}
 	}
-	return o.CreatedAt
+	return c.CreatedAt
 }
 
-func (o *ChapterSchema) GetName() string {
-	if o == nil {
+func (c *ChapterSchema) GetName() string {
+	if c == nil {
 		return ""
 	}
-	return o.Name
+	return c.Name
 }
 
-func (o *ChapterSchema) GetRegion() string {
-	if o == nil {
+func (c *ChapterSchema) GetRegion() string {
+	if c == nil {
 		return ""
 	}
-	return o.Region
+	return c.Region
 }
 
-func (o *ChapterSchema) GetUpdatedAt() time.Time {
-	if o == nil {
+func (c *ChapterSchema) GetUpdatedAt() time.Time {
+	if c == nil {
 		return time.Time{}
 	}
-	return o.UpdatedAt
+	return c.UpdatedAt
 }

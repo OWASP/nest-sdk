@@ -7,16 +7,16 @@ type PagedProjectSchema struct {
 	Count int64           `json:"count"`
 }
 
-func (o *PagedProjectSchema) GetItems() []ProjectSchema {
-	if o == nil {
+func (p *PagedProjectSchema) GetItems() []ProjectSchema {
+	if p == nil {
 		return []ProjectSchema{}
 	}
-	return o.Items
+	return p.Items
 }
 
-func (o *PagedProjectSchema) GetCount() int64 {
-	if o == nil {
+func (p *PagedProjectSchema) GetCount() int64 {
+	if p == nil {
 		return 0
 	}
-	return o.Count
+	return p.Count
 }

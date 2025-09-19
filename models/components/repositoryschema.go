@@ -26,30 +26,30 @@ func (r *RepositorySchema) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *RepositorySchema) GetCreatedAt() time.Time {
-	if o == nil {
+func (r *RepositorySchema) GetCreatedAt() time.Time {
+	if r == nil {
 		return time.Time{}
 	}
-	return o.CreatedAt
+	return r.CreatedAt
 }
 
-func (o *RepositorySchema) GetDescription() string {
-	if o == nil {
+func (r *RepositorySchema) GetDescription() string {
+	if r == nil {
 		return ""
 	}
-	return o.Description
+	return r.Description
 }
 
-func (o *RepositorySchema) GetName() string {
-	if o == nil {
+func (r *RepositorySchema) GetName() string {
+	if r == nil {
 		return ""
 	}
-	return o.Name
+	return r.Name
 }
 
-func (o *RepositorySchema) GetUpdatedAt() time.Time {
-	if o == nil {
+func (r *RepositorySchema) GetUpdatedAt() time.Time {
+	if r == nil {
 		return time.Time{}
 	}
-	return o.UpdatedAt
+	return r.UpdatedAt
 }

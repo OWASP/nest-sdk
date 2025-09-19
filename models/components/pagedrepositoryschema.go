@@ -7,16 +7,16 @@ type PagedRepositorySchema struct {
 	Count int64              `json:"count"`
 }
 
-func (o *PagedRepositorySchema) GetItems() []RepositorySchema {
-	if o == nil {
+func (p *PagedRepositorySchema) GetItems() []RepositorySchema {
+	if p == nil {
 		return []RepositorySchema{}
 	}
-	return o.Items
+	return p.Items
 }
 
-func (o *PagedRepositorySchema) GetCount() int64 {
-	if o == nil {
+func (p *PagedRepositorySchema) GetCount() int64 {
+	if p == nil {
 		return 0
 	}
-	return o.Count
+	return p.Count
 }

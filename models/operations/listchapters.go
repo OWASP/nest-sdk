@@ -64,39 +64,39 @@ func (l *ListChaptersRequest) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *ListChaptersRequest) GetCountry() *string {
-	if o == nil {
+func (l *ListChaptersRequest) GetCountry() *string {
+	if l == nil {
 		return nil
 	}
-	return o.Country
+	return l.Country
 }
 
-func (o *ListChaptersRequest) GetRegion() *string {
-	if o == nil {
+func (l *ListChaptersRequest) GetRegion() *string {
+	if l == nil {
 		return nil
 	}
-	return o.Region
+	return l.Region
 }
 
-func (o *ListChaptersRequest) GetOrdering() *ListChaptersOrdering {
-	if o == nil {
+func (l *ListChaptersRequest) GetOrdering() *ListChaptersOrdering {
+	if l == nil {
 		return nil
 	}
-	return o.Ordering
+	return l.Ordering
 }
 
-func (o *ListChaptersRequest) GetPage() *int64 {
-	if o == nil {
+func (l *ListChaptersRequest) GetPage() *int64 {
+	if l == nil {
 		return nil
 	}
-	return o.Page
+	return l.Page
 }
 
-func (o *ListChaptersRequest) GetPageSize() *int64 {
-	if o == nil {
+func (l *ListChaptersRequest) GetPageSize() *int64 {
+	if l == nil {
 		return nil
 	}
-	return o.PageSize
+	return l.PageSize
 }
 
 type ListChaptersResponse struct {
@@ -105,16 +105,16 @@ type ListChaptersResponse struct {
 	PagedChapterSchema *components.PagedChapterSchema
 }
 
-func (o *ListChaptersResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (l *ListChaptersResponse) GetHTTPMeta() components.HTTPMetadata {
+	if l == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return l.HTTPMeta
 }
 
-func (o *ListChaptersResponse) GetPagedChapterSchema() *components.PagedChapterSchema {
-	if o == nil {
+func (l *ListChaptersResponse) GetPagedChapterSchema() *components.PagedChapterSchema {
+	if l == nil {
 		return nil
 	}
-	return o.PagedChapterSchema
+	return l.PagedChapterSchema
 }
