@@ -10,11 +10,11 @@ type GetOrganizationRequest struct {
 	OrganizationID string `pathParam:"style=simple,explode=false,name=organization_id"`
 }
 
-func (o *GetOrganizationRequest) GetOrganizationID() string {
-	if o == nil {
+func (g *GetOrganizationRequest) GetOrganizationID() string {
+	if g == nil {
 		return ""
 	}
-	return o.OrganizationID
+	return g.OrganizationID
 }
 
 type GetOrganizationResponse struct {
@@ -23,16 +23,16 @@ type GetOrganizationResponse struct {
 	OrganizationSchema *components.OrganizationSchema
 }
 
-func (o *GetOrganizationResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetOrganizationResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetOrganizationResponse) GetOrganizationSchema() *components.OrganizationSchema {
-	if o == nil {
+func (g *GetOrganizationResponse) GetOrganizationSchema() *components.OrganizationSchema {
+	if g == nil {
 		return nil
 	}
-	return o.OrganizationSchema
+	return g.OrganizationSchema
 }

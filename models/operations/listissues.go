@@ -62,32 +62,32 @@ func (l *ListIssuesRequest) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *ListIssuesRequest) GetState() *components.State {
-	if o == nil {
+func (l *ListIssuesRequest) GetState() *components.State {
+	if l == nil {
 		return nil
 	}
-	return o.State
+	return l.State
 }
 
-func (o *ListIssuesRequest) GetOrdering() *ListIssuesOrdering {
-	if o == nil {
+func (l *ListIssuesRequest) GetOrdering() *ListIssuesOrdering {
+	if l == nil {
 		return nil
 	}
-	return o.Ordering
+	return l.Ordering
 }
 
-func (o *ListIssuesRequest) GetPage() *int64 {
-	if o == nil {
+func (l *ListIssuesRequest) GetPage() *int64 {
+	if l == nil {
 		return nil
 	}
-	return o.Page
+	return l.Page
 }
 
-func (o *ListIssuesRequest) GetPageSize() *int64 {
-	if o == nil {
+func (l *ListIssuesRequest) GetPageSize() *int64 {
+	if l == nil {
 		return nil
 	}
-	return o.PageSize
+	return l.PageSize
 }
 
 type ListIssuesResponse struct {
@@ -96,16 +96,16 @@ type ListIssuesResponse struct {
 	PagedIssueSchema *components.PagedIssueSchema
 }
 
-func (o *ListIssuesResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (l *ListIssuesResponse) GetHTTPMeta() components.HTTPMetadata {
+	if l == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return l.HTTPMeta
 }
 
-func (o *ListIssuesResponse) GetPagedIssueSchema() *components.PagedIssueSchema {
-	if o == nil {
+func (l *ListIssuesResponse) GetPagedIssueSchema() *components.PagedIssueSchema {
+	if l == nil {
 		return nil
 	}
-	return o.PagedIssueSchema
+	return l.PagedIssueSchema
 }

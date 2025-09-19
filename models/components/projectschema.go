@@ -28,37 +28,37 @@ func (p *ProjectSchema) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *ProjectSchema) GetCreatedAt() time.Time {
-	if o == nil {
+func (p *ProjectSchema) GetCreatedAt() time.Time {
+	if p == nil {
 		return time.Time{}
 	}
-	return o.CreatedAt
+	return p.CreatedAt
 }
 
-func (o *ProjectSchema) GetDescription() string {
-	if o == nil {
+func (p *ProjectSchema) GetDescription() string {
+	if p == nil {
 		return ""
 	}
-	return o.Description
+	return p.Description
 }
 
-func (o *ProjectSchema) GetLevel() ProjectLevel {
-	if o == nil {
+func (p *ProjectSchema) GetLevel() ProjectLevel {
+	if p == nil {
 		return ProjectLevel("")
 	}
-	return o.Level
+	return p.Level
 }
 
-func (o *ProjectSchema) GetName() string {
-	if o == nil {
+func (p *ProjectSchema) GetName() string {
+	if p == nil {
 		return ""
 	}
-	return o.Name
+	return p.Name
 }
 
-func (o *ProjectSchema) GetUpdatedAt() time.Time {
-	if o == nil {
+func (p *ProjectSchema) GetUpdatedAt() time.Time {
+	if p == nil {
 		return time.Time{}
 	}
-	return o.UpdatedAt
+	return p.UpdatedAt
 }

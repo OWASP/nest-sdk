@@ -36,7 +36,7 @@ func main() {
     )
 
     res, err := s.Community.ListMembers(ctx, operations.ListMembersRequest{
-        Location: nest.String("India"),
+        Location: nest.Pointer("India"),
     })
     if err != nil {
         log.Fatal(err)
@@ -142,7 +142,7 @@ func main() {
         nest.WithSecurity(os.Getenv("NEST_API_KEY")),
     )
 
-    res, err := s.Community.ListOrganizations(ctx, nest.String("United States of America"), nil, nest.Int64(1), nil)
+    res, err := s.Community.ListOrganizations(ctx, nest.Pointer("United States of America"), nil, nest.Pointer[int64](1), nil)
     if err != nil {
         log.Fatal(err)
     }

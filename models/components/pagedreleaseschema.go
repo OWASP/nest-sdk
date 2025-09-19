@@ -7,16 +7,16 @@ type PagedReleaseSchema struct {
 	Count int64           `json:"count"`
 }
 
-func (o *PagedReleaseSchema) GetItems() []ReleaseSchema {
-	if o == nil {
+func (p *PagedReleaseSchema) GetItems() []ReleaseSchema {
+	if p == nil {
 		return []ReleaseSchema{}
 	}
-	return o.Items
+	return p.Items
 }
 
-func (o *PagedReleaseSchema) GetCount() int64 {
-	if o == nil {
+func (p *PagedReleaseSchema) GetCount() int64 {
+	if p == nil {
 		return 0
 	}
-	return o.Count
+	return p.Count
 }

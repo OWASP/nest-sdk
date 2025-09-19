@@ -24,7 +24,7 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: false
 go:
-  version: 0.2.2
+  version: 0.3.0
   additionalDependencies: {}
   baseErrorName: NestError
   clientServerStatusCodesAsErrors: true
@@ -43,6 +43,7 @@ go:
   maxMethodParams: 4
   methodArguments: require-security-and-request
   modulePath: github.com/owasp/nest-sdk
+  nullableOptionalWrapper: false
   outputModelSuffix: output
   packageName: nest
   respectRequiredFields: false

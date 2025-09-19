@@ -28,44 +28,44 @@ func (i *IssueSchema) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *IssueSchema) GetBody() string {
-	if o == nil {
+func (i *IssueSchema) GetBody() string {
+	if i == nil {
 		return ""
 	}
-	return o.Body
+	return i.Body
 }
 
-func (o *IssueSchema) GetCreatedAt() time.Time {
-	if o == nil {
+func (i *IssueSchema) GetCreatedAt() time.Time {
+	if i == nil {
 		return time.Time{}
 	}
-	return o.CreatedAt
+	return i.CreatedAt
 }
 
-func (o *IssueSchema) GetTitle() string {
-	if o == nil {
+func (i *IssueSchema) GetTitle() string {
+	if i == nil {
 		return ""
 	}
-	return o.Title
+	return i.Title
 }
 
-func (o *IssueSchema) GetState() State {
-	if o == nil {
+func (i *IssueSchema) GetState() State {
+	if i == nil {
 		return State("")
 	}
-	return o.State
+	return i.State
 }
 
-func (o *IssueSchema) GetUpdatedAt() time.Time {
-	if o == nil {
+func (i *IssueSchema) GetUpdatedAt() time.Time {
+	if i == nil {
 		return time.Time{}
 	}
-	return o.UpdatedAt
+	return i.UpdatedAt
 }
 
-func (o *IssueSchema) GetURL() string {
-	if o == nil {
+func (i *IssueSchema) GetURL() string {
+	if i == nil {
 		return ""
 	}
-	return o.URL
+	return i.URL
 }

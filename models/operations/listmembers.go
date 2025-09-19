@@ -64,39 +64,39 @@ func (l *ListMembersRequest) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *ListMembersRequest) GetCompany() *string {
-	if o == nil {
+func (l *ListMembersRequest) GetCompany() *string {
+	if l == nil {
 		return nil
 	}
-	return o.Company
+	return l.Company
 }
 
-func (o *ListMembersRequest) GetLocation() *string {
-	if o == nil {
+func (l *ListMembersRequest) GetLocation() *string {
+	if l == nil {
 		return nil
 	}
-	return o.Location
+	return l.Location
 }
 
-func (o *ListMembersRequest) GetOrdering() *ListMembersOrdering {
-	if o == nil {
+func (l *ListMembersRequest) GetOrdering() *ListMembersOrdering {
+	if l == nil {
 		return nil
 	}
-	return o.Ordering
+	return l.Ordering
 }
 
-func (o *ListMembersRequest) GetPage() *int64 {
-	if o == nil {
+func (l *ListMembersRequest) GetPage() *int64 {
+	if l == nil {
 		return nil
 	}
-	return o.Page
+	return l.Page
 }
 
-func (o *ListMembersRequest) GetPageSize() *int64 {
-	if o == nil {
+func (l *ListMembersRequest) GetPageSize() *int64 {
+	if l == nil {
 		return nil
 	}
-	return o.PageSize
+	return l.PageSize
 }
 
 type ListMembersResponse struct {
@@ -105,16 +105,16 @@ type ListMembersResponse struct {
 	PagedMemberSchema *components.PagedMemberSchema
 }
 
-func (o *ListMembersResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (l *ListMembersResponse) GetHTTPMeta() components.HTTPMetadata {
+	if l == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return l.HTTPMeta
 }
 
-func (o *ListMembersResponse) GetPagedMemberSchema() *components.PagedMemberSchema {
-	if o == nil {
+func (l *ListMembersResponse) GetPagedMemberSchema() *components.PagedMemberSchema {
+	if l == nil {
 		return nil
 	}
-	return o.PagedMemberSchema
+	return l.PagedMemberSchema
 }

@@ -7,16 +7,16 @@ type PagedOrganizationSchema struct {
 	Count int64                `json:"count"`
 }
 
-func (o *PagedOrganizationSchema) GetItems() []OrganizationSchema {
-	if o == nil {
+func (p *PagedOrganizationSchema) GetItems() []OrganizationSchema {
+	if p == nil {
 		return []OrganizationSchema{}
 	}
-	return o.Items
+	return p.Items
 }
 
-func (o *PagedOrganizationSchema) GetCount() int64 {
-	if o == nil {
+func (p *PagedOrganizationSchema) GetCount() int64 {
+	if p == nil {
 		return 0
 	}
-	return o.Count
+	return p.Count
 }

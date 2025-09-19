@@ -36,100 +36,100 @@ func (m *MemberSchema) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *MemberSchema) GetAvatarURL() string {
-	if o == nil {
+func (m *MemberSchema) GetAvatarURL() string {
+	if m == nil {
 		return ""
 	}
-	return o.AvatarURL
+	return m.AvatarURL
 }
 
-func (o *MemberSchema) GetBio() string {
-	if o == nil {
+func (m *MemberSchema) GetBio() string {
+	if m == nil {
 		return ""
 	}
-	return o.Bio
+	return m.Bio
 }
 
-func (o *MemberSchema) GetCompany() string {
-	if o == nil {
+func (m *MemberSchema) GetCompany() string {
+	if m == nil {
 		return ""
 	}
-	return o.Company
+	return m.Company
 }
 
-func (o *MemberSchema) GetCreatedAt() time.Time {
-	if o == nil {
+func (m *MemberSchema) GetCreatedAt() time.Time {
+	if m == nil {
 		return time.Time{}
 	}
-	return o.CreatedAt
+	return m.CreatedAt
 }
 
-func (o *MemberSchema) GetFollowersCount() int64 {
-	if o == nil {
+func (m *MemberSchema) GetFollowersCount() int64 {
+	if m == nil {
 		return 0
 	}
-	return o.FollowersCount
+	return m.FollowersCount
 }
 
-func (o *MemberSchema) GetFollowingCount() int64 {
-	if o == nil {
+func (m *MemberSchema) GetFollowingCount() int64 {
+	if m == nil {
 		return 0
 	}
-	return o.FollowingCount
+	return m.FollowingCount
 }
 
-func (o *MemberSchema) GetLocation() string {
-	if o == nil {
+func (m *MemberSchema) GetLocation() string {
+	if m == nil {
 		return ""
 	}
-	return o.Location
+	return m.Location
 }
 
-func (o *MemberSchema) GetLogin() string {
-	if o == nil {
+func (m *MemberSchema) GetLogin() string {
+	if m == nil {
 		return ""
 	}
-	return o.Login
+	return m.Login
 }
 
-func (o *MemberSchema) GetName() string {
-	if o == nil {
+func (m *MemberSchema) GetName() string {
+	if m == nil {
 		return ""
 	}
-	return o.Name
+	return m.Name
 }
 
-func (o *MemberSchema) GetPublicRepositoriesCount() int64 {
-	if o == nil {
+func (m *MemberSchema) GetPublicRepositoriesCount() int64 {
+	if m == nil {
 		return 0
 	}
-	return o.PublicRepositoriesCount
+	return m.PublicRepositoriesCount
 }
 
-func (o *MemberSchema) GetTitle() string {
-	if o == nil {
+func (m *MemberSchema) GetTitle() string {
+	if m == nil {
 		return ""
 	}
-	return o.Title
+	return m.Title
 }
 
-func (o *MemberSchema) GetTwitterUsername() string {
-	if o == nil {
+func (m *MemberSchema) GetTwitterUsername() string {
+	if m == nil {
 		return ""
 	}
-	return o.TwitterUsername
+	return m.TwitterUsername
 }
 
-func (o *MemberSchema) GetUpdatedAt() time.Time {
-	if o == nil {
+func (m *MemberSchema) GetUpdatedAt() time.Time {
+	if m == nil {
 		return time.Time{}
 	}
-	return o.UpdatedAt
+	return m.UpdatedAt
 }
 
-func (o *MemberSchema) GetURL() string {
-	if o == nil {
+func (m *MemberSchema) GetURL() string {
+	if m == nil {
 		return ""
 	}
-	return o.URL
+	return m.URL
 }

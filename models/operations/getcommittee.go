@@ -10,11 +10,11 @@ type GetCommitteeRequest struct {
 	CommitteeID string `pathParam:"style=simple,explode=false,name=committee_id"`
 }
 
-func (o *GetCommitteeRequest) GetCommitteeID() string {
-	if o == nil {
+func (g *GetCommitteeRequest) GetCommitteeID() string {
+	if g == nil {
 		return ""
 	}
-	return o.CommitteeID
+	return g.CommitteeID
 }
 
 type GetCommitteeResponse struct {
@@ -23,16 +23,16 @@ type GetCommitteeResponse struct {
 	CommitteeSchema *components.CommitteeSchema
 }
 
-func (o *GetCommitteeResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetCommitteeResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetCommitteeResponse) GetCommitteeSchema() *components.CommitteeSchema {
-	if o == nil {
+func (g *GetCommitteeResponse) GetCommitteeSchema() *components.CommitteeSchema {
+	if g == nil {
 		return nil
 	}
-	return o.CommitteeSchema
+	return g.CommitteeSchema
 }

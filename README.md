@@ -66,8 +66,8 @@ func main() {
 	)
 
 	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
-		Country: nest.String("India"),
-		Region:  nest.String("Asia"),
+		Country: nest.Pointer("India"),
+		Region:  nest.Pointer("Asia"),
 	})
 	if err != nil {
 		log.Fatal(err)
@@ -111,8 +111,8 @@ func main() {
 	)
 
 	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
-		Country: nest.String("India"),
-		Region:  nest.String("Asia"),
+		Country: nest.Pointer("India"),
+		Region:  nest.Pointer("Asia"),
 	})
 	if err != nil {
 		log.Fatal(err)
@@ -170,6 +170,11 @@ func main() {
 
 * [ListRepositories](docs/sdks/repositories/README.md#listrepositories) - List repositories
 
+### [Sponsors](docs/sdks/sponsors/README.md)
+
+* [ListSponsors](docs/sdks/sponsors/README.md#listsponsors) - List sponsors
+* [GetSponsor](docs/sdks/sponsors/README.md#getsponsor) - Get sponsor
+
 </details>
 <!-- End Available Resources and Operations [operations] -->
 
@@ -200,8 +205,8 @@ func main() {
 	)
 
 	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
-		Country: nest.String("India"),
-		Region:  nest.String("Asia"),
+		Country: nest.Pointer("India"),
+		Region:  nest.Pointer("Asia"),
 	}, operations.WithRetries(
 		retry.Config{
 			Strategy: "backoff",
@@ -255,8 +260,8 @@ func main() {
 	)
 
 	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
-		Country: nest.String("India"),
-		Region:  nest.String("Asia"),
+		Country: nest.Pointer("India"),
+		Region:  nest.Pointer("Asia"),
 	})
 	if err != nil {
 		log.Fatal(err)
@@ -350,8 +355,8 @@ func main() {
 	)
 
 	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
-		Country: nest.String("India"),
-		Region:  nest.String("Asia"),
+		Country: nest.Pointer("India"),
+		Region:  nest.Pointer("Asia"),
 	})
 	if err != nil {
 		log.Fatal(err)

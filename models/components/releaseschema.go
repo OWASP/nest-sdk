@@ -27,37 +27,37 @@ func (r *ReleaseSchema) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *ReleaseSchema) GetCreatedAt() time.Time {
-	if o == nil {
+func (r *ReleaseSchema) GetCreatedAt() time.Time {
+	if r == nil {
 		return time.Time{}
 	}
-	return o.CreatedAt
+	return r.CreatedAt
 }
 
-func (o *ReleaseSchema) GetDescription() string {
-	if o == nil {
+func (r *ReleaseSchema) GetDescription() string {
+	if r == nil {
 		return ""
 	}
-	return o.Description
+	return r.Description
 }
 
-func (o *ReleaseSchema) GetName() string {
-	if o == nil {
+func (r *ReleaseSchema) GetName() string {
+	if r == nil {
 		return ""
 	}
-	return o.Name
+	return r.Name
 }
 
-func (o *ReleaseSchema) GetPublishedAt() time.Time {
-	if o == nil {
+func (r *ReleaseSchema) GetPublishedAt() time.Time {
+	if r == nil {
 		return time.Time{}
 	}
-	return o.PublishedAt
+	return r.PublishedAt
 }
 
-func (o *ReleaseSchema) GetTagName() string {
-	if o == nil {
+func (r *ReleaseSchema) GetTagName() string {
+	if r == nil {
 		return ""
 	}
-	return o.TagName
+	return r.TagName
 }

@@ -62,32 +62,32 @@ func (l *ListProjectsRequest) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *ListProjectsRequest) GetLevel() *components.ProjectLevel {
-	if o == nil {
+func (l *ListProjectsRequest) GetLevel() *components.ProjectLevel {
+	if l == nil {
 		return nil
 	}
-	return o.Level
+	return l.Level
 }
 
-func (o *ListProjectsRequest) GetOrdering() *ListProjectsOrdering {
-	if o == nil {
+func (l *ListProjectsRequest) GetOrdering() *ListProjectsOrdering {
+	if l == nil {
 		return nil
 	}
-	return o.Ordering
+	return l.Ordering
 }
 
-func (o *ListProjectsRequest) GetPage() *int64 {
-	if o == nil {
+func (l *ListProjectsRequest) GetPage() *int64 {
+	if l == nil {
 		return nil
 	}
-	return o.Page
+	return l.Page
 }
 
-func (o *ListProjectsRequest) GetPageSize() *int64 {
-	if o == nil {
+func (l *ListProjectsRequest) GetPageSize() *int64 {
+	if l == nil {
 		return nil
 	}
-	return o.PageSize
+	return l.PageSize
 }
 
 type ListProjectsResponse struct {
@@ -96,16 +96,16 @@ type ListProjectsResponse struct {
 	PagedProjectSchema *components.PagedProjectSchema
 }
 
-func (o *ListProjectsResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (l *ListProjectsResponse) GetHTTPMeta() components.HTTPMetadata {
+	if l == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return l.HTTPMeta
 }
 
-func (o *ListProjectsResponse) GetPagedProjectSchema() *components.PagedProjectSchema {
-	if o == nil {
+func (l *ListProjectsResponse) GetPagedProjectSchema() *components.PagedProjectSchema {
+	if l == nil {
 		return nil
 	}
-	return o.PagedProjectSchema
+	return l.PagedProjectSchema
 }

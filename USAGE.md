@@ -18,8 +18,8 @@ func main() {
 	)
 
 	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
-		Country: nest.String("India"),
-		Region:  nest.String("Asia"),
+		Country: nest.Pointer("India"),
+		Region:  nest.Pointer("Asia"),
 	})
 	if err != nil {
 		log.Fatal(err)

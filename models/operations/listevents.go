@@ -60,25 +60,25 @@ func (l *ListEventsRequest) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *ListEventsRequest) GetOrdering() *ListEventsOrdering {
-	if o == nil {
+func (l *ListEventsRequest) GetOrdering() *ListEventsOrdering {
+	if l == nil {
 		return nil
 	}
-	return o.Ordering
+	return l.Ordering
 }
 
-func (o *ListEventsRequest) GetPage() *int64 {
-	if o == nil {
+func (l *ListEventsRequest) GetPage() *int64 {
+	if l == nil {
 		return nil
 	}
-	return o.Page
+	return l.Page
 }
 
-func (o *ListEventsRequest) GetPageSize() *int64 {
-	if o == nil {
+func (l *ListEventsRequest) GetPageSize() *int64 {
+	if l == nil {
 		return nil
 	}
-	return o.PageSize
+	return l.PageSize
 }
 
 type ListEventsResponse struct {
@@ -87,16 +87,16 @@ type ListEventsResponse struct {
 	PagedEventSchema *components.PagedEventSchema
 }
 
-func (o *ListEventsResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (l *ListEventsResponse) GetHTTPMeta() components.HTTPMetadata {
+	if l == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return l.HTTPMeta
 }
 
-func (o *ListEventsResponse) GetPagedEventSchema() *components.PagedEventSchema {
-	if o == nil {
+func (l *ListEventsResponse) GetPagedEventSchema() *components.PagedEventSchema {
+	if l == nil {
 		return nil
 	}
-	return o.PagedEventSchema
+	return l.PagedEventSchema
 }

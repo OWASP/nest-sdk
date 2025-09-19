@@ -10,11 +10,11 @@ type GetMemberRequest struct {
 	MemberID string `pathParam:"style=simple,explode=false,name=member_id"`
 }
 
-func (o *GetMemberRequest) GetMemberID() string {
-	if o == nil {
+func (g *GetMemberRequest) GetMemberID() string {
+	if g == nil {
 		return ""
 	}
-	return o.MemberID
+	return g.MemberID
 }
 
 type GetMemberResponse struct {
@@ -23,16 +23,16 @@ type GetMemberResponse struct {
 	MemberSchema *components.MemberSchema
 }
 
-func (o *GetMemberResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetMemberResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
 }
 
-func (o *GetMemberResponse) GetMemberSchema() *components.MemberSchema {
-	if o == nil {
+func (g *GetMemberResponse) GetMemberSchema() *components.MemberSchema {
+	if g == nil {
 		return nil
 	}
-	return o.MemberSchema
+	return g.MemberSchema
 }
