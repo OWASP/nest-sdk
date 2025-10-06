@@ -32,11 +32,11 @@ func main() {
         nest.WithSecurity(os.Getenv("NEST_API_KEY")),
     )
 
-    res, err := s.Committees.ListCommittees(ctx, nil, nest.Pointer[int64](1), nil)
+    res, err := s.Committees.ListCommittees(ctx, nil, nest.Pointer[int64](1), nest.Pointer[int64](100))
     if err != nil {
         log.Fatal(err)
     }
-    if res.PagedCommitteeSchema != nil {
+    if res.PagedCommittee != nil {
         // handle response
     }
 }
@@ -48,8 +48,8 @@ func main() {
 | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
 | `ctx`                                                                                   | [context.Context](https://pkg.go.dev/context#Context)                                   | :heavy_check_mark:                                                                      | The context to use for the request.                                                     |
 | `ordering`                                                                              | [*operations.ListCommitteesOrdering](../../models/operations/listcommitteesordering.md) | :heavy_minus_sign:                                                                      | Ordering field                                                                          |
-| `page`                                                                                  | **int64*                                                                                | :heavy_minus_sign:                                                                      | N/A                                                                                     |
-| `pageSize`                                                                              | **int64*                                                                                | :heavy_minus_sign:                                                                      | N/A                                                                                     |
+| `page`                                                                                  | **int64*                                                                                | :heavy_minus_sign:                                                                      | Page number                                                                             |
+| `pageSize`                                                                              | **int64*                                                                                | :heavy_minus_sign:                                                                      | Number of items per page                                                                |
 | `opts`                                                                                  | [][operations.Option](../../models/operations/option.md)                                | :heavy_minus_sign:                                                                      | The options for this request.                                                           |
 
 ### Response
@@ -90,7 +90,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    if res.CommitteeSchema != nil {
+    if res.CommitteeDetail != nil {
         // handle response
     }
 }
@@ -110,7 +110,7 @@ func main() {
 
 ### Errors
 
-| Error Type                       | Status Code                      | Content Type                     |
-| -------------------------------- | -------------------------------- | -------------------------------- |
-| apierrors.CommitteeErrorResponse | 404                              | application/json                 |
-| apierrors.NestAPIError           | 4XX, 5XX                         | \*/\*                            |
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| apierrors.CommitteeError | 404                      | application/json         |
+| apierrors.NestAPIError   | 4XX, 5XX                 | \*/\*                    |

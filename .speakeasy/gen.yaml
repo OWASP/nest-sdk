@@ -24,7 +24,7 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: false
 go:
-  version: 0.3.0
+  version: 0.2.4
   additionalDependencies: {}
   baseErrorName: NestError
   clientServerStatusCodesAsErrors: true

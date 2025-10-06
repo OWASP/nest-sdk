@@ -209,12 +209,12 @@ func (s *Committees) ListCommittees(ctx context.Context, ordering *operations.Li
 				return nil, err
 			}
 
-			var out components.PagedCommitteeSchema
+			var out components.PagedCommittee
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.PagedCommitteeSchema = &out
+			res.PagedCommittee = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -418,12 +418,12 @@ func (s *Committees) GetCommittee(ctx context.Context, committeeID string, opts 
 				return nil, err
 			}
 
-			var out components.CommitteeSchema
+			var out components.CommitteeDetail
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.CommitteeSchema = &out
+			res.CommitteeDetail = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -439,7 +439,7 @@ func (s *Committees) GetCommittee(ctx context.Context, committeeID string, opts 
 				return nil, err
 			}
 
-			var out apierrors.CommitteeErrorResponse
+			var out apierrors.CommitteeError
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}

@@ -33,11 +33,11 @@ func main() {
         nest.WithSecurity(os.Getenv("NEST_API_KEY")),
     )
 
-    res, err := s.Projects.ListProjects(ctx, nil, operations.ListProjectsOrderingMinusCreatedAt.ToPointer(), nest.Pointer[int64](1), nil)
+    res, err := s.Projects.ListProjects(ctx, nil, operations.ListProjectsOrderingMinusCreatedAt.ToPointer(), nest.Pointer[int64](1), nest.Pointer[int64](100))
     if err != nil {
         log.Fatal(err)
     }
-    if res.PagedProjectSchema != nil {
+    if res.PagedProject != nil {
         // handle response
     }
 }
@@ -50,8 +50,8 @@ func main() {
 | `ctx`                                                                               | [context.Context](https://pkg.go.dev/context#Context)                               | :heavy_check_mark:                                                                  | The context to use for the request.                                                 |                                                                                     |
 | `level`                                                                             | [*components.ProjectLevel](../../models/components/projectlevel.md)                 | :heavy_minus_sign:                                                                  | Level of the project                                                                |                                                                                     |
 | `ordering`                                                                          | [*operations.ListProjectsOrdering](../../models/operations/listprojectsordering.md) | :heavy_minus_sign:                                                                  | Ordering field                                                                      | -created_at                                                                         |
-| `page`                                                                              | **int64*                                                                            | :heavy_minus_sign:                                                                  | N/A                                                                                 |                                                                                     |
-| `pageSize`                                                                          | **int64*                                                                            | :heavy_minus_sign:                                                                  | N/A                                                                                 |                                                                                     |
+| `page`                                                                              | **int64*                                                                            | :heavy_minus_sign:                                                                  | Page number                                                                         |                                                                                     |
+| `pageSize`                                                                          | **int64*                                                                            | :heavy_minus_sign:                                                                  | Number of items per page                                                            |                                                                                     |
 | `opts`                                                                              | [][operations.Option](../../models/operations/option.md)                            | :heavy_minus_sign:                                                                  | The options for this request.                                                       |                                                                                     |
 
 ### Response
@@ -92,7 +92,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    if res.ProjectSchema != nil {
+    if res.ProjectDetail != nil {
         // handle response
     }
 }
@@ -112,7 +112,7 @@ func main() {
 
 ### Errors
 
-| Error Type                     | Status Code                    | Content Type                   |
-| ------------------------------ | ------------------------------ | ------------------------------ |
-| apierrors.ProjectErrorResponse | 404                            | application/json               |
-| apierrors.NestAPIError         | 4XX, 5XX                       | \*/\*                          |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| apierrors.ProjectError | 404                    | application/json       |
+| apierrors.NestAPIError | 4XX, 5XX               | \*/\*                  |

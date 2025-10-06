@@ -47,8 +47,10 @@ type ListProjectsRequest struct {
 	Level *components.ProjectLevel `queryParam:"style=form,explode=true,name=level"`
 	// Ordering field
 	Ordering *ListProjectsOrdering `queryParam:"style=form,explode=true,name=ordering"`
-	Page     *int64                `default:"1" queryParam:"style=form,explode=true,name=page"`
-	PageSize *int64                `queryParam:"style=form,explode=true,name=page_size"`
+	// Page number
+	Page *int64 `default:"1" queryParam:"style=form,explode=true,name=page"`
+	// Number of items per page
+	PageSize *int64 `default:"100" queryParam:"style=form,explode=true,name=page_size"`
 }
 
 func (l ListProjectsRequest) MarshalJSON() ([]byte, error) {
@@ -93,7 +95,7 @@ func (l *ListProjectsRequest) GetPageSize() *int64 {
 type ListProjectsResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// OK
-	PagedProjectSchema *components.PagedProjectSchema
+	PagedProject *components.PagedProject
 }
 
 func (l *ListProjectsResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -103,9 +105,9 @@ func (l *ListProjectsResponse) GetHTTPMeta() components.HTTPMetadata {
 	return l.HTTPMeta
 }
 
-func (l *ListProjectsResponse) GetPagedProjectSchema() *components.PagedProjectSchema {
+func (l *ListProjectsResponse) GetPagedProject() *components.PagedProject {
 	if l == nil {
 		return nil
 	}
-	return l.PagedProjectSchema
+	return l.PagedProject
 }

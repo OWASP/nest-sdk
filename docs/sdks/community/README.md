@@ -41,7 +41,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    if res.PagedMemberSchema != nil {
+    if res.PagedMember != nil {
         // handle response
     }
 }
@@ -93,7 +93,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    if res.MemberSchema != nil {
+    if res.MemberDetail != nil {
         // handle response
     }
 }
@@ -113,10 +113,10 @@ func main() {
 
 ### Errors
 
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| apierrors.MemberErrorResponse | 404                           | application/json              |
-| apierrors.NestAPIError        | 4XX, 5XX                      | \*/\*                         |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| apierrors.MemberError  | 404                    | application/json       |
+| apierrors.NestAPIError | 4XX, 5XX               | \*/\*                  |
 
 ## ListOrganizations
 
@@ -142,11 +142,11 @@ func main() {
         nest.WithSecurity(os.Getenv("NEST_API_KEY")),
     )
 
-    res, err := s.Community.ListOrganizations(ctx, nest.Pointer("United States of America"), nil, nest.Pointer[int64](1), nil)
+    res, err := s.Community.ListOrganizations(ctx, nest.Pointer("United States of America"), nil, nest.Pointer[int64](1), nest.Pointer[int64](100))
     if err != nil {
         log.Fatal(err)
     }
-    if res.PagedOrganizationSchema != nil {
+    if res.PagedOrganization != nil {
         // handle response
     }
 }
@@ -159,8 +159,8 @@ func main() {
 | `ctx`                                                                                         | [context.Context](https://pkg.go.dev/context#Context)                                         | :heavy_check_mark:                                                                            | The context to use for the request.                                                           |                                                                                               |
 | `location`                                                                                    | **string*                                                                                     | :heavy_minus_sign:                                                                            | Location of the organization                                                                  | United States of America                                                                      |
 | `ordering`                                                                                    | [*operations.ListOrganizationsOrdering](../../models/operations/listorganizationsordering.md) | :heavy_minus_sign:                                                                            | Ordering field                                                                                |                                                                                               |
-| `page`                                                                                        | **int64*                                                                                      | :heavy_minus_sign:                                                                            | N/A                                                                                           |                                                                                               |
-| `pageSize`                                                                                    | **int64*                                                                                      | :heavy_minus_sign:                                                                            | N/A                                                                                           |                                                                                               |
+| `page`                                                                                        | **int64*                                                                                      | :heavy_minus_sign:                                                                            | Page number                                                                                   |                                                                                               |
+| `pageSize`                                                                                    | **int64*                                                                                      | :heavy_minus_sign:                                                                            | Number of items per page                                                                      |                                                                                               |
 | `opts`                                                                                        | [][operations.Option](../../models/operations/option.md)                                      | :heavy_minus_sign:                                                                            | The options for this request.                                                                 |                                                                                               |
 
 ### Response
@@ -201,7 +201,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    if res.OrganizationSchema != nil {
+    if res.OrganizationDetail != nil {
         // handle response
     }
 }
@@ -221,7 +221,7 @@ func main() {
 
 ### Errors
 
-| Error Type                          | Status Code                         | Content Type                        |
-| ----------------------------------- | ----------------------------------- | ----------------------------------- |
-| apierrors.OrganizationErrorResponse | 404                                 | application/json                    |
-| apierrors.NestAPIError              | 4XX, 5XX                            | \*/\*                               |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| apierrors.OrganizationError | 404                         | application/json            |
+| apierrors.NestAPIError      | 4XX, 5XX                    | \*/\*                       |
