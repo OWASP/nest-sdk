@@ -45,8 +45,10 @@ func (e *ListCommitteesOrdering) UnmarshalJSON(data []byte) error {
 type ListCommitteesRequest struct {
 	// Ordering field
 	Ordering *ListCommitteesOrdering `queryParam:"style=form,explode=true,name=ordering"`
-	Page     *int64                  `default:"1" queryParam:"style=form,explode=true,name=page"`
-	PageSize *int64                  `queryParam:"style=form,explode=true,name=page_size"`
+	// Page number
+	Page *int64 `default:"1" queryParam:"style=form,explode=true,name=page"`
+	// Number of items per page
+	PageSize *int64 `default:"100" queryParam:"style=form,explode=true,name=page_size"`
 }
 
 func (l ListCommitteesRequest) MarshalJSON() ([]byte, error) {
@@ -84,7 +86,7 @@ func (l *ListCommitteesRequest) GetPageSize() *int64 {
 type ListCommitteesResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// OK
-	PagedCommitteeSchema *components.PagedCommitteeSchema
+	PagedCommittee *components.PagedCommittee
 }
 
 func (l *ListCommitteesResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -94,9 +96,9 @@ func (l *ListCommitteesResponse) GetHTTPMeta() components.HTTPMetadata {
 	return l.HTTPMeta
 }
 
-func (l *ListCommitteesResponse) GetPagedCommitteeSchema() *components.PagedCommitteeSchema {
+func (l *ListCommitteesResponse) GetPagedCommittee() *components.PagedCommittee {
 	if l == nil {
 		return nil
 	}
-	return l.PagedCommitteeSchema
+	return l.PagedCommittee
 }

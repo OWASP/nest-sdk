@@ -49,8 +49,10 @@ type ListMembersRequest struct {
 	Location *string `queryParam:"style=form,explode=true,name=location"`
 	// Ordering field
 	Ordering *ListMembersOrdering `queryParam:"style=form,explode=true,name=ordering"`
-	Page     *int64               `default:"1" queryParam:"style=form,explode=true,name=page"`
-	PageSize *int64               `queryParam:"style=form,explode=true,name=page_size"`
+	// Page number
+	Page *int64 `default:"1" queryParam:"style=form,explode=true,name=page"`
+	// Number of items per page
+	PageSize *int64 `default:"100" queryParam:"style=form,explode=true,name=page_size"`
 }
 
 func (l ListMembersRequest) MarshalJSON() ([]byte, error) {
@@ -102,7 +104,7 @@ func (l *ListMembersRequest) GetPageSize() *int64 {
 type ListMembersResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// OK
-	PagedMemberSchema *components.PagedMemberSchema
+	PagedMember *components.PagedMember
 }
 
 func (l *ListMembersResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -112,9 +114,9 @@ func (l *ListMembersResponse) GetHTTPMeta() components.HTTPMetadata {
 	return l.HTTPMeta
 }
 
-func (l *ListMembersResponse) GetPagedMemberSchema() *components.PagedMemberSchema {
+func (l *ListMembersResponse) GetPagedMember() *components.PagedMember {
 	if l == nil {
 		return nil
 	}
-	return l.PagedMemberSchema
+	return l.PagedMember
 }

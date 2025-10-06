@@ -45,12 +45,12 @@ func (e *ListChaptersOrdering) UnmarshalJSON(data []byte) error {
 type ListChaptersRequest struct {
 	// Country of the chapter
 	Country *string `queryParam:"style=form,explode=true,name=country"`
-	// Region of the chapter
-	Region *string `queryParam:"style=form,explode=true,name=region"`
 	// Ordering field
 	Ordering *ListChaptersOrdering `queryParam:"style=form,explode=true,name=ordering"`
-	Page     *int64                `default:"1" queryParam:"style=form,explode=true,name=page"`
-	PageSize *int64                `queryParam:"style=form,explode=true,name=page_size"`
+	// Page number
+	Page *int64 `default:"1" queryParam:"style=form,explode=true,name=page"`
+	// Number of items per page
+	PageSize *int64 `default:"100" queryParam:"style=form,explode=true,name=page_size"`
 }
 
 func (l ListChaptersRequest) MarshalJSON() ([]byte, error) {
@@ -69,13 +69,6 @@ func (l *ListChaptersRequest) GetCountry() *string {
 		return nil
 	}
 	return l.Country
-}
-
-func (l *ListChaptersRequest) GetRegion() *string {
-	if l == nil {
-		return nil
-	}
-	return l.Region
 }
 
 func (l *ListChaptersRequest) GetOrdering() *ListChaptersOrdering {
@@ -102,7 +95,7 @@ func (l *ListChaptersRequest) GetPageSize() *int64 {
 type ListChaptersResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// OK
-	PagedChapterSchema *components.PagedChapterSchema
+	PagedChapter *components.PagedChapter
 }
 
 func (l *ListChaptersResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -112,9 +105,9 @@ func (l *ListChaptersResponse) GetHTTPMeta() components.HTTPMetadata {
 	return l.HTTPMeta
 }
 
-func (l *ListChaptersResponse) GetPagedChapterSchema() *components.PagedChapterSchema {
+func (l *ListChaptersResponse) GetPagedChapter() *components.PagedChapter {
 	if l == nil {
 		return nil
 	}
-	return l.PagedChapterSchema
+	return l.PagedChapter
 }

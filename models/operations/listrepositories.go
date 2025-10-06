@@ -43,10 +43,14 @@ func (e *ListRepositoriesOrdering) UnmarshalJSON(data []byte) error {
 }
 
 type ListRepositoriesRequest struct {
+	// Organization that repositories belong to
+	OrganizationID *string `queryParam:"style=form,explode=true,name=organization_id"`
 	// Ordering field
 	Ordering *ListRepositoriesOrdering `queryParam:"style=form,explode=true,name=ordering"`
-	Page     *int64                    `default:"1" queryParam:"style=form,explode=true,name=page"`
-	PageSize *int64                    `queryParam:"style=form,explode=true,name=page_size"`
+	// Page number
+	Page *int64 `default:"1" queryParam:"style=form,explode=true,name=page"`
+	// Number of items per page
+	PageSize *int64 `default:"100" queryParam:"style=form,explode=true,name=page_size"`
 }
 
 func (l ListRepositoriesRequest) MarshalJSON() ([]byte, error) {
@@ -58,6 +62,13 @@ func (l *ListRepositoriesRequest) UnmarshalJSON(data []byte) error {
 		return err
 	}
 	return nil
+}
+
+func (l *ListRepositoriesRequest) GetOrganizationID() *string {
+	if l == nil {
+		return nil
+	}
+	return l.OrganizationID
 }
 
 func (l *ListRepositoriesRequest) GetOrdering() *ListRepositoriesOrdering {
@@ -84,7 +95,7 @@ func (l *ListRepositoriesRequest) GetPageSize() *int64 {
 type ListRepositoriesResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// OK
-	PagedRepositorySchema *components.PagedRepositorySchema
+	PagedRepository *components.PagedRepository
 }
 
 func (l *ListRepositoriesResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -94,9 +105,9 @@ func (l *ListRepositoriesResponse) GetHTTPMeta() components.HTTPMetadata {
 	return l.HTTPMeta
 }
 
-func (l *ListRepositoriesResponse) GetPagedRepositorySchema() *components.PagedRepositorySchema {
+func (l *ListRepositoriesResponse) GetPagedRepository() *components.PagedRepository {
 	if l == nil {
 		return nil
 	}
-	return l.PagedRepositorySchema
+	return l.PagedRepository
 }

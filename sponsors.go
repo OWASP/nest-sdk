@@ -203,12 +203,12 @@ func (s *Sponsors) ListSponsors(ctx context.Context, request operations.ListSpon
 				return nil, err
 			}
 
-			var out components.PagedSponsorSchema
+			var out components.PagedSponsor
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.PagedSponsorSchema = &out
+			res.PagedSponsor = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -242,9 +242,9 @@ func (s *Sponsors) ListSponsors(ctx context.Context, request operations.ListSpon
 
 // GetSponsor - Get sponsor
 // Retrieve a sponsor details.
-func (s *Sponsors) GetSponsor(ctx context.Context, sponsorKey string, opts ...operations.Option) (*operations.GetSponsorResponse, error) {
+func (s *Sponsors) GetSponsor(ctx context.Context, sponsorID string, opts ...operations.Option) (*operations.GetSponsorResponse, error) {
 	request := operations.GetSponsorRequest{
-		SponsorKey: sponsorKey,
+		SponsorID: sponsorID,
 	}
 
 	o := operations.Options{}
@@ -265,7 +265,7 @@ func (s *Sponsors) GetSponsor(ctx context.Context, sponsorKey string, opts ...op
 	} else {
 		baseURL = *o.ServerURL
 	}
-	opURL, err := utils.GenerateURL(ctx, baseURL, "/api/v0/sponsors/{sponsor_key}", request, nil)
+	opURL, err := utils.GenerateURL(ctx, baseURL, "/api/v0/sponsors/{sponsor_id}", request, nil)
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
@@ -412,12 +412,12 @@ func (s *Sponsors) GetSponsor(ctx context.Context, sponsorKey string, opts ...op
 				return nil, err
 			}
 
-			var out components.SponsorSchema
+			var out components.SponsorDetail
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.SponsorSchema = &out
+			res.SponsorDetail = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -433,7 +433,7 @@ func (s *Sponsors) GetSponsor(ctx context.Context, sponsorKey string, opts ...op
 				return nil, err
 			}
 
-			var out apierrors.SponsorErrorResponse
+			var out apierrors.SponsorError
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}

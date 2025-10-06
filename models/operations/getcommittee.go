@@ -20,7 +20,7 @@ func (g *GetCommitteeRequest) GetCommitteeID() string {
 type GetCommitteeResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// OK
-	CommitteeSchema *components.CommitteeSchema
+	CommitteeDetail *components.CommitteeDetail
 }
 
 func (g *GetCommitteeResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -30,9 +30,9 @@ func (g *GetCommitteeResponse) GetHTTPMeta() components.HTTPMetadata {
 	return g.HTTPMeta
 }
 
-func (g *GetCommitteeResponse) GetCommitteeSchema() *components.CommitteeSchema {
+func (g *GetCommitteeResponse) GetCommitteeDetail() *components.CommitteeDetail {
 	if g == nil {
 		return nil
 	}
-	return g.CommitteeSchema
+	return g.CommitteeDetail
 }

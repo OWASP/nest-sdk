@@ -22,7 +22,6 @@ import(
 	"context"
 	"os"
 	nest "github.com/owasp/nest-sdk"
-	"github.com/owasp/nest-sdk/models/operations"
 	"log"
 )
 
@@ -33,14 +32,11 @@ func main() {
         nest.WithSecurity(os.Getenv("NEST_API_KEY")),
     )
 
-    res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
-        Country: nest.Pointer("India"),
-        Region: nest.Pointer("Asia"),
-    })
+    res, err := s.Chapters.ListChapters(ctx, nest.Pointer("India"), nil, nest.Pointer[int64](1), nest.Pointer[int64](100))
     if err != nil {
         log.Fatal(err)
     }
-    if res.PagedChapterSchema != nil {
+    if res.PagedChapter != nil {
         // handle response
     }
 }
@@ -48,11 +44,14 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
-| `request`                                                                        | [operations.ListChaptersRequest](../../models/operations/listchaptersrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `opts`                                                                           | [][operations.Option](../../models/operations/option.md)                         | :heavy_minus_sign:                                                               | The options for this request.                                                    |
+| Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `ctx`                                                                               | [context.Context](https://pkg.go.dev/context#Context)                               | :heavy_check_mark:                                                                  | The context to use for the request.                                                 |
+| `country`                                                                           | **string*                                                                           | :heavy_minus_sign:                                                                  | Country of the chapter                                                              |
+| `ordering`                                                                          | [*operations.ListChaptersOrdering](../../models/operations/listchaptersordering.md) | :heavy_minus_sign:                                                                  | Ordering field                                                                      |
+| `page`                                                                              | **int64*                                                                            | :heavy_minus_sign:                                                                  | Page number                                                                         |
+| `pageSize`                                                                          | **int64*                                                                            | :heavy_minus_sign:                                                                  | Number of items per page                                                            |
+| `opts`                                                                              | [][operations.Option](../../models/operations/option.md)                            | :heavy_minus_sign:                                                                  | The options for this request.                                                       |
 
 ### Response
 
@@ -92,7 +91,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    if res.ChapterSchema != nil {
+    if res.ChapterDetail != nil {
         // handle response
     }
 }
@@ -112,7 +111,7 @@ func main() {
 
 ### Errors
 
-| Error Type                     | Status Code                    | Content Type                   |
-| ------------------------------ | ------------------------------ | ------------------------------ |
-| apierrors.ChapterErrorResponse | 404                            | application/json               |
-| apierrors.NestAPIError         | 4XX, 5XX                       | \*/\*                          |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| apierrors.ChapterError | 404                    | application/json       |
+| apierrors.NestAPIError | 4XX, 5XX               | \*/\*                  |

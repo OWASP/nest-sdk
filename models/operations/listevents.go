@@ -45,8 +45,10 @@ func (e *ListEventsOrdering) UnmarshalJSON(data []byte) error {
 type ListEventsRequest struct {
 	// Ordering field
 	Ordering *ListEventsOrdering `queryParam:"style=form,explode=true,name=ordering"`
-	Page     *int64              `default:"1" queryParam:"style=form,explode=true,name=page"`
-	PageSize *int64              `queryParam:"style=form,explode=true,name=page_size"`
+	// Page number
+	Page *int64 `default:"1" queryParam:"style=form,explode=true,name=page"`
+	// Number of items per page
+	PageSize *int64 `default:"100" queryParam:"style=form,explode=true,name=page_size"`
 }
 
 func (l ListEventsRequest) MarshalJSON() ([]byte, error) {
@@ -84,7 +86,7 @@ func (l *ListEventsRequest) GetPageSize() *int64 {
 type ListEventsResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// OK
-	PagedEventSchema *components.PagedEventSchema
+	PagedEvent *components.PagedEvent
 }
 
 func (l *ListEventsResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -94,9 +96,9 @@ func (l *ListEventsResponse) GetHTTPMeta() components.HTTPMetadata {
 	return l.HTTPMeta
 }
 
-func (l *ListEventsResponse) GetPagedEventSchema() *components.PagedEventSchema {
+func (l *ListEventsResponse) GetPagedEvent() *components.PagedEvent {
 	if l == nil {
 		return nil
 	}
-	return l.PagedEventSchema
+	return l.PagedEvent
 }

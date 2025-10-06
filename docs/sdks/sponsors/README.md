@@ -39,7 +39,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    if res.PagedSponsorSchema != nil {
+    if res.PagedSponsor != nil {
         // handle response
     }
 }
@@ -69,7 +69,7 @@ Retrieve a sponsor details.
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="get_sponsor" method="get" path="/api/v0/sponsors/{sponsor_key}" -->
+<!-- UsageSnippet language="go" operationID="get_sponsor" method="get" path="/api/v0/sponsors/{sponsor_id}" -->
 ```go
 package main
 
@@ -91,7 +91,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    if res.SponsorSchema != nil {
+    if res.SponsorDetail != nil {
         // handle response
     }
 }
@@ -102,7 +102,7 @@ func main() {
 | Parameter                                                | Type                                                     | Required                                                 | Description                                              | Example                                                  |
 | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
 | `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |                                                          |
-| `sponsorKey`                                             | *string*                                                 | :heavy_check_mark:                                       | N/A                                                      | adobe                                                    |
+| `sponsorID`                                              | *string*                                                 | :heavy_check_mark:                                       | N/A                                                      | adobe                                                    |
 | `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |                                                          |
 
 ### Response
@@ -111,7 +111,7 @@ func main() {
 
 ### Errors
 
-| Error Type                     | Status Code                    | Content Type                   |
-| ------------------------------ | ------------------------------ | ------------------------------ |
-| apierrors.SponsorErrorResponse | 404                            | application/json               |
-| apierrors.NestAPIError         | 4XX, 5XX                       | \*/\*                          |
+| Error Type             | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| apierrors.SponsorError | 404                    | application/json       |
+| apierrors.NestAPIError | 4XX, 5XX               | \*/\*                  |

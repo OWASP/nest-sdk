@@ -53,7 +53,6 @@ package main
 import (
 	"context"
 	nest "github.com/owasp/nest-sdk"
-	"github.com/owasp/nest-sdk/models/operations"
 	"log"
 	"os"
 )
@@ -65,14 +64,11 @@ func main() {
 		nest.WithSecurity(os.Getenv("NEST_API_KEY")),
 	)
 
-	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
-		Country: nest.Pointer("India"),
-		Region:  nest.Pointer("Asia"),
-	})
+	res, err := s.Chapters.ListChapters(ctx, nest.Pointer("India"), nil, nest.Pointer[int64](1), nest.Pointer[int64](100))
 	if err != nil {
 		log.Fatal(err)
 	}
-	if res.PagedChapterSchema != nil {
+	if res.PagedChapter != nil {
 		// handle response
 	}
 }
@@ -98,7 +94,6 @@ package main
 import (
 	"context"
 	nest "github.com/owasp/nest-sdk"
-	"github.com/owasp/nest-sdk/models/operations"
 	"log"
 	"os"
 )
@@ -110,14 +105,11 @@ func main() {
 		nest.WithSecurity(os.Getenv("NEST_API_KEY")),
 	)
 
-	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
-		Country: nest.Pointer("India"),
-		Region:  nest.Pointer("Asia"),
-	})
+	res, err := s.Chapters.ListChapters(ctx, nest.Pointer("India"), nil, nest.Pointer[int64](1), nest.Pointer[int64](100))
 	if err != nil {
 		log.Fatal(err)
 	}
-	if res.PagedChapterSchema != nil {
+	if res.PagedChapter != nil {
 		// handle response
 	}
 }
@@ -151,10 +143,12 @@ func main() {
 ### [Events](docs/sdks/events/README.md)
 
 * [ListEvents](docs/sdks/events/README.md#listevents) - List events
+* [GetEvent](docs/sdks/events/README.md#getevent) - Get event
 
 ### [Issues](docs/sdks/issues/README.md)
 
 * [ListIssues](docs/sdks/issues/README.md#listissues) - List issues
+* [GetIssue](docs/sdks/issues/README.md#getissue) - Get issue
 
 
 ### [Projects](docs/sdks/projects/README.md)
@@ -165,10 +159,12 @@ func main() {
 ### [Releases](docs/sdks/releases/README.md)
 
 * [ListReleases](docs/sdks/releases/README.md#listreleases) - List releases
+* [GetRelease](docs/sdks/releases/README.md#getrelease) - Get release
 
 ### [Repositories](docs/sdks/repositories/README.md)
 
 * [ListRepositories](docs/sdks/repositories/README.md#listrepositories) - List repositories
+* [GetRepository](docs/sdks/repositories/README.md#getrepository) - Get repository
 
 ### [Sponsors](docs/sdks/sponsors/README.md)
 
@@ -190,7 +186,6 @@ package main
 import (
 	"context"
 	nest "github.com/owasp/nest-sdk"
-	"github.com/owasp/nest-sdk/models/operations"
 	"github.com/owasp/nest-sdk/retry"
 	"log"
 	"models/operations"
@@ -204,10 +199,7 @@ func main() {
 		nest.WithSecurity(os.Getenv("NEST_API_KEY")),
 	)
 
-	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
-		Country: nest.Pointer("India"),
-		Region:  nest.Pointer("Asia"),
-	}, operations.WithRetries(
+	res, err := s.Chapters.ListChapters(ctx, nest.Pointer("India"), nil, nest.Pointer[int64](1), nest.Pointer[int64](100), operations.WithRetries(
 		retry.Config{
 			Strategy: "backoff",
 			Backoff: &retry.BackoffStrategy{
@@ -221,7 +213,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	if res.PagedChapterSchema != nil {
+	if res.PagedChapter != nil {
 		// handle response
 	}
 }
@@ -235,7 +227,6 @@ package main
 import (
 	"context"
 	nest "github.com/owasp/nest-sdk"
-	"github.com/owasp/nest-sdk/models/operations"
 	"github.com/owasp/nest-sdk/retry"
 	"log"
 	"os"
@@ -259,14 +250,11 @@ func main() {
 		nest.WithSecurity(os.Getenv("NEST_API_KEY")),
 	)
 
-	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
-		Country: nest.Pointer("India"),
-		Region:  nest.Pointer("Asia"),
-	})
+	res, err := s.Chapters.ListChapters(ctx, nest.Pointer("India"), nil, nest.Pointer[int64](1), nest.Pointer[int64](100))
 	if err != nil {
 		log.Fatal(err)
 	}
-	if res.PagedChapterSchema != nil {
+	if res.PagedChapter != nil {
 		// handle response
 	}
 }
@@ -283,10 +271,10 @@ By Default, an API error will return `apierrors.NestAPIError`. When custom error
 
 For example, the `GetChapter` function may return the following errors:
 
-| Error Type                     | Status Code | Content Type     |
-| ------------------------------ | ----------- | ---------------- |
-| apierrors.ChapterErrorResponse | 404         | application/json |
-| apierrors.NestAPIError         | 4XX, 5XX    | \*/\*            |
+| Error Type             | Status Code | Content Type     |
+| ---------------------- | ----------- | ---------------- |
+| apierrors.ChapterError | 404         | application/json |
+| apierrors.NestAPIError | 4XX, 5XX    | \*/\*            |
 
 ### Example
 
@@ -312,7 +300,7 @@ func main() {
 	res, err := s.Chapters.GetChapter(ctx, "London")
 	if err != nil {
 
-		var e *apierrors.ChapterErrorResponse
+		var e *apierrors.ChapterError
 		if errors.As(err, &e) {
 			// handle error
 			log.Fatal(e.Error())
@@ -341,7 +329,6 @@ package main
 import (
 	"context"
 	nest "github.com/owasp/nest-sdk"
-	"github.com/owasp/nest-sdk/models/operations"
 	"log"
 	"os"
 )
@@ -354,14 +341,11 @@ func main() {
 		nest.WithSecurity(os.Getenv("NEST_API_KEY")),
 	)
 
-	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
-		Country: nest.Pointer("India"),
-		Region:  nest.Pointer("Asia"),
-	})
+	res, err := s.Chapters.ListChapters(ctx, nest.Pointer("India"), nil, nest.Pointer[int64](1), nest.Pointer[int64](100))
 	if err != nil {
 		log.Fatal(err)
 	}
-	if res.PagedChapterSchema != nil {
+	if res.PagedChapter != nil {
 		// handle response
 	}
 }

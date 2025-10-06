@@ -43,12 +43,18 @@ func (e *ListReleasesOrdering) UnmarshalJSON(data []byte) error {
 }
 
 type ListReleasesRequest struct {
+	// Organization that releases belong to (filtered by repository owner)
+	Organization *string `queryParam:"style=form,explode=true,name=organization"`
+	// Repository that releases belong to
+	Repository *string `queryParam:"style=form,explode=true,name=repository"`
 	// Tag name of the release
 	TagName *string `queryParam:"style=form,explode=true,name=tag_name"`
 	// Ordering field
 	Ordering *ListReleasesOrdering `queryParam:"style=form,explode=true,name=ordering"`
-	Page     *int64                `default:"1" queryParam:"style=form,explode=true,name=page"`
-	PageSize *int64                `queryParam:"style=form,explode=true,name=page_size"`
+	// Page number
+	Page *int64 `default:"1" queryParam:"style=form,explode=true,name=page"`
+	// Number of items per page
+	PageSize *int64 `default:"100" queryParam:"style=form,explode=true,name=page_size"`
 }
 
 func (l ListReleasesRequest) MarshalJSON() ([]byte, error) {
@@ -60,6 +66,20 @@ func (l *ListReleasesRequest) UnmarshalJSON(data []byte) error {
 		return err
 	}
 	return nil
+}
+
+func (l *ListReleasesRequest) GetOrganization() *string {
+	if l == nil {
+		return nil
+	}
+	return l.Organization
+}
+
+func (l *ListReleasesRequest) GetRepository() *string {
+	if l == nil {
+		return nil
+	}
+	return l.Repository
 }
 
 func (l *ListReleasesRequest) GetTagName() *string {
@@ -93,7 +113,7 @@ func (l *ListReleasesRequest) GetPageSize() *int64 {
 type ListReleasesResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// OK
-	PagedReleaseSchema *components.PagedReleaseSchema
+	PagedRelease *components.PagedRelease
 }
 
 func (l *ListReleasesResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -103,9 +123,9 @@ func (l *ListReleasesResponse) GetHTTPMeta() components.HTTPMetadata {
 	return l.HTTPMeta
 }
 
-func (l *ListReleasesResponse) GetPagedReleaseSchema() *components.PagedReleaseSchema {
+func (l *ListReleasesResponse) GetPagedRelease() *components.PagedRelease {
 	if l == nil {
 		return nil
 	}
-	return l.PagedReleaseSchema
+	return l.PagedRelease
 }
