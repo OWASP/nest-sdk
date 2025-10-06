@@ -45,8 +45,10 @@ type ListSponsorsRequest struct {
 	SponsorType *string `queryParam:"style=form,explode=true,name=sponsor_type"`
 	// Ordering field
 	Ordering *ListSponsorsOrdering `queryParam:"style=form,explode=true,name=ordering"`
-	Page     *int64                `default:"1" queryParam:"style=form,explode=true,name=page"`
-	PageSize *int64                `queryParam:"style=form,explode=true,name=page_size"`
+	// Page number
+	Page *int64 `default:"1" queryParam:"style=form,explode=true,name=page"`
+	// Number of items per page
+	PageSize *int64 `default:"100" queryParam:"style=form,explode=true,name=page_size"`
 }
 
 func (l ListSponsorsRequest) MarshalJSON() ([]byte, error) {
@@ -105,7 +107,7 @@ func (l *ListSponsorsRequest) GetPageSize() *int64 {
 type ListSponsorsResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// OK
-	PagedSponsorSchema *components.PagedSponsorSchema
+	PagedSponsor *components.PagedSponsor
 }
 
 func (l *ListSponsorsResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -115,9 +117,9 @@ func (l *ListSponsorsResponse) GetHTTPMeta() components.HTTPMetadata {
 	return l.HTTPMeta
 }
 
-func (l *ListSponsorsResponse) GetPagedSponsorSchema() *components.PagedSponsorSchema {
+func (l *ListSponsorsResponse) GetPagedSponsor() *components.PagedSponsor {
 	if l == nil {
 		return nil
 	}
-	return l.PagedSponsorSchema
+	return l.PagedSponsor
 }

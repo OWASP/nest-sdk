@@ -43,12 +43,18 @@ func (e *ListIssuesOrdering) UnmarshalJSON(data []byte) error {
 }
 
 type ListIssuesRequest struct {
-	// State of the issue
+	// Organization that issues belong to (filtered by repository owner)
+	Organization *string `queryParam:"style=form,explode=true,name=organization"`
+	// Repository that issues belong to
+	Repository *string `queryParam:"style=form,explode=true,name=repository"`
+	// Issue state
 	State *components.State `queryParam:"style=form,explode=true,name=state"`
 	// Ordering field
 	Ordering *ListIssuesOrdering `queryParam:"style=form,explode=true,name=ordering"`
-	Page     *int64              `default:"1" queryParam:"style=form,explode=true,name=page"`
-	PageSize *int64              `queryParam:"style=form,explode=true,name=page_size"`
+	// Page number
+	Page *int64 `default:"1" queryParam:"style=form,explode=true,name=page"`
+	// Number of items per page
+	PageSize *int64 `default:"100" queryParam:"style=form,explode=true,name=page_size"`
 }
 
 func (l ListIssuesRequest) MarshalJSON() ([]byte, error) {
@@ -60,6 +66,20 @@ func (l *ListIssuesRequest) UnmarshalJSON(data []byte) error {
 		return err
 	}
 	return nil
+}
+
+func (l *ListIssuesRequest) GetOrganization() *string {
+	if l == nil {
+		return nil
+	}
+	return l.Organization
+}
+
+func (l *ListIssuesRequest) GetRepository() *string {
+	if l == nil {
+		return nil
+	}
+	return l.Repository
 }
 
 func (l *ListIssuesRequest) GetState() *components.State {
@@ -93,7 +113,7 @@ func (l *ListIssuesRequest) GetPageSize() *int64 {
 type ListIssuesResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// OK
-	PagedIssueSchema *components.PagedIssueSchema
+	PagedIssue *components.PagedIssue
 }
 
 func (l *ListIssuesResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -103,9 +123,9 @@ func (l *ListIssuesResponse) GetHTTPMeta() components.HTTPMetadata {
 	return l.HTTPMeta
 }
 
-func (l *ListIssuesResponse) GetPagedIssueSchema() *components.PagedIssueSchema {
+func (l *ListIssuesResponse) GetPagedIssue() *components.PagedIssue {
 	if l == nil {
 		return nil
 	}
-	return l.PagedIssueSchema
+	return l.PagedIssue
 }

@@ -210,12 +210,12 @@ func (s *Projects) ListProjects(ctx context.Context, level *components.ProjectLe
 				return nil, err
 			}
 
-			var out components.PagedProjectSchema
+			var out components.PagedProject
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.PagedProjectSchema = &out
+			res.PagedProject = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -419,12 +419,12 @@ func (s *Projects) GetProject(ctx context.Context, projectID string, opts ...ope
 				return nil, err
 			}
 
-			var out components.ProjectSchema
+			var out components.ProjectDetail
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.ProjectSchema = &out
+			res.ProjectDetail = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -440,7 +440,7 @@ func (s *Projects) GetProject(ctx context.Context, projectID string, opts ...ope
 				return nil, err
 			}
 
-			var out apierrors.ProjectErrorResponse
+			var out apierrors.ProjectError
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}

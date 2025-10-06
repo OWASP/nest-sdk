@@ -47,8 +47,10 @@ type ListOrganizationsRequest struct {
 	Location *string `queryParam:"style=form,explode=true,name=location"`
 	// Ordering field
 	Ordering *ListOrganizationsOrdering `queryParam:"style=form,explode=true,name=ordering"`
-	Page     *int64                     `default:"1" queryParam:"style=form,explode=true,name=page"`
-	PageSize *int64                     `queryParam:"style=form,explode=true,name=page_size"`
+	// Page number
+	Page *int64 `default:"1" queryParam:"style=form,explode=true,name=page"`
+	// Number of items per page
+	PageSize *int64 `default:"100" queryParam:"style=form,explode=true,name=page_size"`
 }
 
 func (l ListOrganizationsRequest) MarshalJSON() ([]byte, error) {
@@ -93,7 +95,7 @@ func (l *ListOrganizationsRequest) GetPageSize() *int64 {
 type ListOrganizationsResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// OK
-	PagedOrganizationSchema *components.PagedOrganizationSchema
+	PagedOrganization *components.PagedOrganization
 }
 
 func (l *ListOrganizationsResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -103,9 +105,9 @@ func (l *ListOrganizationsResponse) GetHTTPMeta() components.HTTPMetadata {
 	return l.HTTPMeta
 }
 
-func (l *ListOrganizationsResponse) GetPagedOrganizationSchema() *components.PagedOrganizationSchema {
+func (l *ListOrganizationsResponse) GetPagedOrganization() *components.PagedOrganization {
 	if l == nil {
 		return nil
 	}
-	return l.PagedOrganizationSchema
+	return l.PagedOrganization
 }

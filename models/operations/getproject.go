@@ -20,7 +20,7 @@ func (g *GetProjectRequest) GetProjectID() string {
 type GetProjectResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// OK
-	ProjectSchema *components.ProjectSchema
+	ProjectDetail *components.ProjectDetail
 }
 
 func (g *GetProjectResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -30,9 +30,9 @@ func (g *GetProjectResponse) GetHTTPMeta() components.HTTPMetadata {
 	return g.HTTPMeta
 }
 
-func (g *GetProjectResponse) GetProjectSchema() *components.ProjectSchema {
+func (g *GetProjectResponse) GetProjectDetail() *components.ProjectDetail {
 	if g == nil {
 		return nil
 	}
-	return g.ProjectSchema
+	return g.ProjectDetail
 }

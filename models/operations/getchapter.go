@@ -20,7 +20,7 @@ func (g *GetChapterRequest) GetChapterID() string {
 type GetChapterResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// OK
-	ChapterSchema *components.ChapterSchema
+	ChapterDetail *components.ChapterDetail
 }
 
 func (g *GetChapterResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -30,9 +30,9 @@ func (g *GetChapterResponse) GetHTTPMeta() components.HTTPMetadata {
 	return g.HTTPMeta
 }
 
-func (g *GetChapterResponse) GetChapterSchema() *components.ChapterSchema {
+func (g *GetChapterResponse) GetChapterDetail() *components.ChapterDetail {
 	if g == nil {
 		return nil
 	}
-	return g.ChapterSchema
+	return g.ChapterDetail
 }

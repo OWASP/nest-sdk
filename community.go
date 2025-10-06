@@ -203,12 +203,12 @@ func (s *Community) ListMembers(ctx context.Context, request operations.ListMemb
 				return nil, err
 			}
 
-			var out components.PagedMemberSchema
+			var out components.PagedMember
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.PagedMemberSchema = &out
+			res.PagedMember = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -412,12 +412,12 @@ func (s *Community) GetMember(ctx context.Context, memberID string, opts ...oper
 				return nil, err
 			}
 
-			var out components.MemberSchema
+			var out components.MemberDetail
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.MemberSchema = &out
+			res.MemberDetail = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -433,7 +433,7 @@ func (s *Community) GetMember(ctx context.Context, memberID string, opts ...oper
 				return nil, err
 			}
 
-			var out apierrors.MemberErrorResponse
+			var out apierrors.MemberError
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
@@ -653,12 +653,12 @@ func (s *Community) ListOrganizations(ctx context.Context, location *string, ord
 				return nil, err
 			}
 
-			var out components.PagedOrganizationSchema
+			var out components.PagedOrganization
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.PagedOrganizationSchema = &out
+			res.PagedOrganization = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -862,12 +862,12 @@ func (s *Community) GetOrganization(ctx context.Context, organizationID string, 
 				return nil, err
 			}
 
-			var out components.OrganizationSchema
+			var out components.OrganizationDetail
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.OrganizationSchema = &out
+			res.OrganizationDetail = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -883,7 +883,7 @@ func (s *Community) GetOrganization(ctx context.Context, organizationID string, 
 				return nil, err
 			}
 
-			var out apierrors.OrganizationErrorResponse
+			var out apierrors.OrganizationError
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}

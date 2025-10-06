@@ -20,7 +20,7 @@ func (g *GetOrganizationRequest) GetOrganizationID() string {
 type GetOrganizationResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// OK
-	OrganizationSchema *components.OrganizationSchema
+	OrganizationDetail *components.OrganizationDetail
 }
 
 func (g *GetOrganizationResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -30,9 +30,9 @@ func (g *GetOrganizationResponse) GetHTTPMeta() components.HTTPMetadata {
 	return g.HTTPMeta
 }
 
-func (g *GetOrganizationResponse) GetOrganizationSchema() *components.OrganizationSchema {
+func (g *GetOrganizationResponse) GetOrganizationDetail() *components.OrganizationDetail {
 	if g == nil {
 		return nil
 	}
-	return g.OrganizationSchema
+	return g.OrganizationDetail
 }

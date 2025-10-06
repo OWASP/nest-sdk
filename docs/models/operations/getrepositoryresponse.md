@@ -1,0 +1,9 @@
+# GetRepositoryResponse
+
+
+## Fields
+
+| Field                                                                       | Type                                                                        | Required                                                                    | Description                                                                 |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                  | [components.HTTPMetadata](../../models/components/httpmetadata.md)          | :heavy_check_mark:                                                          | N/A                                                                         |
+| `RepositoryDetail`                                                          | [*components.RepositoryDetail](../../models/components/repositorydetail.md) | :heavy_minus_sign:                                                          | OK                                                                          |

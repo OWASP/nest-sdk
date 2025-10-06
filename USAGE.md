@@ -5,7 +5,6 @@ package main
 import (
 	"context"
 	nest "github.com/owasp/nest-sdk"
-	"github.com/owasp/nest-sdk/models/operations"
 	"log"
 	"os"
 )
@@ -17,14 +16,11 @@ func main() {
 		nest.WithSecurity(os.Getenv("NEST_API_KEY")),
 	)
 
-	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
-		Country: nest.Pointer("India"),
-		Region:  nest.Pointer("Asia"),
-	})
+	res, err := s.Chapters.ListChapters(ctx, nest.Pointer("India"), nil, nest.Pointer[int64](1), nest.Pointer[int64](100))
 	if err != nil {
 		log.Fatal(err)
 	}
-	if res.PagedChapterSchema != nil {
+	if res.PagedChapter != nil {
 		// handle response
 	}
 }

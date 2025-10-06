@@ -33,7 +33,14 @@ func newChapters(rootSDK *Nest, sdkConfig config.SDKConfiguration, hooks *hooks.
 
 // ListChapters - List chapters
 // Retrieve a paginated list of OWASP chapters.
-func (s *Chapters) ListChapters(ctx context.Context, request operations.ListChaptersRequest, opts ...operations.Option) (*operations.ListChaptersResponse, error) {
+func (s *Chapters) ListChapters(ctx context.Context, country *string, ordering *operations.ListChaptersOrdering, page *int64, pageSize *int64, opts ...operations.Option) (*operations.ListChaptersResponse, error) {
+	request := operations.ListChaptersRequest{
+		Country:  country,
+		Ordering: ordering,
+		Page:     page,
+		PageSize: pageSize,
+	}
+
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -203,12 +210,12 @@ func (s *Chapters) ListChapters(ctx context.Context, request operations.ListChap
 				return nil, err
 			}
 
-			var out components.PagedChapterSchema
+			var out components.PagedChapter
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.PagedChapterSchema = &out
+			res.PagedChapter = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -412,12 +419,12 @@ func (s *Chapters) GetChapter(ctx context.Context, chapterID string, opts ...ope
 				return nil, err
 			}
 
-			var out components.ChapterSchema
+			var out components.ChapterDetail
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.ChapterSchema = &out
+			res.ChapterDetail = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -433,7 +440,7 @@ func (s *Chapters) GetChapter(ctx context.Context, chapterID string, opts ...ope
 				return nil, err
 			}
 
-			var out apierrors.ChapterErrorResponse
+			var out apierrors.ChapterError
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}

@@ -7,20 +7,20 @@ import (
 )
 
 type GetSponsorRequest struct {
-	SponsorKey string `pathParam:"style=simple,explode=false,name=sponsor_key"`
+	SponsorID string `pathParam:"style=simple,explode=false,name=sponsor_id"`
 }
 
-func (g *GetSponsorRequest) GetSponsorKey() string {
+func (g *GetSponsorRequest) GetSponsorID() string {
 	if g == nil {
 		return ""
 	}
-	return g.SponsorKey
+	return g.SponsorID
 }
 
 type GetSponsorResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// OK
-	SponsorSchema *components.SponsorSchema
+	SponsorDetail *components.SponsorDetail
 }
 
 func (g *GetSponsorResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -30,9 +30,9 @@ func (g *GetSponsorResponse) GetHTTPMeta() components.HTTPMetadata {
 	return g.HTTPMeta
 }
 
-func (g *GetSponsorResponse) GetSponsorSchema() *components.SponsorSchema {
+func (g *GetSponsorResponse) GetSponsorDetail() *components.SponsorDetail {
 	if g == nil {
 		return nil
 	}
-	return g.SponsorSchema
+	return g.SponsorDetail
 }

@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 474e3505-9fbc-4c93-940d-6ce113ca53b0
 management:
-  docChecksum: 92255346d54a64df5a15aea90853a62e
-  docVersion: 0.2.3
-  speakeasyVersion: 1.621.0
-  generationVersion: 2.707.0
-  releaseVersion: 0.3.0
-  configChecksum: 1527f6c0c90b9c2284298eea1dea8c13
+  docChecksum: b8033b6e6d2e3355495677ccca5d5799
+  docVersion: 0.2.4
+  speakeasyVersion: 1.634.2
+  generationVersion: 2.721.3
+  releaseVersion: 0.2.4
+  configChecksum: 1839ec18b441eea8b94f4780c988010e
   repoURL: https://github.com/OWASP/nest-sdk.git
   installationURL: https://github.com/OWASP/nest-sdk
 features:
   go:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.11.0
+    core: 3.11.1
     defaultEnabledRetries: 0.2.0
     envVarSecurityUsage: 0.3.2
     flattening: 2.81.1
@@ -28,42 +28,60 @@ features:
     sdkHooks: 0.2.0
 generatedFiles:
   - .gitattributes
-  - /models/apierrors/chaptererrorresponse.go
-  - /models/apierrors/committeeerrorresponse.go
-  - /models/apierrors/membererrorresponse.go
-  - /models/apierrors/organizationerrorresponse.go
-  - /models/apierrors/projecterrorresponse.go
-  - /models/apierrors/sponsorerrorresponse.go
-  - /models/components/chapterschema.go
-  - /models/components/committeeschema.go
-  - /models/components/eventschema.go
+  - /models/apierrors/chaptererror.go
+  - /models/apierrors/committeeerror.go
+  - /models/apierrors/eventerror.go
+  - /models/apierrors/issueerror.go
+  - /models/apierrors/membererror.go
+  - /models/apierrors/organizationerror.go
+  - /models/apierrors/projecterror.go
+  - /models/apierrors/releaseerror.go
+  - /models/apierrors/repositoryerror.go
+  - /models/apierrors/sponsorerror.go
+  - /models/components/chapter.go
+  - /models/components/chapterdetail.go
+  - /models/components/committee.go
+  - /models/components/committeedetail.go
+  - /models/components/event.go
+  - /models/components/eventdetail.go
   - /models/components/httpmetadata.go
-  - /models/components/issueschema.go
-  - /models/components/memberschema.go
+  - /models/components/issue.go
+  - /models/components/issuedetail.go
+  - /models/components/member.go
+  - /models/components/memberdetail.go
   - /models/components/membertype.go
-  - /models/components/organizationschema.go
-  - /models/components/pagedchapterschema.go
-  - /models/components/pagedcommitteeschema.go
-  - /models/components/pagedeventschema.go
-  - /models/components/pagedissueschema.go
-  - /models/components/pagedmemberschema.go
-  - /models/components/pagedorganizationschema.go
-  - /models/components/pagedprojectschema.go
-  - /models/components/pagedreleaseschema.go
-  - /models/components/pagedrepositoryschema.go
-  - /models/components/pagedsponsorschema.go
+  - /models/components/organization.go
+  - /models/components/organizationdetail.go
+  - /models/components/pagedchapter.go
+  - /models/components/pagedcommittee.go
+  - /models/components/pagedevent.go
+  - /models/components/pagedissue.go
+  - /models/components/pagedmember.go
+  - /models/components/pagedorganization.go
+  - /models/components/pagedproject.go
+  - /models/components/pagedrelease.go
+  - /models/components/pagedrepository.go
+  - /models/components/pagedsponsor.go
+  - /models/components/project.go
+  - /models/components/projectdetail.go
   - /models/components/projectlevel.go
-  - /models/components/projectschema.go
-  - /models/components/releaseschema.go
-  - /models/components/repositoryschema.go
+  - /models/components/release.go
+  - /models/components/releasedetail.go
+  - /models/components/repository.go
+  - /models/components/repositorydetail.go
   - /models/components/security.go
-  - /models/components/sponsorschema.go
+  - /models/components/sponsor.go
+  - /models/components/sponsordetail.go
   - /models/components/state.go
   - /models/operations/getchapter.go
   - /models/operations/getcommittee.go
+  - /models/operations/getevent.go
+  - /models/operations/getissue.go
   - /models/operations/getmember.go
   - /models/operations/getorganization.go
   - /models/operations/getproject.go
+  - /models/operations/getrelease.go
+  - /models/operations/getrepository.go
   - /models/operations/getsponsor.go
   - /models/operations/listchapters.go
   - /models/operations/listcommittees.go
@@ -79,47 +97,69 @@ generatedFiles:
   - chapters.go
   - committees.go
   - community.go
-  - docs/models/apierrors/chaptererrorresponse.md
-  - docs/models/apierrors/committeeerrorresponse.md
-  - docs/models/apierrors/membererrorresponse.md
-  - docs/models/apierrors/organizationerrorresponse.md
-  - docs/models/apierrors/projecterrorresponse.md
-  - docs/models/apierrors/sponsorerrorresponse.md
-  - docs/models/components/chapterschema.md
-  - docs/models/components/committeeschema.md
-  - docs/models/components/eventschema.md
+  - docs/models/apierrors/chaptererror.md
+  - docs/models/apierrors/committeeerror.md
+  - docs/models/apierrors/eventerror.md
+  - docs/models/apierrors/issueerror.md
+  - docs/models/apierrors/membererror.md
+  - docs/models/apierrors/organizationerror.md
+  - docs/models/apierrors/projecterror.md
+  - docs/models/apierrors/releaseerror.md
+  - docs/models/apierrors/repositoryerror.md
+  - docs/models/apierrors/sponsorerror.md
+  - docs/models/components/chapter.md
+  - docs/models/components/chapterdetail.md
+  - docs/models/components/committee.md
+  - docs/models/components/committeedetail.md
+  - docs/models/components/event.md
+  - docs/models/components/eventdetail.md
   - docs/models/components/httpmetadata.md
-  - docs/models/components/issueschema.md
-  - docs/models/components/memberschema.md
+  - docs/models/components/issue.md
+  - docs/models/components/issuedetail.md
+  - docs/models/components/member.md
+  - docs/models/components/memberdetail.md
   - docs/models/components/membertype.md
-  - docs/models/components/organizationschema.md
-  - docs/models/components/pagedchapterschema.md
-  - docs/models/components/pagedcommitteeschema.md
-  - docs/models/components/pagedeventschema.md
-  - docs/models/components/pagedissueschema.md
-  - docs/models/components/pagedmemberschema.md
-  - docs/models/components/pagedorganizationschema.md
-  - docs/models/components/pagedprojectschema.md
-  - docs/models/components/pagedreleaseschema.md
-  - docs/models/components/pagedrepositoryschema.md
-  - docs/models/components/pagedsponsorschema.md
+  - docs/models/components/organization.md
+  - docs/models/components/organizationdetail.md
+  - docs/models/components/pagedchapter.md
+  - docs/models/components/pagedcommittee.md
+  - docs/models/components/pagedevent.md
+  - docs/models/components/pagedissue.md
+  - docs/models/components/pagedmember.md
+  - docs/models/components/pagedorganization.md
+  - docs/models/components/pagedproject.md
+  - docs/models/components/pagedrelease.md
+  - docs/models/components/pagedrepository.md
+  - docs/models/components/pagedsponsor.md
+  - docs/models/components/project.md
+  - docs/models/components/projectdetail.md
   - docs/models/components/projectlevel.md
-  - docs/models/components/projectschema.md
-  - docs/models/components/releaseschema.md
-  - docs/models/components/repositoryschema.md
+  - docs/models/components/release.md
+  - docs/models/components/releasedetail.md
+  - docs/models/components/repository.md
+  - docs/models/components/repositorydetail.md
   - docs/models/components/security.md
-  - docs/models/components/sponsorschema.md
+  - docs/models/components/sponsor.md
+  - docs/models/components/sponsordetail.md
   - docs/models/components/state.md
   - docs/models/operations/getchapterrequest.md
   - docs/models/operations/getchapterresponse.md
   - docs/models/operations/getcommitteerequest.md
   - docs/models/operations/getcommitteeresponse.md
+  - docs/models/operations/geteventrequest.md
+  - docs/models/operations/geteventresponse.md
+  - docs/models/operations/getissuerequest.md
+  - docs/models/operations/getissueresponse.md
   - docs/models/operations/getmemberrequest.md
   - docs/models/operations/getmemberresponse.md
   - docs/models/operations/getorganizationrequest.md
   - docs/models/operations/getorganizationresponse.md
   - docs/models/operations/getprojectrequest.md
   - docs/models/operations/getprojectresponse.md
+  - docs/models/operations/getreleaserequest.md
+  - docs/models/operations/getreleaseresponse.md
+  - docs/models/operations/getrepositoryrequest.md
+  - docs/models/operations/getrepositoryresponse.md
   - docs/models/operations/getsponsorrequest.md
   - docs/models/operations/getsponsorresponse.md
   - docs/models/operations/listchaptersordering.md
@@ -192,7 +232,6 @@ generatedFiles:
   - types/bigint.go
   - types/date.go
   - types/datetime.go
-  - types/decimal.go
   - types/pointers.go
 examples:
   list_chapters:
@@ -202,9 +241,10 @@ examples:
           country: "India"
           region: "Asia"
           page: 1
+          page_size: 100
       responses:
         "200":
-          application/json: {"items": [{"country": "Slovenia", "created_at": "2025-04-17T12:05:02.463Z", "name": "<value>", "region": "<value>", "updated_at": "2023-05-06T16:21:25.155Z"}], "count": 769051}
+          application/json: {"current_page": 816774, "has_next": false, "has_previous": false, "items": [{"created_at": "2025-04-17T12:05:02.463Z", "key": "<key>", "name": "<value>", "updated_at": "2023-05-06T16:21:25.155Z"}], "total_count": 114673, "total_pages": 769051}
   get_chapter:
     speakeasy-default-get-chapter:
       parameters:
@@ -213,7 +253,7 @@ examples:
           chapter_id: "London"
       responses:
         "200":
-          application/json: {"country": "Hungary", "created_at": "2024-10-15T07:48:29.830Z", "name": "<value>", "region": "<value>", "updated_at": "2023-12-24T21:08:33.483Z"}
+          application/json: {"created_at": "2024-10-15T07:48:29.830Z", "key": "<key>", "name": "<value>", "updated_at": "2023-12-24T21:08:33.483Z", "country": "Hungary", "region": "<value>"}
         "404":
           application/json: {"message": "<value>"}
   list_committees:
@@ -221,18 +261,20 @@ examples:
       parameters:
         query:
           page: 1
+          page_size: 100
       responses:
         "200":
-          application/json: {"items": [{"name": "<value>", "description": "boo per while sunbathe likewise yeast quizzically expansion eek", "created_at": "2025-03-16T20:29:18.773Z", "updated_at": "2023-06-13T22:21:50.847Z"}], "count": 288373}
+          application/json: {"current_page": 742813, "has_next": false, "has_previous": false, "items": [{"created_at": "2025-03-16T20:29:18.773Z", "key": "<key>", "name": "<value>", "updated_at": "2023-06-13T22:21:50.847Z"}], "total_count": 133051, "total_pages": 849699}
   list_members:
     speakeasy-default-list-members:
       parameters:
         query:
           location: "India"
           page: 1
+          page_size: 100
       responses:
         "200":
-          application/json: {"items": [{"avatar_url": "https://noxious-promise.info", "bio": "<value>", "company": "Schmeler and Sons", "created_at": "2023-10-11T15:28:15.365Z", "followers_count": 650853, "following_count": 788452, "location": "<value>", "login": "Emie.Jenkins79", "name": "<value>", "public_repositories_count": 740999, "title": "<value>", "twitter_username": "<value>", "updated_at": "2023-03-27T20:40:12.982Z", "url": "https://old-fashioned-provider.biz/"}], "count": 381744}
+          application/json: {"current_page": 778300, "has_next": false, "has_previous": false, "items": [{"avatar_url": "https://noxious-promise.info", "created_at": "2023-10-11T15:28:15.365Z", "login": "Emie.Jenkins79", "name": "<value>", "updated_at": "2023-03-27T20:40:12.982Z", "url": "https://old-fashioned-provider.biz/"}], "total_count": 712133, "total_pages": 432343}
   get_member:
     speakeasy-default-get-member:
       parameters:
@@ -241,7 +283,7 @@ examples:
           member_id: "OWASP"
       responses:
         "200":
-          application/json: {"avatar_url": "https://winged-help.net", "bio": "<value>", "company": "Jacobson and Sons", "created_at": "2024-03-25T14:53:31.200Z", "followers_count": 877273, "following_count": 836968, "location": "<value>", "login": "Rodolfo.Lindgren", "name": "<value>", "public_repositories_count": 289203, "title": "<value>", "twitter_username": "<value>", "updated_at": "2023-12-31T23:08:06.768Z", "url": "https://yummy-colon.org"}
+          application/json: {"avatar_url": "https://winged-help.net", "created_at": "2024-03-25T14:53:31.200Z", "login": "Rodolfo.Lindgren", "name": "<value>", "updated_at": "2023-12-31T23:08:06.768Z", "url": "https://yummy-colon.org", "bio": "<value>", "company": "Jacobson and Sons", "followers_count": 877273, "following_count": 836968, "location": "<value>", "public_repositories_count": 289203, "title": "<value>", "twitter_username": "<value>"}
         "404":
           application/json: {"message": "<value>"}
   list_organizations:
@@ -250,51 +292,62 @@ examples:
         query:
           location: "United States of America"
           page: 1
+          page_size: 100
       responses:
         "200":
-          application/json: {"items": [{"company": "Grady LLC", "created_at": "2025-12-31T23:31:01.740Z", "location": "<value>", "login": "Rosina11", "name": "<value>", "updated_at": "2024-09-05T17:30:42.265Z"}], "count": 150206}
+          application/json: {"current_page": 991769, "has_next": false, "has_previous": true, "items": [{"created_at": "2025-12-31T23:31:01.740Z", "login": "Rosina11", "name": "<value>", "updated_at": "2024-09-05T17:30:42.265Z"}], "total_count": 734125, "total_pages": 999982}
   list_events:
     speakeasy-default-list-events:
       parameters:
         query:
           page: 1
+          page_size: 100
       responses:
         "200":
-          application/json: {"items": [], "count": 957493}
+          application/json: {"current_page": 106909, "has_next": false, "has_previous": true, "items": [], "total_count": 286372, "total_pages": 191713}
   list_issues:
     speakeasy-default-list-issues:
       parameters:
         query:
           page: 1
+          organization: "OWASP"
+          repository: "Nest"
+          page_size: 100
       responses:
         "200":
-          application/json: {"items": [{"body": "<value>", "created_at": "2025-07-18T12:46:15.645Z", "title": "<value>", "state": "closed", "updated_at": "2023-02-19T06:46:47.973Z", "url": "https://victorious-glider.info"}], "count": 209946}
+          application/json: {"current_page": 951229, "has_next": false, "has_previous": false, "items": [{"created_at": "2025-07-18T12:46:15.645Z", "state": "closed", "title": "<value>", "updated_at": "2023-02-19T06:46:47.973Z", "url": "https://victorious-glider.info"}], "total_count": 44965, "total_pages": 988954}
   list_projects:
     speakeasy-default-list-projects:
       parameters:
         query:
           page: 1
           ordering: "-created_at"
+          page_size: 100
       responses:
         "200":
-          application/json: {"items": [], "count": 820243}
+          application/json: {"current_page": 114958, "has_next": false, "has_previous": false, "items": [], "total_count": 161835, "total_pages": 836183}
   list_releases:
     speakeasy-default-list-releases:
       parameters:
         query:
-          tag_name: "v1.0.0"
+          tag_name: "0.2.10"
           page: 1
+          organization: "OWASP"
+          repository: "Nest"
+          page_size: 100
       responses:
         "200":
-          application/json: {"items": [], "count": 732904}
+          application/json: {"current_page": 44000, "has_next": false, "has_previous": false, "items": [], "total_count": 929674, "total_pages": 152001}
   list_repositories:
     speakeasy-default-list-repositories:
       parameters:
         query:
           page: 1
+          organization_id: "OWASP"
+          page_size: 100
       responses:
         "200":
-          application/json: {"items": [], "count": 331323}
+          application/json: {"current_page": 189078, "has_next": true, "has_previous": true, "items": [], "total_count": 519035, "total_pages": 490901}
   apps_api_rest_v0_chapter_list_chapters:
     speakeasy-default-apps-api-rest-v0-chapter-list-chapters:
       parameters:
@@ -386,7 +439,7 @@ examples:
           committee_id: "project"
       responses:
         "200":
-          application/json: {"name": "<value>", "description": "phew regal hoarse what tedious pharmacopoeia stealthily disadvantage emergent at", "created_at": "2024-10-26T15:58:22.888Z", "updated_at": "2024-10-23T09:23:37.658Z"}
+          application/json: {"created_at": "2024-10-26T15:58:22.888Z", "key": "<key>", "name": "<value>", "updated_at": "2024-10-23T09:23:37.658Z", "description": "phew regal hoarse what tedious pharmacopoeia stealthily disadvantage emergent at"}
         "404":
           application/json: {"message": "<value>"}
   get_organization:
@@ -396,7 +449,7 @@ examples:
           organization_id: "OWASP"
       responses:
         "200":
-          application/json: {"company": "Padberg - Hettinger", "created_at": "2025-12-12T04:28:03.547Z", "location": "<value>", "login": "Alessandra_Beer", "name": "<value>", "updated_at": "2023-07-11T13:29:35.567Z"}
+          application/json: {"created_at": "2025-12-12T04:28:03.547Z", "login": "Alessandra_Beer", "name": "<value>", "updated_at": "2023-07-11T13:29:35.567Z", "company": "Padberg - Hettinger", "location": "<value>"}
         "404":
           application/json: {"message": "<value>"}
   get_project:
@@ -406,7 +459,7 @@ examples:
           project_id: "Nest"
       responses:
         "200":
-          application/json: {"created_at": "2023-03-06T09:23:19.829Z", "description": "since limply gah consequently ugh petticoat wholly possible", "level": "lab", "name": "<value>", "updated_at": "2023-12-06T04:15:58.999Z"}
+          application/json: {"created_at": "2023-03-06T09:23:19.829Z", "key": "<key>", "level": "lab", "name": "<value>", "updated_at": "2023-12-06T04:15:58.999Z", "description": "since limply gah consequently ugh petticoat wholly possible"}
         "404":
           application/json: {"message": "<value>"}
   list_sponsors:
@@ -415,21 +468,65 @@ examples:
         query:
           sponsor_type: "Silver"
           page: 1
+          page_size: 100
       responses:
         "200":
-          application/json: {"items": [{"description": "malfunction accomplished preheat", "image_url": "https://discrete-intervention.org/", "is_member": false, "job_url": "https://immediate-clamp.biz", "key": "<key>", "member_type": "<value>", "name": "<value>", "sponsor_type": "<value>", "url": "https://crafty-settler.biz"}], "count": 49757}
+          application/json: {"current_page": 515427, "has_next": true, "has_previous": false, "items": [{"image_url": "https://discrete-intervention.org/", "key": "<key>", "name": "<value>", "sponsor_type": "<value>", "url": "https://crafty-settler.biz"}], "total_count": 116871, "total_pages": 461791}
   get_sponsor:
     speakeasy-default-get-sponsor:
       parameters:
         path:
           sponsor_key: "adobe"
+          sponsor_id: "adobe"
       responses:
         "200":
-          application/json: {"description": "freely blissfully ultimate huzzah instead along sometimes whale asset", "image_url": "https://enlightened-hunger.info", "is_member": false, "job_url": "https://every-horde.com", "key": "<key>", "member_type": "<value>", "name": "<value>", "sponsor_type": "<value>", "url": "https://red-horde.net"}
+          application/json: {"image_url": "https://enlightened-hunger.info", "key": "<key>", "name": "<value>", "sponsor_type": "<value>", "url": "https://red-horde.net", "description": "freely blissfully ultimate huzzah instead along sometimes whale asset", "is_member": false, "job_url": "https://every-horde.com", "member_type": "<value>"}
+        "404":
+          application/json: {"message": "<value>"}
+  get_event:
+    speakeasy-default-get-event:
+      parameters:
+        path:
+          event_id: "owasp-global-appsec-usa-2025-washington-dc"
+      responses:
+        "200":
+          application/json: {"key": "<key>", "name": "<value>", "start_date": "2025-03-27T08:42:01.834Z"}
+        "404":
+          application/json: {"message": "<value>"}
+  get_issue:
+    speakeasy-default-get-issue:
+      parameters:
+        path:
+          organization_id: "OWASP"
+          repository_id: "Nest"
+          issue_id: 1234
+      responses:
+        "200":
+          application/json: {"created_at": "2023-01-06T05:13:46.833Z", "state": "closed", "title": "<value>", "updated_at": "2025-07-15T09:16:08.428Z", "url": "https://unaware-intent.net/", "body": "<value>"}
+        "404":
+          application/json: {"message": "<value>"}
+  get_release:
+    speakeasy-default-get-release:
+      parameters:
+        path:
+          organization_id: "OWASP"
+          repository_id: "Nest"
+          release_id: "0.2.10"
+      responses:
+        "200":
+          application/json: {"created_at": "2023-02-28T19:12:54.485Z", "name": "<value>", "tag_name": "<value>", "description": "zowie beside endow ah"}
+        "404":
+          application/json: {"message": "<value>"}
+  get_repository:
+    speakeasy-default-get-repository:
+      parameters:
+        path:
+          organization_id: "OWASP"
+          repository_id: "Nest"
+      responses:
+        "200":
+          application/json: {"created_at": "2023-06-15T20:38:08.250Z", "name": "<value>", "updated_at": "2024-06-04T00:23:47.329Z"}
         "404":
           application/json: {"message": "<value>"}
 examplesVersion: 1.0.2
-releaseNotes: |
-  ## Go SDK Changes Detected:
-  * `Nest.Sponsors.ListSponsors()`: **Added**
-  * `Nest.Sponsors.GetSponsor()`: **Added**
+releaseNotes: "## Go SDK Changes Detected:\n* `Nest.Community.ListMembers()`: \n  *  `request.Request.PageSize` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `Nest.Issues.ListIssues()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `Nest.Sponsors.GetSponsor()`:  `request` **Changed** **Breaking** :warning:\n* `Nest.Sponsors.ListSponsors()`: \n  *  `request.Request.PageSize` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `Nest.Chapters.ListChapters()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `Nest.Repositories.ListRepositories()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `Nest.Committees.ListCommittees()`: \n  *  `request.PageSize` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `Nest.Releases.ListReleases()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `Nest.Projects.ListProjects()`: \n  *  `request.PageSize` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `Nest.Events.ListEvents()`: \n  *  `request.PageSize` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `Nest.Community.ListOrganizations()`: \n  *  `request.PageSize` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `Nest.Chapters.GetChapter()`:  `response.Key` **Added**\n* `Nest.Issues.GetIssue()`: **Added**\n* `Nest.Projects.GetProject()`:  `response.Key` **Added**\n* `Nest.Committees.GetCommittee()`:  `response.Key` **Added**\n* `Nest.Events.GetEvent()`: **Added**\n* `Nest.Repositories.GetRepository()`: **Added**\n* `Nest.Releases.GetRelease()`: **Added**\n"

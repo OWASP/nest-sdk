@@ -20,7 +20,7 @@ func (g *GetMemberRequest) GetMemberID() string {
 type GetMemberResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// OK
-	MemberSchema *components.MemberSchema
+	MemberDetail *components.MemberDetail
 }
 
 func (g *GetMemberResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -30,9 +30,9 @@ func (g *GetMemberResponse) GetHTTPMeta() components.HTTPMetadata {
 	return g.HTTPMeta
 }
 
-func (g *GetMemberResponse) GetMemberSchema() *components.MemberSchema {
+func (g *GetMemberResponse) GetMemberDetail() *components.MemberDetail {
 	if g == nil {
 		return nil
 	}
-	return g.MemberSchema
+	return g.MemberDetail
 }
