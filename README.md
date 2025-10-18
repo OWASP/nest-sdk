@@ -150,7 +150,6 @@ func main() {
 * [ListIssues](docs/sdks/issues/README.md#listissues) - List issues
 * [GetIssue](docs/sdks/issues/README.md#getissue) - Get issue
 
-
 ### [Projects](docs/sdks/projects/README.md)
 
 * [ListProjects](docs/sdks/projects/README.md#listprojects) - List projects

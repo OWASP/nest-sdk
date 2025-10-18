@@ -1,21 +1,21 @@
-speakeasyVersion: 1.634.2
+speakeasyVersion: 1.637.0
 sources:
     nest-sdk-go:
         sourceNamespace: go-sdk
-        sourceRevisionDigest: sha256:08ef338fbec6fc958a7b3c9e43ef20bcb49d352349aaa4e44b559f345574b8cd
-        sourceBlobDigest: sha256:e47b20a17f4c0421f92e87533b26eda851c076f63e952d638c346b58ffafb970
+        sourceRevisionDigest: sha256:facb0db55b220f19449b8f5855f2c2b6abbe7e47c20a884f5f1a7196d22388e5
+        sourceBlobDigest: sha256:1f5a6f90ede4b4a2dd0c4e635505761aaf6291b910e342c1d0a08e9dbd97f077
         tags:
             - latest
-            - speakeasy-sdk-regen-1759713296
-            - 0.2.4
+            - speakeasy-sdk-regen-1759795605
+            - 0.2.5
 targets:
     nest-sdk-go:
         source: nest-sdk-go
         sourceNamespace: go-sdk
-        sourceRevisionDigest: sha256:08ef338fbec6fc958a7b3c9e43ef20bcb49d352349aaa4e44b559f345574b8cd
-        sourceBlobDigest: sha256:e47b20a17f4c0421f92e87533b26eda851c076f63e952d638c346b58ffafb970
+        sourceRevisionDigest: sha256:facb0db55b220f19449b8f5855f2c2b6abbe7e47c20a884f5f1a7196d22388e5
+        sourceBlobDigest: sha256:1f5a6f90ede4b4a2dd0c4e635505761aaf6291b910e342c1d0a08e9dbd97f077
         codeSamplesNamespace: go-code-samples
-        codeSamplesRevisionDigest: sha256:20a4389c51d5a11b0ef81d75f3cf3032e1911957ab58e78d761e65f538b09db6
+        codeSamplesRevisionDigest: sha256:34fd738b6792f1edec8b38a3f4f992f1a233e1a06194ef1cc5e7f9b3d3b99900
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

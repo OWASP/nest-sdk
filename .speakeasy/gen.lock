@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 474e3505-9fbc-4c93-940d-6ce113ca53b0
 management:
-  docChecksum: b8033b6e6d2e3355495677ccca5d5799
-  docVersion: 0.2.4
-  speakeasyVersion: 1.634.2
-  generationVersion: 2.721.3
-  releaseVersion: 0.2.4
-  configChecksum: 1839ec18b441eea8b94f4780c988010e
+  docChecksum: 27ee91ec23809a874910b9f21179aecd
+  docVersion: 0.2.5
+  speakeasyVersion: 1.637.0
+  generationVersion: 2.727.4
+  releaseVersion: 0.2.5
+  configChecksum: 8397547be3991b4611d518b5c9d5fdeb
   repoURL: https://github.com/OWASP/nest-sdk.git
   installationURL: https://github.com/OWASP/nest-sdk
 features:
   go:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.11.1
+    core: 3.12.0
     defaultEnabledRetries: 0.2.0
     envVarSecurityUsage: 0.3.2
     flattening: 2.81.1
@@ -22,7 +22,7 @@ features:
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.3
     intellisenseMarkdownSupport: 0.1.0
-    nullables: 0.2.0
+    nullables: 0.2.1
     responseFormat: 0.1.2
     retries: 2.84.2
     sdkHooks: 0.2.0
@@ -198,7 +198,6 @@ generatedFiles:
   - docs/sdks/community/README.md
   - docs/sdks/events/README.md
   - docs/sdks/issues/README.md
-  - docs/sdks/nest/README.md
   - docs/sdks/projects/README.md
   - docs/sdks/releases/README.md
   - docs/sdks/repositories/README.md
@@ -529,4 +528,3 @@ examples:
         "404":
           application/json: {"message": "<value>"}
 examplesVersion: 1.0.2
-releaseNotes: "## Go SDK Changes Detected:\n* `Nest.Community.ListMembers()`: \n  *  `request.Request.PageSize` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `Nest.Issues.ListIssues()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `Nest.Sponsors.GetSponsor()`:  `request` **Changed** **Breaking** :warning:\n* `Nest.Sponsors.ListSponsors()`: \n  *  `request.Request.PageSize` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `Nest.Chapters.ListChapters()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `Nest.Repositories.ListRepositories()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `Nest.Committees.ListCommittees()`: \n  *  `request.PageSize` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `Nest.Releases.ListReleases()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `Nest.Projects.ListProjects()`: \n  *  `request.PageSize` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `Nest.Events.ListEvents()`: \n  *  `request.PageSize` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `Nest.Community.ListOrganizations()`: \n  *  `request.PageSize` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `Nest.Chapters.GetChapter()`:  `response.Key` **Added**\n* `Nest.Issues.GetIssue()`: **Added**\n* `Nest.Projects.GetProject()`:  `response.Key` **Added**\n* `Nest.Committees.GetCommittee()`:  `response.Key` **Added**\n* `Nest.Events.GetEvent()`: **Added**\n* `Nest.Repositories.GetRepository()`: **Added**\n* `Nest.Releases.GetRelease()`: **Added**\n"
