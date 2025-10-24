@@ -2,7 +2,7 @@
 
 package nest
 
-// Generated from OpenAPI doc version 0.2.5 and generator version 2.727.4
+// Generated from OpenAPI doc version 0.2.5 and generator version 2.730.0
 
 import (
 	"context"
@@ -56,6 +56,7 @@ type Nest struct {
 	Events       *Events
 	Issues       *Issues
 	Community    *Community
+	Milestones   *Milestones
 	Projects     *Projects
 	Releases     *Releases
 	Repositories *Repositories
@@ -136,9 +137,9 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Nest {
 	sdk := &Nest{
-		SDKVersion: "0.2.5",
+		SDKVersion: "0.2.6",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:  "speakeasy-sdk/go 0.2.5 2.727.4 0.2.5 github.com/owasp/nest-sdk",
+			UserAgent:  "speakeasy-sdk/go 0.2.6 2.730.0 0.2.5 github.com/owasp/nest-sdk",
 			ServerList: ServerList,
 		},
 		hooks: hooks.New(),
@@ -166,6 +167,7 @@ func New(opts ...SDKOption) *Nest {
 	sdk.Events = newEvents(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Issues = newIssues(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Community = newCommunity(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.Milestones = newMilestones(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Projects = newProjects(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Releases = newReleases(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Repositories = newRepositories(sdk, sdk.sdkConfiguration, sdk.hooks)

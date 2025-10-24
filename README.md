@@ -150,6 +150,11 @@ func main() {
 * [ListIssues](docs/sdks/issues/README.md#listissues) - List issues
 * [GetIssue](docs/sdks/issues/README.md#getissue) - Get issue
 
+### [Milestones](docs/sdks/milestones/README.md)
+
+* [ListMilestones](docs/sdks/milestones/README.md#listmilestones) - List milestones
+* [GetMilestone](docs/sdks/milestones/README.md#getmilestone) - Get milestone
+
 ### [Projects](docs/sdks/projects/README.md)
 
 * [ListProjects](docs/sdks/projects/README.md#listprojects) - List projects
