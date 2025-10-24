@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 474e3505-9fbc-4c93-940d-6ce113ca53b0
 management:
-  docChecksum: 27ee91ec23809a874910b9f21179aecd
+  docChecksum: 888d822dd2ee78616a1b377dcdf01bfc
   docVersion: 0.2.5
-  speakeasyVersion: 1.637.0
-  generationVersion: 2.727.4
-  releaseVersion: 0.2.5
-  configChecksum: 8397547be3991b4611d518b5c9d5fdeb
+  speakeasyVersion: 1.639.1
+  generationVersion: 2.730.0
+  releaseVersion: 0.2.6
+  configChecksum: 27ee2d073ae8e09436df128f73d2dd2c
   repoURL: https://github.com/OWASP/nest-sdk.git
   installationURL: https://github.com/OWASP/nest-sdk
 features:
@@ -33,6 +33,7 @@ generatedFiles:
   - /models/apierrors/eventerror.go
   - /models/apierrors/issueerror.go
   - /models/apierrors/membererror.go
+  - /models/apierrors/milestoneerror.go
   - /models/apierrors/organizationerror.go
   - /models/apierrors/projecterror.go
   - /models/apierrors/releaseerror.go
@@ -50,6 +51,8 @@ generatedFiles:
   - /models/components/member.go
   - /models/components/memberdetail.go
   - /models/components/membertype.go
+  - /models/components/milestone.go
+  - /models/components/milestonedetail.go
   - /models/components/organization.go
   - /models/components/organizationdetail.go
   - /models/components/pagedchapter.go
@@ -57,6 +60,7 @@ generatedFiles:
   - /models/components/pagedevent.go
   - /models/components/pagedissue.go
   - /models/components/pagedmember.go
+  - /models/components/pagedmilestone.go
   - /models/components/pagedorganization.go
   - /models/components/pagedproject.go
   - /models/components/pagedrelease.go
@@ -78,6 +82,7 @@ generatedFiles:
   - /models/operations/getevent.go
   - /models/operations/getissue.go
   - /models/operations/getmember.go
+  - /models/operations/getmilestone.go
   - /models/operations/getorganization.go
   - /models/operations/getproject.go
   - /models/operations/getrelease.go
@@ -88,6 +93,7 @@ generatedFiles:
   - /models/operations/listevents.go
   - /models/operations/listissues.go
   - /models/operations/listmembers.go
+  - /models/operations/listmilestones.go
   - /models/operations/listorganizations.go
   - /models/operations/listprojects.go
   - /models/operations/listreleases.go
@@ -102,6 +108,7 @@ generatedFiles:
   - docs/models/apierrors/eventerror.md
   - docs/models/apierrors/issueerror.md
   - docs/models/apierrors/membererror.md
+  - docs/models/apierrors/milestoneerror.md
   - docs/models/apierrors/organizationerror.md
   - docs/models/apierrors/projecterror.md
   - docs/models/apierrors/releaseerror.md
@@ -119,6 +126,8 @@ generatedFiles:
   - docs/models/components/member.md
   - docs/models/components/memberdetail.md
   - docs/models/components/membertype.md
+  - docs/models/components/milestone.md
+  - docs/models/components/milestonedetail.md
   - docs/models/components/organization.md
   - docs/models/components/organizationdetail.md
   - docs/models/components/pagedchapter.md
@@ -126,6 +135,7 @@ generatedFiles:
   - docs/models/components/pagedevent.md
   - docs/models/components/pagedissue.md
   - docs/models/components/pagedmember.md
+  - docs/models/components/pagedmilestone.md
   - docs/models/components/pagedorganization.md
   - docs/models/components/pagedproject.md
   - docs/models/components/pagedrelease.md
@@ -152,6 +162,8 @@ generatedFiles:
   - docs/models/operations/getissueresponse.md
   - docs/models/operations/getmemberrequest.md
   - docs/models/operations/getmemberresponse.md
+  - docs/models/operations/getmilestonerequest.md
+  - docs/models/operations/getmilestoneresponse.md
   - docs/models/operations/getorganizationrequest.md
   - docs/models/operations/getorganizationresponse.md
   - docs/models/operations/getprojectrequest.md
@@ -177,6 +189,9 @@ generatedFiles:
   - docs/models/operations/listmembersordering.md
   - docs/models/operations/listmembersrequest.md
   - docs/models/operations/listmembersresponse.md
+  - docs/models/operations/listmilestonesordering.md
+  - docs/models/operations/listmilestonesrequest.md
+  - docs/models/operations/listmilestonesresponse.md
   - docs/models/operations/listorganizationsordering.md
   - docs/models/operations/listorganizationsrequest.md
   - docs/models/operations/listorganizationsresponse.md
@@ -198,6 +213,7 @@ generatedFiles:
   - docs/sdks/community/README.md
   - docs/sdks/events/README.md
   - docs/sdks/issues/README.md
+  - docs/sdks/milestones/README.md
   - docs/sdks/projects/README.md
   - docs/sdks/releases/README.md
   - docs/sdks/repositories/README.md
@@ -218,6 +234,7 @@ generatedFiles:
   - internal/utils/security.go
   - internal/utils/utils.go
   - issues.go
+  - milestones.go
   - models/apierrors/nestapierror.go
   - models/operations/options.go
   - nest.go
@@ -527,4 +544,31 @@ examples:
           application/json: {"created_at": "2023-06-15T20:38:08.250Z", "name": "<value>", "updated_at": "2024-06-04T00:23:47.329Z"}
         "404":
           application/json: {"message": "<value>"}
+  list_milestones:
+    speakeasy-default-list-milestones:
+      parameters:
+        query:
+          organization: "OWASP"
+          repository: "Nest"
+          page: 1
+          page_size: 100
+      responses:
+        "200":
+          application/json: {"current_page": 165375, "has_next": false, "has_previous": true, "items": [{"created_at": "2025-11-21T22:20:41.813Z", "number": 193241, "state": "closed", "title": "<value>", "updated_at": "2024-11-14T03:23:51.091Z", "url": "https://familiar-commodity.name"}], "total_count": 453892, "total_pages": 994947}
+  get_milestone:
+    speakeasy-default-get-milestone:
+      parameters:
+        path:
+          organization_id: "OWASP"
+          repository_id: "Nest"
+          milestone_id: 1
+      responses:
+        "200":
+          application/json: {"created_at": "2023-09-01T23:58:56.084Z", "number": 88227, "state": "open", "title": "<value>", "updated_at": "2023-09-20T07:01:10.505Z", "url": "https://impressive-configuration.name/", "body": "<value>", "closed_issues_count": 545798, "due_on": "2024-01-25T11:51:50.047Z", "open_issues_count": 564718}
+        "404":
+          application/json: {"message": "<value>"}
 examplesVersion: 1.0.2
+releaseNotes: |
+  ## Go SDK Changes Detected:
+  * `Nest.Milestones.ListMilestones()`: **Added**
+  * `Nest.Milestones.GetMilestone()`: **Added**
