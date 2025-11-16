@@ -21,12 +21,13 @@ generation:
   sdkHooksConfigAccess: true
   schemas:
     allOfMergeStrategy: shallowMerge
+  requestBodyFieldName: ""
   tests:
     generateTests: false
     generateNewTests: true
     skipResponseBodyAssertions: false
 go:
-  version: 0.2.6
+  version: 0.3.0
   additionalDependencies: {}
   baseErrorName: NestError
   clientServerStatusCodesAsErrors: true
@@ -41,6 +42,7 @@ go:
       operations: models/operations
       shared: models/components
       webhooks: models/webhooks
+  includeEmptyObjects: false
   inputModelSuffix: input
   maxMethodParams: 4
   methodArguments: require-security-and-request
