@@ -11,6 +11,8 @@ import (
 type Event struct {
 	EndDate   *time.Time `json:"end_date,omitempty"`
 	Key       string     `json:"key"`
+	Latitude  *float64   `json:"latitude,omitempty"`
+	Longitude *float64   `json:"longitude,omitempty"`
 	Name      string     `json:"name"`
 	StartDate time.Time  `json:"start_date"`
 	URL       *string    `json:"url,omitempty"`
@@ -39,6 +41,20 @@ func (e *Event) GetKey() string {
 		return ""
 	}
 	return e.Key
+}
+
+func (e *Event) GetLatitude() *float64 {
+	if e == nil {
+		return nil
+	}
+	return e.Latitude
+}
+
+func (e *Event) GetLongitude() *float64 {
+	if e == nil {
+		return nil
+	}
+	return e.Longitude
 }
 
 func (e *Event) GetName() string {

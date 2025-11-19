@@ -9,6 +9,8 @@ Detail schema for Event (used in single item endpoints).
 | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
 | `EndDate`                                  | [*time.Time](https://pkg.go.dev/time#Time) | :heavy_minus_sign:                         | N/A                                        |
 | `Key`                                      | *string*                                   | :heavy_check_mark:                         | N/A                                        |
+| `Latitude`                                 | **float64*                                 | :heavy_minus_sign:                         | N/A                                        |
+| `Longitude`                                | **float64*                                 | :heavy_minus_sign:                         | N/A                                        |
 | `Name`                                     | *string*                                   | :heavy_check_mark:                         | N/A                                        |
 | `StartDate`                                | [time.Time](https://pkg.go.dev/time#Time)  | :heavy_check_mark:                         | N/A                                        |
 | `URL`                                      | **string*                                  | :heavy_minus_sign:                         | N/A                                        |

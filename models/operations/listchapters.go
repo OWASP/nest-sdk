@@ -17,6 +17,10 @@ const (
 	ListChaptersOrderingMinusCreatedAt ListChaptersOrdering = "-created_at"
 	ListChaptersOrderingUpdatedAt      ListChaptersOrdering = "updated_at"
 	ListChaptersOrderingMinusUpdatedAt ListChaptersOrdering = "-updated_at"
+	ListChaptersOrderingLatitude       ListChaptersOrdering = "latitude"
+	ListChaptersOrderingMinusLatitude  ListChaptersOrdering = "-latitude"
+	ListChaptersOrderingLongitude      ListChaptersOrdering = "longitude"
+	ListChaptersOrderingMinusLongitude ListChaptersOrdering = "-longitude"
 )
 
 func (e ListChaptersOrdering) ToPointer() *ListChaptersOrdering {
@@ -35,6 +39,14 @@ func (e *ListChaptersOrdering) UnmarshalJSON(data []byte) error {
 	case "updated_at":
 		fallthrough
 	case "-updated_at":
+		fallthrough
+	case "latitude":
+		fallthrough
+	case "-latitude":
+		fallthrough
+	case "longitude":
+		fallthrough
+	case "-longitude":
 		*e = ListChaptersOrdering(v)
 		return nil
 	default:
@@ -43,6 +55,14 @@ func (e *ListChaptersOrdering) UnmarshalJSON(data []byte) error {
 }
 
 type ListChaptersRequest struct {
+	// Latitude greater than or equal to
+	LatitudeGte *float64 `queryParam:"style=form,explode=true,name=latitude_gte"`
+	// Latitude less than or equal to
+	LatitudeLte *float64 `queryParam:"style=form,explode=true,name=latitude_lte"`
+	// Longitude greater than or equal to
+	LongitudeGte *float64 `queryParam:"style=form,explode=true,name=longitude_gte"`
+	// Longitude less than or equal to
+	LongitudeLte *float64 `queryParam:"style=form,explode=true,name=longitude_lte"`
 	// Country of the chapter
 	Country *string `queryParam:"style=form,explode=true,name=country"`
 	// Ordering field
@@ -62,6 +82,34 @@ func (l *ListChaptersRequest) UnmarshalJSON(data []byte) error {
 		return err
 	}
 	return nil
+}
+
+func (l *ListChaptersRequest) GetLatitudeGte() *float64 {
+	if l == nil {
+		return nil
+	}
+	return l.LatitudeGte
+}
+
+func (l *ListChaptersRequest) GetLatitudeLte() *float64 {
+	if l == nil {
+		return nil
+	}
+	return l.LatitudeLte
+}
+
+func (l *ListChaptersRequest) GetLongitudeGte() *float64 {
+	if l == nil {
+		return nil
+	}
+	return l.LongitudeGte
+}
+
+func (l *ListChaptersRequest) GetLongitudeLte() *float64 {
+	if l == nil {
+		return nil
+	}
+	return l.LongitudeLte
 }
 
 func (l *ListChaptersRequest) GetCountry() *string {

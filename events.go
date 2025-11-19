@@ -33,13 +33,7 @@ func newEvents(rootSDK *Nest, sdkConfig config.SDKConfiguration, hooks *hooks.Ho
 
 // ListEvents - List events
 // Retrieve a paginated list of OWASP events.
-func (s *Events) ListEvents(ctx context.Context, ordering *operations.ListEventsOrdering, page *int64, pageSize *int64, opts ...operations.Option) (*operations.ListEventsResponse, error) {
-	request := operations.ListEventsRequest{
-		Ordering: ordering,
-		Page:     page,
-		PageSize: pageSize,
-	}
-
+func (s *Events) ListEvents(ctx context.Context, request operations.ListEventsRequest, opts ...operations.Option) (*operations.ListEventsResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,

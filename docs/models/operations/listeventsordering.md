@@ -11,3 +11,7 @@ Ordering field
 | `ListEventsOrderingMinusStartDate` | -start_date                        |
 | `ListEventsOrderingEndDate`        | end_date                           |
 | `ListEventsOrderingMinusEndDate`   | -end_date                          |
+| `ListEventsOrderingLatitude`       | latitude                           |
+| `ListEventsOrderingMinusLatitude`  | -latitude                          |
+| `ListEventsOrderingLongitude`      | longitude                          |
+| `ListEventsOrderingMinusLongitude` | -longitude                         |

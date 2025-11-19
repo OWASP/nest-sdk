@@ -17,6 +17,10 @@ const (
 	ListEventsOrderingMinusStartDate ListEventsOrdering = "-start_date"
 	ListEventsOrderingEndDate        ListEventsOrdering = "end_date"
 	ListEventsOrderingMinusEndDate   ListEventsOrdering = "-end_date"
+	ListEventsOrderingLatitude       ListEventsOrdering = "latitude"
+	ListEventsOrderingMinusLatitude  ListEventsOrdering = "-latitude"
+	ListEventsOrderingLongitude      ListEventsOrdering = "longitude"
+	ListEventsOrderingMinusLongitude ListEventsOrdering = "-longitude"
 )
 
 func (e ListEventsOrdering) ToPointer() *ListEventsOrdering {
@@ -35,6 +39,14 @@ func (e *ListEventsOrdering) UnmarshalJSON(data []byte) error {
 	case "end_date":
 		fallthrough
 	case "-end_date":
+		fallthrough
+	case "latitude":
+		fallthrough
+	case "-latitude":
+		fallthrough
+	case "longitude":
+		fallthrough
+	case "-longitude":
 		*e = ListEventsOrdering(v)
 		return nil
 	default:
@@ -43,8 +55,18 @@ func (e *ListEventsOrdering) UnmarshalJSON(data []byte) error {
 }
 
 type ListEventsRequest struct {
+	// Latitude greater than or equal to
+	LatitudeGte *float64 `queryParam:"style=form,explode=true,name=latitude_gte"`
+	// Latitude less than or equal to
+	LatitudeLte *float64 `queryParam:"style=form,explode=true,name=latitude_lte"`
+	// Longitude greater than or equal to
+	LongitudeGte *float64 `queryParam:"style=form,explode=true,name=longitude_gte"`
+	// Longitude less than or equal to
+	LongitudeLte *float64 `queryParam:"style=form,explode=true,name=longitude_lte"`
 	// Ordering field
 	Ordering *ListEventsOrdering `queryParam:"style=form,explode=true,name=ordering"`
+	// Filter for upcoming events
+	IsUpcoming *bool `queryParam:"style=form,explode=true,name=is_upcoming"`
 	// Page number
 	Page *int64 `default:"1" queryParam:"style=form,explode=true,name=page"`
 	// Number of items per page
@@ -62,11 +84,46 @@ func (l *ListEventsRequest) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
+func (l *ListEventsRequest) GetLatitudeGte() *float64 {
+	if l == nil {
+		return nil
+	}
+	return l.LatitudeGte
+}
+
+func (l *ListEventsRequest) GetLatitudeLte() *float64 {
+	if l == nil {
+		return nil
+	}
+	return l.LatitudeLte
+}
+
+func (l *ListEventsRequest) GetLongitudeGte() *float64 {
+	if l == nil {
+		return nil
+	}
+	return l.LongitudeGte
+}
+
+func (l *ListEventsRequest) GetLongitudeLte() *float64 {
+	if l == nil {
+		return nil
+	}
+	return l.LongitudeLte
+}
+
 func (l *ListEventsRequest) GetOrdering() *ListEventsOrdering {
 	if l == nil {
 		return nil
 	}
 	return l.Ordering
+}
+
+func (l *ListEventsRequest) GetIsUpcoming() *bool {
+	if l == nil {
+		return nil
+	}
+	return l.IsUpcoming
 }
 
 func (l *ListEventsRequest) GetPage() *int64 {

@@ -53,6 +53,7 @@ package main
 import (
 	"context"
 	nest "github.com/owasp/nest-sdk"
+	"github.com/owasp/nest-sdk/models/operations"
 	"log"
 	"os"
 )
@@ -64,7 +65,9 @@ func main() {
 		nest.WithSecurity(os.Getenv("NEST_API_KEY")),
 	)
 
-	res, err := s.Chapters.ListChapters(ctx, nest.Pointer("India"), nil, nest.Pointer[int64](1), nest.Pointer[int64](100))
+	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
+		Country: nest.Pointer("India"),
+	})
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -94,6 +97,7 @@ package main
 import (
 	"context"
 	nest "github.com/owasp/nest-sdk"
+	"github.com/owasp/nest-sdk/models/operations"
 	"log"
 	"os"
 )
@@ -105,7 +109,9 @@ func main() {
 		nest.WithSecurity(os.Getenv("NEST_API_KEY")),
 	)
 
-	res, err := s.Chapters.ListChapters(ctx, nest.Pointer("India"), nil, nest.Pointer[int64](1), nest.Pointer[int64](100))
+	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
+		Country: nest.Pointer("India"),
+	})
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -139,6 +145,13 @@ func main() {
 * [GetMember](docs/sdks/community/README.md#getmember) - Get member
 * [ListOrganizations](docs/sdks/community/README.md#listorganizations) - List organizations
 * [GetOrganization](docs/sdks/community/README.md#getorganization) - Get organization
+* [ListSnapshots](docs/sdks/community/README.md#listsnapshots) - List snapshots
+* [GetSnapshot](docs/sdks/community/README.md#getsnapshot) - Get snapshot
+* [ListSnapshotChapters](docs/sdks/community/README.md#listsnapshotchapters) - List new chapters in snapshot
+* [ListSnapshotIssues](docs/sdks/community/README.md#listsnapshotissues) - List new issues in snapshot
+* [ListSnapshotMembers](docs/sdks/community/README.md#listsnapshotmembers) - List new members in snapshot
+* [ListSnapshotProjects](docs/sdks/community/README.md#listsnapshotprojects) - List new projects in snapshot
+* [ListSnapshotReleases](docs/sdks/community/README.md#listsnapshotreleases) - List new releases in snapshot
 
 ### [Events](docs/sdks/events/README.md)
 
@@ -190,6 +203,7 @@ package main
 import (
 	"context"
 	nest "github.com/owasp/nest-sdk"
+	"github.com/owasp/nest-sdk/models/operations"
 	"github.com/owasp/nest-sdk/retry"
 	"log"
 	"models/operations"
@@ -203,7 +217,9 @@ func main() {
 		nest.WithSecurity(os.Getenv("NEST_API_KEY")),
 	)
 
-	res, err := s.Chapters.ListChapters(ctx, nest.Pointer("India"), nil, nest.Pointer[int64](1), nest.Pointer[int64](100), operations.WithRetries(
+	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
+		Country: nest.Pointer("India"),
+	}, operations.WithRetries(
 		retry.Config{
 			Strategy: "backoff",
 			Backoff: &retry.BackoffStrategy{
@@ -231,6 +247,7 @@ package main
 import (
 	"context"
 	nest "github.com/owasp/nest-sdk"
+	"github.com/owasp/nest-sdk/models/operations"
 	"github.com/owasp/nest-sdk/retry"
 	"log"
 	"os"
@@ -254,7 +271,9 @@ func main() {
 		nest.WithSecurity(os.Getenv("NEST_API_KEY")),
 	)
 
-	res, err := s.Chapters.ListChapters(ctx, nest.Pointer("India"), nil, nest.Pointer[int64](1), nest.Pointer[int64](100))
+	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
+		Country: nest.Pointer("India"),
+	})
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -333,6 +352,7 @@ package main
 import (
 	"context"
 	nest "github.com/owasp/nest-sdk"
+	"github.com/owasp/nest-sdk/models/operations"
 	"log"
 	"os"
 )
@@ -345,7 +365,9 @@ func main() {
 		nest.WithSecurity(os.Getenv("NEST_API_KEY")),
 	)
 
-	res, err := s.Chapters.ListChapters(ctx, nest.Pointer("India"), nil, nest.Pointer[int64](1), nest.Pointer[int64](100))
+	res, err := s.Chapters.ListChapters(ctx, operations.ListChaptersRequest{
+		Country: nest.Pointer("India"),
+	})
 	if err != nil {
 		log.Fatal(err)
 	}
