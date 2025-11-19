@@ -11,6 +11,8 @@ import (
 type ChapterDetail struct {
 	CreatedAt time.Time `json:"created_at"`
 	Key       string    `json:"key"`
+	Latitude  *float64  `json:"latitude,omitempty"`
+	Longitude *float64  `json:"longitude,omitempty"`
 	Name      string    `json:"name"`
 	UpdatedAt time.Time `json:"updated_at"`
 	Country   string    `json:"country"`
@@ -40,6 +42,20 @@ func (c *ChapterDetail) GetKey() string {
 		return ""
 	}
 	return c.Key
+}
+
+func (c *ChapterDetail) GetLatitude() *float64 {
+	if c == nil {
+		return nil
+	}
+	return c.Latitude
+}
+
+func (c *ChapterDetail) GetLongitude() *float64 {
+	if c == nil {
+		return nil
+	}
+	return c.Longitude
 }
 
 func (c *ChapterDetail) GetName() string {

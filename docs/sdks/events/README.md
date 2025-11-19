@@ -22,6 +22,7 @@ import(
 	"context"
 	"os"
 	nest "github.com/owasp/nest-sdk"
+	"github.com/owasp/nest-sdk/models/operations"
 	"log"
 )
 
@@ -32,7 +33,7 @@ func main() {
         nest.WithSecurity(os.Getenv("NEST_API_KEY")),
     )
 
-    res, err := s.Events.ListEvents(ctx, nil, nest.Pointer[int64](1), nest.Pointer[int64](100))
+    res, err := s.Events.ListEvents(ctx, operations.ListEventsRequest{})
     if err != nil {
         log.Fatal(err)
     }
@@ -44,13 +45,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
-| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| `ctx`                                                                           | [context.Context](https://pkg.go.dev/context#Context)                           | :heavy_check_mark:                                                              | The context to use for the request.                                             |
-| `ordering`                                                                      | [*operations.ListEventsOrdering](../../models/operations/listeventsordering.md) | :heavy_minus_sign:                                                              | Ordering field                                                                  |
-| `page`                                                                          | **int64*                                                                        | :heavy_minus_sign:                                                              | Page number                                                                     |
-| `pageSize`                                                                      | **int64*                                                                        | :heavy_minus_sign:                                                              | Number of items per page                                                        |
-| `opts`                                                                          | [][operations.Option](../../models/operations/option.md)                        | :heavy_minus_sign:                                                              | The options for this request.                                                   |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `ctx`                                                                        | [context.Context](https://pkg.go.dev/context#Context)                        | :heavy_check_mark:                                                           | The context to use for the request.                                          |
+| `request`                                                                    | [operations.ListEventsRequest](../../models/operations/listeventsrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| `opts`                                                                       | [][operations.Option](../../models/operations/option.md)                     | :heavy_minus_sign:                                                           | The options for this request.                                                |
 
 ### Response
 

@@ -9,10 +9,15 @@ import (
 
 // RepositoryDetail - Detail schema for Repository (used in single item endpoints).
 type RepositoryDetail struct {
-	CreatedAt   time.Time `json:"created_at"`
-	Name        string    `json:"name"`
-	UpdatedAt   time.Time `json:"updated_at"`
-	Description *string   `json:"description,omitempty"`
+	CreatedAt         time.Time `json:"created_at"`
+	Name              string    `json:"name"`
+	UpdatedAt         time.Time `json:"updated_at"`
+	CommitsCount      int64     `json:"commits_count"`
+	ContributorsCount int64     `json:"contributors_count"`
+	Description       *string   `json:"description,omitempty"`
+	ForksCount        int64     `json:"forks_count"`
+	OpenIssuesCount   int64     `json:"open_issues_count"`
+	StarsCount        int64     `json:"stars_count"`
 }
 
 func (r RepositoryDetail) MarshalJSON() ([]byte, error) {
@@ -20,7 +25,7 @@ func (r RepositoryDetail) MarshalJSON() ([]byte, error) {
 }
 
 func (r *RepositoryDetail) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &r, "", false, []string{"created_at", "name", "updated_at"}); err != nil {
+	if err := utils.UnmarshalJSON(data, &r, "", false, []string{"created_at", "name", "updated_at", "commits_count", "contributors_count", "forks_count", "open_issues_count", "stars_count"}); err != nil {
 		return err
 	}
 	return nil
@@ -47,9 +52,44 @@ func (r *RepositoryDetail) GetUpdatedAt() time.Time {
 	return r.UpdatedAt
 }
 
+func (r *RepositoryDetail) GetCommitsCount() int64 {
+	if r == nil {
+		return 0
+	}
+	return r.CommitsCount
+}
+
+func (r *RepositoryDetail) GetContributorsCount() int64 {
+	if r == nil {
+		return 0
+	}
+	return r.ContributorsCount
+}
+
 func (r *RepositoryDetail) GetDescription() *string {
 	if r == nil {
 		return nil
 	}
 	return r.Description
+}
+
+func (r *RepositoryDetail) GetForksCount() int64 {
+	if r == nil {
+		return 0
+	}
+	return r.ForksCount
+}
+
+func (r *RepositoryDetail) GetOpenIssuesCount() int64 {
+	if r == nil {
+		return 0
+	}
+	return r.OpenIssuesCount
+}
+
+func (r *RepositoryDetail) GetStarsCount() int64 {
+	if r == nil {
+		return 0
+	}
+	return r.StarsCount
 }

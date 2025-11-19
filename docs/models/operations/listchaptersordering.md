@@ -11,3 +11,7 @@ Ordering field
 | `ListChaptersOrderingMinusCreatedAt` | -created_at                          |
 | `ListChaptersOrderingUpdatedAt`      | updated_at                           |
 | `ListChaptersOrderingMinusUpdatedAt` | -updated_at                          |
+| `ListChaptersOrderingLatitude`       | latitude                             |
+| `ListChaptersOrderingMinusLatitude`  | -latitude                            |
+| `ListChaptersOrderingLongitude`      | longitude                            |
+| `ListChaptersOrderingMinusLongitude` | -longitude                           |

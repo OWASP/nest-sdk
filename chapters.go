@@ -33,14 +33,7 @@ func newChapters(rootSDK *Nest, sdkConfig config.SDKConfiguration, hooks *hooks.
 
 // ListChapters - List chapters
 // Retrieve a paginated list of OWASP chapters.
-func (s *Chapters) ListChapters(ctx context.Context, country *string, ordering *operations.ListChaptersOrdering, page *int64, pageSize *int64, opts ...operations.Option) (*operations.ListChaptersResponse, error) {
-	request := operations.ListChaptersRequest{
-		Country:  country,
-		Ordering: ordering,
-		Page:     page,
-		PageSize: pageSize,
-	}
-
+func (s *Chapters) ListChapters(ctx context.Context, request operations.ListChaptersRequest, opts ...operations.Option) (*operations.ListChaptersResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
