@@ -139,6 +139,13 @@ func main() {
 * [GetMember](docs/sdks/community/README.md#getmember) - Get member
 * [ListOrganizations](docs/sdks/community/README.md#listorganizations) - List organizations
 * [GetOrganization](docs/sdks/community/README.md#getorganization) - Get organization
+* [ListSnapshots](docs/sdks/community/README.md#listsnapshots) - List snapshots
+* [GetSnapshot](docs/sdks/community/README.md#getsnapshot) - Get snapshot
+* [ListSnapshotChapters](docs/sdks/community/README.md#listsnapshotchapters) - List new chapters in snapshot
+* [ListSnapshotIssues](docs/sdks/community/README.md#listsnapshotissues) - List new issues in snapshot
+* [ListSnapshotMembers](docs/sdks/community/README.md#listsnapshotmembers) - List new members in snapshot
+* [ListSnapshotProjects](docs/sdks/community/README.md#listsnapshotprojects) - List new projects in snapshot
+* [ListSnapshotReleases](docs/sdks/community/README.md#listsnapshotreleases) - List new releases in snapshot
 
 ### [Events](docs/sdks/events/README.md)
 

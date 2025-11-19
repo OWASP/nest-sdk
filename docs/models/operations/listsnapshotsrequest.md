@@ -1,0 +1,10 @@
+# ListSnapshotsRequest
+
+
+## Fields
+
+| Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `Ordering`                                                                            | [*operations.ListSnapshotsOrdering](../../models/operations/listsnapshotsordering.md) | :heavy_minus_sign:                                                                    | Ordering field                                                                        |
+| `Page`                                                                                | **int64*                                                                              | :heavy_minus_sign:                                                                    | Page number                                                                           |
+| `PageSize`                                                                            | **int64*                                                                              | :heavy_minus_sign:                                                                    | Number of items per page                                                              |
