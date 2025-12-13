@@ -1,7 +1,9 @@
-# .gitignore
+.cursor/rules/snyk_rules.mdc
 .DS_Store
-**/.speakeasy/temp/
-**/.speakeasy/logs/
-.speakeasy/reports
 .env
 .env.local
+.github/instructions/snyk_rules.instructions.md
+.speakeasy/reports
+**/.speakeasy/logs/
+**/.speakeasy/temp/
+# .gitignore
