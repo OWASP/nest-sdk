@@ -361,7 +361,7 @@ func main() {
 	ctx := context.Background()
 
 	s := nest.New(
-		nest.WithServerURL("https://nest.owasp.dev"),
+		nest.WithServerURL("https://nest.owasp.org"),
 		nest.WithSecurity(os.Getenv("NEST_API_KEY")),
 	)
 

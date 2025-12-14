@@ -22,7 +22,7 @@ func (m Member) MarshalJSON() ([]byte, error) {
 }
 
 func (m *Member) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &m, "", false, []string{"avatar_url", "created_at", "login", "name", "updated_at", "url"}); err != nil {
+	if err := utils.UnmarshalJSON(data, &m, "", false, nil); err != nil {
 		return err
 	}
 	return nil

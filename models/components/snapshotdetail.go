@@ -27,7 +27,7 @@ func (s SnapshotDetail) MarshalJSON() ([]byte, error) {
 }
 
 func (s *SnapshotDetail) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &s, "", false, []string{"created_at", "end_at", "key", "start_at", "title", "updated_at", "new_chapters_count", "new_issues_count", "new_projects_count", "new_releases_count", "new_users_count"}); err != nil {
+	if err := utils.UnmarshalJSON(data, &s, "", false, nil); err != nil {
 		return err
 	}
 	return nil

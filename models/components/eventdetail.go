@@ -24,7 +24,7 @@ func (e EventDetail) MarshalJSON() ([]byte, error) {
 }
 
 func (e *EventDetail) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &e, "", false, []string{"key", "name", "start_date"}); err != nil {
+	if err := utils.UnmarshalJSON(data, &e, "", false, nil); err != nil {
 		return err
 	}
 	return nil

@@ -1,28 +1,28 @@
-speakeasyVersion: 1.658.2
+speakeasyVersion: 1.676.1
 sources:
     nest-sdk-go:
         sourceNamespace: go-sdk
-        sourceRevisionDigest: sha256:ffc74acd482e2729d9b768c70795813b7f6f61cd4d15a33768b4f8a6c5194ff4
-        sourceBlobDigest: sha256:aba811759f52ec3d41c1f11f13b8acc6a97bdf6e61f55e500fb6c50a832871a9
+        sourceRevisionDigest: sha256:b9c6d3e75fd7a0b9609627fed2b28f0e6851274c15ea5cdde1c511898bcecef2
+        sourceBlobDigest: sha256:fc3ab247501d2764dedd3c6fab8bd4f58f5066d100b9478f908b475e6f0d0c97
         tags:
             - latest
-            - speakeasy-sdk-regen-1763519924
-            - 0.3.1
+            - speakeasy-sdk-regen-1765670888
+            - 0.3.6
 targets:
     nest-sdk-go:
         source: nest-sdk-go
         sourceNamespace: go-sdk
-        sourceRevisionDigest: sha256:ffc74acd482e2729d9b768c70795813b7f6f61cd4d15a33768b4f8a6c5194ff4
-        sourceBlobDigest: sha256:aba811759f52ec3d41c1f11f13b8acc6a97bdf6e61f55e500fb6c50a832871a9
+        sourceRevisionDigest: sha256:b9c6d3e75fd7a0b9609627fed2b28f0e6851274c15ea5cdde1c511898bcecef2
+        sourceBlobDigest: sha256:fc3ab247501d2764dedd3c6fab8bd4f58f5066d100b9478f908b475e6f0d0c97
         codeSamplesNamespace: go-code-samples
-        codeSamplesRevisionDigest: sha256:35f22b811e4b49fa898650181bfed52887bc073dea4a82fe0db949850609307f
+        codeSamplesRevisionDigest: sha256:33f33e4ac59c2ef9beb388bc2e9bafd6cf8d058ba956c27a07bab9e44a081e6e
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
     sources:
         nest-sdk-go:
             inputs:
-                - location: https://nest.owasp.dev/api/v0/openapi.json
+                - location: https://nest.owasp.org/api/v0/openapi.json
             registry:
                 location: registry.speakeasyapi.dev/owasp/nest/go-sdk
     targets:

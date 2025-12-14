@@ -2,7 +2,7 @@
 
 package nest
 
-// Generated from OpenAPI doc version 0.3.1 and generator version 2.755.9
+// Generated from OpenAPI doc version 0.3.6 and generator version 2.781.2
 
 import (
 	"context"
@@ -18,8 +18,8 @@ import (
 
 // ServerList contains the list of servers available to the SDK
 var ServerList = []string{
-	// Staging
-	"https://nest.owasp.dev",
+	// Production
+	"https://nest.owasp.org",
 }
 
 // HTTPClient provides an interface for supplying the SDK with a custom HTTP client
@@ -137,9 +137,9 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Nest {
 	sdk := &Nest{
-		SDKVersion: "0.3.1",
+		SDKVersion: "0.4.0",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:  "speakeasy-sdk/go 0.3.1 2.755.9 0.3.1 github.com/owasp/nest-sdk",
+			UserAgent:  "speakeasy-sdk/go 0.4.0 2.781.2 0.3.6 github.com/owasp/nest-sdk",
 			ServerList: ServerList,
 		},
 		hooks: hooks.New(),

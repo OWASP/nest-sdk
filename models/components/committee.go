@@ -20,7 +20,7 @@ func (c Committee) MarshalJSON() ([]byte, error) {
 }
 
 func (c *Committee) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &c, "", false, []string{"created_at", "key", "name", "updated_at"}); err != nil {
+	if err := utils.UnmarshalJSON(data, &c, "", false, nil); err != nil {
 		return err
 	}
 	return nil
