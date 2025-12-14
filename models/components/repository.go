@@ -19,7 +19,7 @@ func (r Repository) MarshalJSON() ([]byte, error) {
 }
 
 func (r *Repository) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &r, "", false, []string{"created_at", "name", "updated_at"}); err != nil {
+	if err := utils.UnmarshalJSON(data, &r, "", false, nil); err != nil {
 		return err
 	}
 	return nil

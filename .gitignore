@@ -1,3 +1,4 @@
+# .gitignore
 .cursor/rules/snyk_rules.mdc
 .DS_Store
 .env

@@ -21,7 +21,7 @@ func (i Issue) MarshalJSON() ([]byte, error) {
 }
 
 func (i *Issue) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &i, "", false, []string{"created_at", "state", "title", "updated_at", "url"}); err != nil {
+	if err := utils.UnmarshalJSON(data, &i, "", false, nil); err != nil {
 		return err
 	}
 	return nil

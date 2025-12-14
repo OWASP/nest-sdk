@@ -1,5 +1,4 @@
 # Releases
-(*Releases*)
 
 ## Overview
 

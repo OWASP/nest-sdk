@@ -30,7 +30,7 @@ func (m MemberDetail) MarshalJSON() ([]byte, error) {
 }
 
 func (m *MemberDetail) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &m, "", false, []string{"avatar_url", "created_at", "login", "name", "updated_at", "url", "bio", "company", "followers_count", "following_count", "location", "public_repositories_count", "title", "twitter_username"}); err != nil {
+	if err := utils.UnmarshalJSON(data, &m, "", false, nil); err != nil {
 		return err
 	}
 	return nil
