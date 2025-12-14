@@ -21,7 +21,7 @@ func (r ReleaseDetail) MarshalJSON() ([]byte, error) {
 }
 
 func (r *ReleaseDetail) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &r, "", false, []string{"created_at", "name", "tag_name", "description"}); err != nil {
+	if err := utils.UnmarshalJSON(data, &r, "", false, nil); err != nil {
 		return err
 	}
 	return nil

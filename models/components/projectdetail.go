@@ -23,7 +23,7 @@ func (p ProjectDetail) MarshalJSON() ([]byte, error) {
 }
 
 func (p *ProjectDetail) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &p, "", false, []string{"created_at", "key", "level", "name", "updated_at", "description"}); err != nil {
+	if err := utils.UnmarshalJSON(data, &p, "", false, nil); err != nil {
 		return err
 	}
 	return nil

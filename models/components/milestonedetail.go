@@ -26,7 +26,7 @@ func (m MilestoneDetail) MarshalJSON() ([]byte, error) {
 }
 
 func (m *MilestoneDetail) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &m, "", false, []string{"created_at", "number", "state", "title", "updated_at", "url", "body", "closed_issues_count", "open_issues_count"}); err != nil {
+	if err := utils.UnmarshalJSON(data, &m, "", false, nil); err != nil {
 		return err
 	}
 	return nil
