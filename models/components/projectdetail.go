@@ -16,6 +16,7 @@ type ProjectDetail struct {
 	Name        string       `json:"name"`
 	UpdatedAt   time.Time    `json:"updated_at"`
 	Description string       `json:"description"`
+	Leaders     []Leader     `json:"leaders"`
 }
 
 func (p ProjectDetail) MarshalJSON() ([]byte, error) {
@@ -69,4 +70,11 @@ func (p *ProjectDetail) GetDescription() string {
 		return ""
 	}
 	return p.Description
+}
+
+func (p *ProjectDetail) GetLeaders() []Leader {
+	if p == nil {
+		return []Leader{}
+	}
+	return p.Leaders
 }
