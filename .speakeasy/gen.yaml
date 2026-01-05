@@ -28,13 +28,14 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: false
 go:
-  version: 0.3.6
+  version: 0.3.7
   additionalDependencies: {}
   baseErrorName: NestError
   clientServerStatusCodesAsErrors: true
   defaultErrorName: NestAPIError
   envVarPrefix: NEST
   flattenGlobalSecurity: true
+  forwardCompatibleEnumsByDefault: false
   imports:
     option: openapi
     paths:

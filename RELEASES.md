@@ -99,3 +99,13 @@ Based on:
 - [go v0.3.6] .
 ### Releases
 - [Go v0.3.6] https://github.com/OWASP/nest-sdk/releases/tag/v0.3.6 - .
+
+## 2026-01-05 00:08:38
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.680.12 (2.788.15) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [go v0.3.7] .
+### Releases
+- [Go v0.3.7] https://github.com/OWASP/nest-sdk/releases/tag/v0.3.7 - .

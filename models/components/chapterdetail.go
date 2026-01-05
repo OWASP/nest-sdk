@@ -16,6 +16,7 @@ type ChapterDetail struct {
 	Name      string    `json:"name"`
 	UpdatedAt time.Time `json:"updated_at"`
 	Country   string    `json:"country"`
+	Leaders   []Leader  `json:"leaders"`
 	Region    string    `json:"region"`
 }
 
@@ -77,6 +78,13 @@ func (c *ChapterDetail) GetCountry() string {
 		return ""
 	}
 	return c.Country
+}
+
+func (c *ChapterDetail) GetLeaders() []Leader {
+	if c == nil {
+		return []Leader{}
+	}
+	return c.Leaders
 }
 
 func (c *ChapterDetail) GetRegion() string {
