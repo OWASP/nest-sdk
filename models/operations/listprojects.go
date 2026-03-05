@@ -45,6 +45,8 @@ func (e *ListProjectsOrdering) UnmarshalJSON(data []byte) error {
 type ListProjectsRequest struct {
 	// Level of the project
 	Level *components.ProjectLevel `queryParam:"style=form,explode=true,name=level"`
+	// Structured search query (e.g. 'name:security stars:>100')
+	Q *string `queryParam:"style=form,explode=true,name=q"`
 	// Ordering field
 	Ordering *ListProjectsOrdering `queryParam:"style=form,explode=true,name=ordering"`
 	// Page number
@@ -69,6 +71,13 @@ func (l *ListProjectsRequest) GetLevel() *components.ProjectLevel {
 		return nil
 	}
 	return l.Level
+}
+
+func (l *ListProjectsRequest) GetQ() *string {
+	if l == nil {
+		return nil
+	}
+	return l.Q
 }
 
 func (l *ListProjectsRequest) GetOrdering() *ListProjectsOrdering {

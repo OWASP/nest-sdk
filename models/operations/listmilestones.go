@@ -47,7 +47,7 @@ type ListMilestonesRequest struct {
 	// Repository that milestones belong to
 	Repository *string `queryParam:"style=form,explode=true,name=repository"`
 	// Milestone state
-	State    *components.State       `queryParam:"style=form,explode=true,name=state"`
+	State    *components.IssueState  `queryParam:"style=form,explode=true,name=state"`
 	Ordering *ListMilestonesOrdering `queryParam:"style=form,explode=true,name=ordering"`
 	// Page number
 	Page *int64 `default:"1" queryParam:"style=form,explode=true,name=page"`
@@ -80,7 +80,7 @@ func (l *ListMilestonesRequest) GetRepository() *string {
 	return l.Repository
 }
 
-func (l *ListMilestonesRequest) GetState() *components.State {
+func (l *ListMilestonesRequest) GetState() *components.IssueState {
 	if l == nil {
 		return nil
 	}

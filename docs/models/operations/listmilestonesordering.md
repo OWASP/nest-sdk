@@ -1,5 +1,15 @@
 # ListMilestonesOrdering
 
+## Example Usage
+
+```go
+import (
+	"github.com/owasp/nest-sdk/models/operations"
+)
+
+value := operations.ListMilestonesOrderingCreatedAt
+```
+
 
 ## Values
 

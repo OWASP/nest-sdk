@@ -294,10 +294,11 @@ By Default, an API error will return `apierrors.NestAPIError`. When custom error
 
 For example, the `GetChapter` function may return the following errors:
 
-| Error Type             | Status Code | Content Type     |
-| ---------------------- | ----------- | ---------------- |
-| apierrors.ChapterError | 404         | application/json |
-| apierrors.NestAPIError | 4XX, 5XX    | \*/\*            |
+| Error Type                      | Status Code | Content Type     |
+| ------------------------------- | ----------- | ---------------- |
+| apierrors.ValidationErrorSchema | 400         | application/json |
+| apierrors.ChapterError          | 404         | application/json |
+| apierrors.NestAPIError          | 4XX, 5XX    | \*/\*            |
 
 ### Example
 
@@ -322,6 +323,12 @@ func main() {
 
 	res, err := s.Chapters.GetChapter(ctx, "London")
 	if err != nil {
+
+		var e *apierrors.ValidationErrorSchema
+		if errors.As(err, &e) {
+			// handle error
+			log.Fatal(e.Error())
+		}
 
 		var e *apierrors.ChapterError
 		if errors.As(err, &e) {

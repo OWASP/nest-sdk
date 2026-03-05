@@ -2,34 +2,18 @@
 
 package components
 
-import (
-	"github.com/owasp/nest-sdk/internal/utils"
-	"time"
-)
-
 // Event - Schema for Event (minimal fields for list display).
 type Event struct {
-	EndDate   *time.Time `json:"end_date,omitempty"`
-	Key       string     `json:"key"`
-	Latitude  *float64   `json:"latitude,omitempty"`
-	Longitude *float64   `json:"longitude,omitempty"`
-	Name      string     `json:"name"`
-	StartDate time.Time  `json:"start_date"`
-	URL       *string    `json:"url,omitempty"`
+	EndDate   *string  `json:"end_date,omitempty"`
+	Key       string   `json:"key"`
+	Latitude  *float64 `json:"latitude,omitempty"`
+	Longitude *float64 `json:"longitude,omitempty"`
+	Name      string   `json:"name"`
+	StartDate string   `json:"start_date"`
+	URL       *string  `json:"url,omitempty"`
 }
 
-func (e Event) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(e, "", false)
-}
-
-func (e *Event) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &e, "", false, nil); err != nil {
-		return err
-	}
-	return nil
-}
-
-func (e *Event) GetEndDate() *time.Time {
+func (e *Event) GetEndDate() *string {
 	if e == nil {
 		return nil
 	}
@@ -64,9 +48,9 @@ func (e *Event) GetName() string {
 	return e.Name
 }
 
-func (e *Event) GetStartDate() time.Time {
+func (e *Event) GetStartDate() string {
 	if e == nil {
-		return time.Time{}
+		return ""
 	}
 	return e.StartDate
 }

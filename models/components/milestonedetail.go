@@ -9,9 +9,10 @@ import (
 
 // MilestoneDetail - Detail schema for Milestone (used in single item endpoints).
 type MilestoneDetail struct {
-	CreatedAt         time.Time  `json:"created_at"`
-	Number            int64      `json:"number"`
-	State             State      `json:"state"`
+	CreatedAt time.Time `json:"created_at"`
+	Number    int64     `json:"number"`
+	// Issue state choices.
+	State             IssueState `json:"state"`
 	Title             string     `json:"title"`
 	UpdatedAt         time.Time  `json:"updated_at"`
 	URL               string     `json:"url"`
@@ -46,9 +47,9 @@ func (m *MilestoneDetail) GetNumber() int64 {
 	return m.Number
 }
 
-func (m *MilestoneDetail) GetState() State {
+func (m *MilestoneDetail) GetState() IssueState {
 	if m == nil {
-		return State("")
+		return IssueState("")
 	}
 	return m.State
 }

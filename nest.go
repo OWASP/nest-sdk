@@ -2,7 +2,7 @@
 
 package nest
 
-// Generated from OpenAPI doc version 0.3.6 and generator version 2.788.15
+// Generated from OpenAPI doc version 0.3.6 and generator version 2.849.6
 
 import (
 	"context"
@@ -68,7 +68,7 @@ type Nest struct {
 
 type SDKOption func(*Nest)
 
-// WithServerURL allows the overriding of the default server URL
+// WithServerURL allows providing an alternative server URL
 func WithServerURL(serverURL string) SDKOption {
 	return func(sdk *Nest) {
 		sdk.sdkConfiguration.ServerURL = serverURL
@@ -137,9 +137,9 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Nest {
 	sdk := &Nest{
-		SDKVersion: "0.3.7",
+		SDKVersion: "0.4.0",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:  "speakeasy-sdk/go 0.3.7 2.788.15 0.3.6 github.com/owasp/nest-sdk",
+			UserAgent:  "speakeasy-sdk/go 0.4.0 2.849.6 0.3.6 github.com/owasp/nest-sdk",
 			ServerList: ServerList,
 		},
 		hooks: hooks.New(),

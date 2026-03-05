@@ -10,10 +10,11 @@ import (
 // Issue - Schema for Issue (minimal fields for list display).
 type Issue struct {
 	CreatedAt time.Time `json:"created_at"`
-	State     State     `json:"state"`
-	Title     string    `json:"title"`
-	UpdatedAt time.Time `json:"updated_at"`
-	URL       string    `json:"url"`
+	// Issue state choices.
+	State     IssueState `json:"state"`
+	Title     string     `json:"title"`
+	UpdatedAt time.Time  `json:"updated_at"`
+	URL       string     `json:"url"`
 }
 
 func (i Issue) MarshalJSON() ([]byte, error) {
@@ -34,9 +35,9 @@ func (i *Issue) GetCreatedAt() time.Time {
 	return i.CreatedAt
 }
 
-func (i *Issue) GetState() State {
+func (i *Issue) GetState() IssueState {
 	if i == nil {
-		return State("")
+		return IssueState("")
 	}
 	return i.State
 }

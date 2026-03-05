@@ -32,7 +32,9 @@ func main() {
         nest.WithSecurity(os.Getenv("NEST_API_KEY")),
     )
 
-    res, err := s.Projects.ListProjects(ctx, nil, operations.ListProjectsOrderingMinusCreatedAt.ToPointer(), nest.Pointer[int64](1), nest.Pointer[int64](100))
+    res, err := s.Projects.ListProjects(ctx, operations.ListProjectsRequest{
+        Ordering: operations.ListProjectsOrderingMinusCreatedAt.ToPointer(),
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -44,14 +46,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
-| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `ctx`                                                                               | [context.Context](https://pkg.go.dev/context#Context)                               | :heavy_check_mark:                                                                  | The context to use for the request.                                                 |
-| `level`                                                                             | [*components.ProjectLevel](../../models/components/projectlevel.md)                 | :heavy_minus_sign:                                                                  | Level of the project                                                                |
-| `ordering`                                                                          | [*operations.ListProjectsOrdering](../../models/operations/listprojectsordering.md) | :heavy_minus_sign:                                                                  | Ordering field                                                                      |
-| `page`                                                                              | **int64*                                                                            | :heavy_minus_sign:                                                                  | Page number                                                                         |
-| `pageSize`                                                                          | **int64*                                                                            | :heavy_minus_sign:                                                                  | Number of items per page                                                            |
-| `opts`                                                                              | [][operations.Option](../../models/operations/option.md)                            | :heavy_minus_sign:                                                                  | The options for this request.                                                       |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
+| `request`                                                                        | [operations.ListProjectsRequest](../../models/operations/listprojectsrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `opts`                                                                           | [][operations.Option](../../models/operations/option.md)                         | :heavy_minus_sign:                                                               | The options for this request.                                                    |
 
 ### Response
 
@@ -111,7 +110,8 @@ func main() {
 
 ### Errors
 
-| Error Type             | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| apierrors.ProjectError | 404                    | application/json       |
-| apierrors.NestAPIError | 4XX, 5XX               | \*/\*                  |
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| apierrors.ValidationErrorSchema | 400                             | application/json                |
+| apierrors.ProjectError          | 404                             | application/json                |
+| apierrors.NestAPIError          | 4XX, 5XX                        | \*/\*                           |
