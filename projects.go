@@ -33,14 +33,7 @@ func newProjects(rootSDK *Nest, sdkConfig config.SDKConfiguration, hooks *hooks.
 
 // ListProjects - List projects
 // Retrieve a paginated list of OWASP projects.
-func (s *Projects) ListProjects(ctx context.Context, level *components.ProjectLevel, ordering *operations.ListProjectsOrdering, page *int64, pageSize *int64, opts ...operations.Option) (*operations.ListProjectsResponse, error) {
-	request := operations.ListProjectsRequest{
-		Level:    level,
-		Ordering: ordering,
-		Page:     page,
-		PageSize: pageSize,
-	}
-
+func (s *Projects) ListProjects(ctx context.Context, request operations.ListProjectsRequest, opts ...operations.Option) (*operations.ListProjectsResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -388,7 +381,7 @@ func (s *Projects) GetProject(ctx context.Context, projectID string, opts ...ope
 
 			_, err = s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 			return nil, err
-		} else if utils.MatchStatusCodes([]string{"404", "4XX", "5XX"}, httpRes.StatusCode) {
+		} else if utils.MatchStatusCodes([]string{"400", "404", "4XX", "5XX"}, httpRes.StatusCode) {
 			_httpRes, err := s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 			if err != nil {
 				return nil, err
@@ -425,6 +418,31 @@ func (s *Projects) GetProject(ctx context.Context, projectID string, opts ...ope
 			}
 
 			res.ProjectDetail = &out
+		default:
+			rawBody, err := utils.ConsumeRawBody(httpRes)
+			if err != nil {
+				return nil, err
+			}
+			return nil, apierrors.NewNestAPIError(fmt.Sprintf("unknown content-type received: %s", httpRes.Header.Get("Content-Type")), httpRes.StatusCode, string(rawBody), httpRes)
+		}
+	case httpRes.StatusCode == 400:
+		switch {
+		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json`):
+			rawBody, err := utils.ConsumeRawBody(httpRes)
+			if err != nil {
+				return nil, err
+			}
+
+			var out apierrors.ValidationErrorSchema
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
+				return nil, err
+			}
+
+			out.HTTPMeta = components.HTTPMetadata{
+				Request:  req,
+				Response: httpRes,
+			}
+			return nil, &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {

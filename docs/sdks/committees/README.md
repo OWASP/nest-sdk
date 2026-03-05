@@ -109,7 +109,8 @@ func main() {
 
 ### Errors
 
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| apierrors.CommitteeError | 404                      | application/json         |
-| apierrors.NestAPIError   | 4XX, 5XX                 | \*/\*                    |
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| apierrors.ValidationErrorSchema | 400                             | application/json                |
+| apierrors.CommitteeError        | 404                             | application/json                |
+| apierrors.NestAPIError          | 4XX, 5XX                        | \*/\*                           |

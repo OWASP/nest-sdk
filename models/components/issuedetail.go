@@ -10,11 +10,12 @@ import (
 // IssueDetail - Detail schema for Issue (used in single item endpoints).
 type IssueDetail struct {
 	CreatedAt time.Time `json:"created_at"`
-	State     State     `json:"state"`
-	Title     string    `json:"title"`
-	UpdatedAt time.Time `json:"updated_at"`
-	URL       string    `json:"url"`
-	Body      string    `json:"body"`
+	// Issue state choices.
+	State     IssueState `json:"state"`
+	Title     string     `json:"title"`
+	UpdatedAt time.Time  `json:"updated_at"`
+	URL       string     `json:"url"`
+	Body      string     `json:"body"`
 }
 
 func (i IssueDetail) MarshalJSON() ([]byte, error) {
@@ -35,9 +36,9 @@ func (i *IssueDetail) GetCreatedAt() time.Time {
 	return i.CreatedAt
 }
 
-func (i *IssueDetail) GetState() State {
+func (i *IssueDetail) GetState() IssueState {
 	if i == nil {
-		return State("")
+		return IssueState("")
 	}
 	return i.State
 }

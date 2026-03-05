@@ -7,6 +7,7 @@ import (
 	"fmt"
 )
 
+// MemberType - Member type choices.
 type MemberType string
 
 const (

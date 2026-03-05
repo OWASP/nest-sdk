@@ -48,7 +48,7 @@ type ListIssuesRequest struct {
 	// Repository that issues belong to
 	Repository *string `queryParam:"style=form,explode=true,name=repository"`
 	// Issue state
-	State *components.State `queryParam:"style=form,explode=true,name=state"`
+	State *components.IssueState `queryParam:"style=form,explode=true,name=state"`
 	// Ordering field
 	Ordering *ListIssuesOrdering `queryParam:"style=form,explode=true,name=ordering"`
 	// Page number
@@ -82,7 +82,7 @@ func (l *ListIssuesRequest) GetRepository() *string {
 	return l.Repository
 }
 
-func (l *ListIssuesRequest) GetState() *components.State {
+func (l *ListIssuesRequest) GetState() *components.IssueState {
 	if l == nil {
 		return nil
 	}

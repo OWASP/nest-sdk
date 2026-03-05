@@ -11,10 +11,11 @@ import (
 type Milestone struct {
 	CreatedAt time.Time `json:"created_at"`
 	Number    int64     `json:"number"`
-	State     State     `json:"state"`
-	Title     string    `json:"title"`
-	UpdatedAt time.Time `json:"updated_at"`
-	URL       string    `json:"url"`
+	// Issue state choices.
+	State     IssueState `json:"state"`
+	Title     string     `json:"title"`
+	UpdatedAt time.Time  `json:"updated_at"`
+	URL       string     `json:"url"`
 }
 
 func (m Milestone) MarshalJSON() ([]byte, error) {
@@ -42,9 +43,9 @@ func (m *Milestone) GetNumber() int64 {
 	return m.Number
 }
 
-func (m *Milestone) GetState() State {
+func (m *Milestone) GetState() IssueState {
 	if m == nil {
-		return State("")
+		return IssueState("")
 	}
 	return m.State
 }

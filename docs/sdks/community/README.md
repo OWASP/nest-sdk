@@ -119,10 +119,11 @@ func main() {
 
 ### Errors
 
-| Error Type             | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| apierrors.MemberError  | 404                    | application/json       |
-| apierrors.NestAPIError | 4XX, 5XX               | \*/\*                  |
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| apierrors.ValidationErrorSchema | 400                             | application/json                |
+| apierrors.MemberError           | 404                             | application/json                |
+| apierrors.NestAPIError          | 4XX, 5XX                        | \*/\*                           |
 
 ## ListOrganizations
 
@@ -227,10 +228,11 @@ func main() {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| apierrors.OrganizationError | 404                         | application/json            |
-| apierrors.NestAPIError      | 4XX, 5XX                    | \*/\*                       |
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| apierrors.ValidationErrorSchema | 400                             | application/json                |
+| apierrors.OrganizationError     | 404                             | application/json                |
+| apierrors.NestAPIError          | 4XX, 5XX                        | \*/\*                           |
 
 ## ListSnapshots
 
@@ -334,10 +336,11 @@ func main() {
 
 ### Errors
 
-| Error Type              | Status Code             | Content Type            |
-| ----------------------- | ----------------------- | ----------------------- |
-| apierrors.SnapshotError | 404                     | application/json        |
-| apierrors.NestAPIError  | 4XX, 5XX                | \*/\*                   |
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| apierrors.ValidationErrorSchema | 400                             | application/json                |
+| apierrors.SnapshotError         | 404                             | application/json                |
+| apierrors.NestAPIError          | 4XX, 5XX                        | \*/\*                           |
 
 ## ListSnapshotChapters
 

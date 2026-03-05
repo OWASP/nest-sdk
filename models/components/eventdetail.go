@@ -2,35 +2,19 @@
 
 package components
 
-import (
-	"github.com/owasp/nest-sdk/internal/utils"
-	"time"
-)
-
 // EventDetail - Detail schema for Event (used in single item endpoints).
 type EventDetail struct {
-	EndDate     *time.Time `json:"end_date,omitempty"`
-	Key         string     `json:"key"`
-	Latitude    *float64   `json:"latitude,omitempty"`
-	Longitude   *float64   `json:"longitude,omitempty"`
-	Name        string     `json:"name"`
-	StartDate   time.Time  `json:"start_date"`
-	URL         *string    `json:"url,omitempty"`
-	Description *string    `json:"description,omitempty"`
+	EndDate     *string  `json:"end_date,omitempty"`
+	Key         string   `json:"key"`
+	Latitude    *float64 `json:"latitude,omitempty"`
+	Longitude   *float64 `json:"longitude,omitempty"`
+	Name        string   `json:"name"`
+	StartDate   string   `json:"start_date"`
+	URL         *string  `json:"url,omitempty"`
+	Description *string  `json:"description,omitempty"`
 }
 
-func (e EventDetail) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(e, "", false)
-}
-
-func (e *EventDetail) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &e, "", false, nil); err != nil {
-		return err
-	}
-	return nil
-}
-
-func (e *EventDetail) GetEndDate() *time.Time {
+func (e *EventDetail) GetEndDate() *string {
 	if e == nil {
 		return nil
 	}
@@ -65,9 +49,9 @@ func (e *EventDetail) GetName() string {
 	return e.Name
 }
 
-func (e *EventDetail) GetStartDate() time.Time {
+func (e *EventDetail) GetStartDate() string {
 	if e == nil {
-		return time.Time{}
+		return ""
 	}
 	return e.StartDate
 }

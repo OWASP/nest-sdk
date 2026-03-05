@@ -9,13 +9,14 @@ import (
 
 // SnapshotIssue - Schema for Snapshot Issue (used in list endpoints).
 type SnapshotIssue struct {
-	CreatedAt         time.Time `json:"created_at"`
-	State             State     `json:"state"`
-	Title             string    `json:"title"`
-	UpdatedAt         time.Time `json:"updated_at"`
-	URL               string    `json:"url"`
-	OrganizationLogin *string   `json:"organization_login"`
-	RepositoryName    *string   `json:"repository_name"`
+	CreatedAt time.Time `json:"created_at"`
+	// Issue state choices.
+	State             IssueState `json:"state"`
+	Title             string     `json:"title"`
+	UpdatedAt         time.Time  `json:"updated_at"`
+	URL               string     `json:"url"`
+	OrganizationLogin *string    `json:"organization_login"`
+	RepositoryName    *string    `json:"repository_name"`
 }
 
 func (s SnapshotIssue) MarshalJSON() ([]byte, error) {
@@ -36,9 +37,9 @@ func (s *SnapshotIssue) GetCreatedAt() time.Time {
 	return s.CreatedAt
 }
 
-func (s *SnapshotIssue) GetState() State {
+func (s *SnapshotIssue) GetState() IssueState {
 	if s == nil {
-		return State("")
+		return IssueState("")
 	}
 	return s.State
 }
