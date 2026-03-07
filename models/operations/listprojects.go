@@ -47,6 +47,8 @@ type ListProjectsRequest struct {
 	Level *components.ProjectLevel `queryParam:"style=form,explode=true,name=level"`
 	// Structured search query (e.g. 'name:security stars:>100')
 	Q *string `queryParam:"style=form,explode=true,name=q"`
+	// Type of the project
+	Type []components.ProjectType `queryParam:"style=form,explode=true,name=type"`
 	// Ordering field
 	Ordering *ListProjectsOrdering `queryParam:"style=form,explode=true,name=ordering"`
 	// Page number
@@ -78,6 +80,13 @@ func (l *ListProjectsRequest) GetQ() *string {
 		return nil
 	}
 	return l.Q
+}
+
+func (l *ListProjectsRequest) GetType() []components.ProjectType {
+	if l == nil {
+		return nil
+	}
+	return l.Type
 }
 
 func (l *ListProjectsRequest) GetOrdering() *ListProjectsOrdering {

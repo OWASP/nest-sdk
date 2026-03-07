@@ -1,23 +1,23 @@
 lockVersion: 2.0.0
 id: 474e3505-9fbc-4c93-940d-6ce113ca53b0
 management:
-  docChecksum: 2063497fbdf5d8f083b8de0638957190
+  docChecksum: 82798c73a9f159196cdbaf0831186cbf
   docVersion: 0.3.6
-  speakeasyVersion: 1.741.3
-  generationVersion: 2.849.6
-  releaseVersion: 0.4.0
-  configChecksum: fb36ffef7b1abf7dd44262df9840a274
+  speakeasyVersion: 1.748.0
+  generationVersion: 2.852.1
+  releaseVersion: 0.4.1
+  configChecksum: bbacbfbc2f64ee416f0565da92cb1de0
   repoURL: https://github.com/OWASP/nest-sdk.git
   installationURL: https://github.com/OWASP/nest-sdk
 persistentEdits:
-  generation_id: 5c385f40-f312-47ca-8b48-978611cfba7f
-  pristine_commit_hash: 9e855e86bd4afe1e3e7d0a02612e30b7ecce75d5
-  pristine_tree_hash: 55f224282d98cc9408ebc0818e7cffb2b1089db7
+  generation_id: 55077bfd-a878-46d2-a24b-d59b07d118d0
+  pristine_commit_hash: 9a7367a1439344c34fbb287df96f6ffe9328455d
+  pristine_tree_hash: ed6523aa44b8d0c4a29f0ce2b303b1e8c632598e
 features:
   go:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.14
-    core: 3.13.20
+    core: 3.13.21
     defaultEnabledRetries: 0.2.0
     envVarSecurityUsage: 0.3.2
     flattening: 2.81.1
@@ -104,6 +104,10 @@ trackedFiles:
     id: e19e4719da9d
     last_write_checksum: sha1:f3bef11379fc02b869ef110badfefb8a36446f41
     pristine_git_object: decde79a143759c1e58f984028a6276f2c9379d9
+  docs/models/components/category.md:
+    id: 0b89f7c10ecc
+    last_write_checksum: sha1:a7d6f153de956f89581518437005c2de529fa778
+    pristine_git_object: beb7011148cf830b04b34a4b674892be00123783
   docs/models/components/chapter.md:
     id: 014184ca5b28
     last_write_checksum: sha1:b302855cc95b7bd91ca3b80222de71d2965ab2f2
@@ -238,16 +242,20 @@ trackedFiles:
     pristine_git_object: 8b5978730e1a54c668d6860e49f3c24e01407a19
   docs/models/components/project.md:
     id: e6f9abcd3eff
-    last_write_checksum: sha1:aca5eb323d035713adcd0d400e132647bd3e9356
-    pristine_git_object: 79da1d67b7b027e536cdc6e09f0707b9d006facb
+    last_write_checksum: sha1:a14fbe4cbdb2ff860528496c7d6e42615f93a9de
+    pristine_git_object: 3cbf3fc3e6169759780f881b39b9a65b5b46a85c
   docs/models/components/projectdetail.md:
     id: 7aa2fdc8d155
-    last_write_checksum: sha1:d2a31ae8a9a96b36fe8dcc896b8a001369e2f7f3
-    pristine_git_object: f496397e4dc1898099506db18943b4d5350b7ad8
+    last_write_checksum: sha1:961e3e447243212035f6c62d73f726258bf4a7d3
+    pristine_git_object: 2d813e3edd1cf344a7230f2918a448625d0b5293
   docs/models/components/projectlevel.md:
     id: 8fe56eccb179
     last_write_checksum: sha1:4aa7b454faee86d06ba9ac83783480361dbaf084
     pristine_git_object: c5066d26dc4383613f0dc3cb46e6103b298501a8
+  docs/models/components/projecttype.md:
+    id: 728d9fc7a40d
+    last_write_checksum: sha1:227af83f55aa333869dd1b40b21eee8c98d2b1a4
+    pristine_git_object: 375c185dee6334fc20f7d6d1d361b9c11af2300e
   docs/models/components/release.md:
     id: a4e98e4d8d47
     last_write_checksum: sha1:b8b31c0cf467944a22798773aa3ca7bf01618a71
@@ -418,8 +426,8 @@ trackedFiles:
     pristine_git_object: 87bbc44f84da3ec51f65794ce0a85a241712c6e0
   docs/models/operations/listeventsrequest.md:
     id: 4c63e4d672e2
-    last_write_checksum: sha1:b9ad15c985c15d905bae2bb8ae5a4fc74fe35797
-    pristine_git_object: ed6f96688268044e4078518d078c24310f07b745
+    last_write_checksum: sha1:6b02cc78a83d33f365b86a63012908ace1fe6c67
+    pristine_git_object: 0a48b8d488924d083ce310c74694f946b0011292
   docs/models/operations/listeventsresponse.md:
     id: 4ce22aaeca78
     last_write_checksum: sha1:66c3c25c23f6e961730a0f9655215d7a42d34d5d
@@ -478,8 +486,8 @@ trackedFiles:
     pristine_git_object: 1f7c954c9f62fd175b17c4716f7ab27e26923fbc
   docs/models/operations/listprojectsrequest.md:
     id: eed2df774116
-    last_write_checksum: sha1:b74e693ea261955f5c4819630cfe67e51af529d7
-    pristine_git_object: 4a17a4b14935e69a4c45dddfa60751b129ec4b92
+    last_write_checksum: sha1:c658200ebea5e826bd29978e08fd0502e0f29a3f
+    pristine_git_object: 53918541619af0d2f145da79540d46b21af08164
   docs/models/operations/listprojectsresponse.md:
     id: c19905c1cd68
     last_write_checksum: sha1:33524701f62332038564e58c92fbbcf3737107ea
@@ -768,6 +776,10 @@ trackedFiles:
     id: 930d63f5b89b
     last_write_checksum: sha1:7b2404a7ec771cb62800090347d92738dc3683f7
     pristine_git_object: 2e68308021690bd7b6beb732ed2fa7a2e805caa5
+  models/components/category.go:
+    id: d0d1288ce1ad
+    last_write_checksum: sha1:8b570aeba85f8f0442b1181544534eefa1d69410
+    pristine_git_object: 7163d9cde160c7473e5ff6f2fd62439dcf1dad31
   models/components/chapter.go:
     id: 3598276b0c04
     last_write_checksum: sha1:d43690896679e3a21ba9665e6de592e3f7b36d4e
@@ -898,16 +910,20 @@ trackedFiles:
     pristine_git_object: f029b87eb262f82fcfc47f63c71fc4dc40d432b5
   models/components/project.go:
     id: fcb91e7ca3c4
-    last_write_checksum: sha1:b9eb1fc23c95d1b40351fb3a487bb658fd5808ed
-    pristine_git_object: fb27acfc9697955ed823dbdf92d4b5872f4ea958
+    last_write_checksum: sha1:6b689d013c4961bbdfa24512ec1b073cbaa12fef
+    pristine_git_object: 814c40d9332f5d50c95f8b45371ee964cc5a2feb
   models/components/projectdetail.go:
     id: 31a1f0273f2b
-    last_write_checksum: sha1:9148ed690d7c9c25420b48eddd6f6d4bbd7887e5
-    pristine_git_object: 95aaab2f55f26f7f35b75afdb9fbecdaeb50488e
+    last_write_checksum: sha1:0ad59097d86e473f2cb1d880f5047f26f62a290c
+    pristine_git_object: bcf1d9fbda7182a0dc967f4fb55ee75066ceca9d
   models/components/projectlevel.go:
     id: d5275b2883b9
     last_write_checksum: sha1:b45c17f89cd55a13cf76439d3851981364ec911c
     pristine_git_object: e94f5f7df29516862c04a35f374dea9a268ad7d1
+  models/components/projecttype.go:
+    id: 1a386634cee7
+    last_write_checksum: sha1:83042e71d51b80337599d1efe7fe3b8263f73f84
+    pristine_git_object: ad511bb726790bb2a583eaed4a67f0f31c84798c
   models/components/release.go:
     id: c695922c9bdf
     last_write_checksum: sha1:6e835ffe4e422797b57008b496d0f78d675b6193
@@ -1014,8 +1030,8 @@ trackedFiles:
     pristine_git_object: d150f796e4e162b430c2037f1eb762eb001eb673
   models/operations/listevents.go:
     id: 798ff0fb0954
-    last_write_checksum: sha1:47c5ead9715d40cc0bd474cde45919010cab57e1
-    pristine_git_object: af6519987793eec0123bdf68be273e06f7cb0fbc
+    last_write_checksum: sha1:d59b2939a6c442b06abc7b50443302e3c452cc0b
+    pristine_git_object: 5efdb31da6a73580ad1ea360169543c0c14c740e
   models/operations/listissues.go:
     id: 719d23fdd7dc
     last_write_checksum: sha1:41835e01f6f19ec011e555340030a43906c9ca99
@@ -1034,8 +1050,8 @@ trackedFiles:
     pristine_git_object: f2b98ef98bb5a2c5147c7ef21e1c9615b8608a52
   models/operations/listprojects.go:
     id: 9fb320df36ca
-    last_write_checksum: sha1:67c2a9742323086bb02c5fd717909dcf2b5e28b5
-    pristine_git_object: 8feb670f0cd2eb86936f021039d623bcb0d453e8
+    last_write_checksum: sha1:8c217de66cc979a568f320788be881bbb72207fd
+    pristine_git_object: e05598792ae2ada07bae1ddbfd724c039e324408
   models/operations/listreleases.go:
     id: 140d9cf3a02b
     last_write_checksum: sha1:c75edd843c6c5ac884194186df7f1dd3f2e6943c
@@ -1078,8 +1094,8 @@ trackedFiles:
     pristine_git_object: 54b2b23cf060c589a0d68beaf50340022bea33ae
   nest.go:
     id: 6f555b9dbd50
-    last_write_checksum: sha1:9577eb7f579895e52b7465c527a13af4e4404a05
-    pristine_git_object: b8ac5eec88fb9943eb36f3c38c4ef531971c67d8
+    last_write_checksum: sha1:420cccc76c1b453f819fee518fbed32e811debe1
+    pristine_git_object: 212940964fea22329468a89bf0008c49ba629b48
   optionalnullable/optionalnullable.go:
     id: ce60f259ead3
     last_write_checksum: sha1:d6aff1a420c31e025ea21d46cf056e305ae76fe8
@@ -1358,7 +1374,7 @@ examples:
           project_id: "Nest"
       responses:
         "200":
-          application/json: {"created_at": "2023-03-06T09:23:19.829Z", "key": "<key>", "level": "lab", "name": "<value>", "updated_at": "2023-12-06T04:15:58.999Z", "description": "since limply gah consequently ugh petticoat wholly possible", "leaders": []}
+          application/json: {"created_at": "2023-03-06T09:23:19.829Z", "key": "<key>", "level": "lab", "name": "<value>", "type": "code", "updated_at": "2023-12-06T04:15:58.999Z", "description": "since limply gah consequently ugh petticoat wholly possible", "leaders": []}
         "404":
           application/json: {"message": "<value>"}
         "400":
@@ -1528,7 +1544,7 @@ examples:
           page_size: 100
       responses:
         "200":
-          application/json: {"current_page": 75898, "has_next": false, "has_previous": false, "items": [{"created_at": "2024-04-02T12:32:29.027Z", "key": "<key>", "level": "incubator", "name": "<value>", "updated_at": "2024-11-14T17:43:52.606Z"}], "total_count": 736300, "total_pages": 929862}
+          application/json: {"current_page": 75898, "has_next": false, "has_previous": false, "items": [{"created_at": "2024-04-02T12:32:29.027Z", "key": "<key>", "level": "incubator", "name": "<value>", "type": "code", "updated_at": "2024-11-14T17:43:52.606Z"}], "total_count": 736300, "total_pages": 929862}
   list_snapshot_releases:
     speakeasy-default-list-snapshot-releases:
       parameters:
@@ -1541,7 +1557,7 @@ examples:
         "200":
           application/json: {"current_page": 719171, "has_next": true, "has_previous": false, "items": [], "total_count": 715591, "total_pages": 776129}
 examplesVersion: 1.0.2
-releaseNotes: "## Go SDK Changes:\n* `Nest.Projects.ListProjects()`:  `request` **Changed** (Breaking ⚠️)\n* `Nest.Events.GetEvent()`: \n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error.status[400]` **Added**\n* `Nest.Events.ListEvents()`:  `response.Items[]` **Changed** (Breaking ⚠️)\n* `Nest.Repositories.GetRepository()`:  `error.status[400]` **Added**\n* `Nest.Issues.GetIssue()`:  `error.status[400]` **Added**\n* `Nest.Community.GetMember()`:  `error.status[400]` **Added**\n* `Nest.Milestones.GetMilestone()`:  `error.status[400]` **Added**\n* `Nest.Community.GetOrganization()`:  `error.status[400]` **Added**\n* `Nest.Committees.GetCommittee()`:  `error.status[400]` **Added**\n* `Nest.Chapters.GetChapter()`:  `error.status[400]` **Added**\n* `Nest.Projects.GetProject()`:  `error.status[400]` **Added**\n* `Nest.Releases.GetRelease()`:  `error.status[400]` **Added**\n* `Nest.Community.GetSnapshot()`:  `error.status[400]` **Added**\n* `Nest.Sponsors.GetSponsor()`:  `error.status[400]` **Added**\n"
+releaseNotes: "## Go SDK Changes:\n* `Nest.Events.ListEvents()`: \n  *  `request.Request.Category` **Added**\n* `Nest.Community.ListSnapshotProjects()`:  `response.Items[].Type` **Added**\n* `Nest.Projects.ListProjects()`: \n  *  `request.Request.Type` **Added**\n  *  `response.Items[].Type` **Added**\n* `Nest.Projects.GetProject()`:  `response.Type` **Added**\n"
 generatedFiles:
   - .gitattributes
   - /models/apierrors/chaptererror.go

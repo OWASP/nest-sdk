@@ -63,6 +63,8 @@ type ListEventsRequest struct {
 	LongitudeGte *float64 `queryParam:"style=form,explode=true,name=longitude_gte"`
 	// Longitude less than or equal to
 	LongitudeLte *float64 `queryParam:"style=form,explode=true,name=longitude_lte"`
+	// Filter events by category
+	Category []components.Category `queryParam:"style=form,explode=true,name=category"`
 	// Ordering field
 	Ordering *ListEventsOrdering `queryParam:"style=form,explode=true,name=ordering"`
 	// Filter for upcoming events
@@ -110,6 +112,13 @@ func (l *ListEventsRequest) GetLongitudeLte() *float64 {
 		return nil
 	}
 	return l.LongitudeLte
+}
+
+func (l *ListEventsRequest) GetCategory() []components.Category {
+	if l == nil {
+		return nil
+	}
+	return l.Category
 }
 
 func (l *ListEventsRequest) GetOrdering() *ListEventsOrdering {

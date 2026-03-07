@@ -12,11 +12,13 @@ type ProjectDetail struct {
 	CreatedAt time.Time `json:"created_at"`
 	Key       string    `json:"key"`
 	// Enum for OWASP project levels.
-	Level       ProjectLevel `json:"level"`
-	Name        string       `json:"name"`
-	UpdatedAt   time.Time    `json:"updated_at"`
-	Description string       `json:"description"`
-	Leaders     []Leader     `json:"leaders"`
+	Level ProjectLevel `json:"level"`
+	Name  string       `json:"name"`
+	// Enum for OWASP project types.
+	Type        ProjectType `json:"type"`
+	UpdatedAt   time.Time   `json:"updated_at"`
+	Description string      `json:"description"`
+	Leaders     []Leader    `json:"leaders"`
 }
 
 func (p ProjectDetail) MarshalJSON() ([]byte, error) {
@@ -56,6 +58,13 @@ func (p *ProjectDetail) GetName() string {
 		return ""
 	}
 	return p.Name
+}
+
+func (p *ProjectDetail) GetType() ProjectType {
+	if p == nil {
+		return ProjectType("")
+	}
+	return p.Type
 }
 
 func (p *ProjectDetail) GetUpdatedAt() time.Time {
