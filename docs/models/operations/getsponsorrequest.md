@@ -5,4 +5,4 @@
 
 | Field              | Type               | Required           | Description        | Example            |
 | ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
-| `SponsorID`        | *string*           | :heavy_check_mark: | N/A                | adobe              |
+| `SponsorID`        | `string`           | :heavy_check_mark: | N/A                | adobe              |

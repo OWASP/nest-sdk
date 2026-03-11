@@ -21,3 +21,7 @@ value := operations.ListMembersOrderingCreatedAt
 | `ListMembersOrderingMinusCreatedAt` | -created_at                         |
 | `ListMembersOrderingUpdatedAt`      | updated_at                          |
 | `ListMembersOrderingMinusUpdatedAt` | -updated_at                         |
+| `ListMembersOrderingName`           | name                                |
+| `ListMembersOrderingMinusName`      | -name                               |
+| `ListMembersOrderingLogin`          | login                               |
+| `ListMembersOrderingMinusLogin`     | -login                              |

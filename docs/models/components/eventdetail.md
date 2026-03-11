@@ -7,11 +7,11 @@ Detail schema for Event (used in single item endpoints).
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `EndDate`          | **string*          | :heavy_minus_sign: | N/A                |
-| `Key`              | *string*           | :heavy_check_mark: | N/A                |
-| `Latitude`         | **float64*         | :heavy_minus_sign: | N/A                |
-| `Longitude`        | **float64*         | :heavy_minus_sign: | N/A                |
-| `Name`             | *string*           | :heavy_check_mark: | N/A                |
-| `StartDate`        | *string*           | :heavy_check_mark: | N/A                |
-| `URL`              | **string*          | :heavy_minus_sign: | N/A                |
-| `Description`      | **string*          | :heavy_minus_sign: | N/A                |
+| `EndDate`          | `*string`          | :heavy_minus_sign: | N/A                |
+| `Key`              | `string`           | :heavy_check_mark: | N/A                |
+| `Latitude`         | `*float64`         | :heavy_minus_sign: | N/A                |
+| `Longitude`        | `*float64`         | :heavy_minus_sign: | N/A                |
+| `Name`             | `string`           | :heavy_check_mark: | N/A                |
+| `StartDate`        | `string`           | :heavy_check_mark: | N/A                |
+| `URL`              | `*string`          | :heavy_minus_sign: | N/A                |
+| `Description`      | `*string`          | :heavy_minus_sign: | N/A                |
