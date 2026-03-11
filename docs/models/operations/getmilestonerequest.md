@@ -5,6 +5,6 @@
 
 | Field              | Type               | Required           | Description        | Example            |
 | ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
-| `OrganizationID`   | *string*           | :heavy_check_mark: | N/A                | OWASP              |
-| `RepositoryID`     | *string*           | :heavy_check_mark: | N/A                | Nest               |
-| `MilestoneID`      | *int64*            | :heavy_check_mark: | N/A                | 1                  |
+| `OrganizationID`   | `string`           | :heavy_check_mark: | N/A                | OWASP              |
+| `RepositoryID`     | `string`           | :heavy_check_mark: | N/A                | Nest               |
+| `MilestoneID`      | `int64`            | :heavy_check_mark: | N/A                | 1                  |

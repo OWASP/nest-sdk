@@ -5,4 +5,4 @@
 
 | Field              | Type               | Required           | Description        | Example            |
 | ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
-| `MemberID`         | *string*           | :heavy_check_mark: | N/A                | OWASP              |
+| `MemberID`         | `string`           | :heavy_check_mark: | N/A                | OWASP              |

@@ -17,6 +17,10 @@ const (
 	ListMembersOrderingMinusCreatedAt ListMembersOrdering = "-created_at"
 	ListMembersOrderingUpdatedAt      ListMembersOrdering = "updated_at"
 	ListMembersOrderingMinusUpdatedAt ListMembersOrdering = "-updated_at"
+	ListMembersOrderingName           ListMembersOrdering = "name"
+	ListMembersOrderingMinusName      ListMembersOrdering = "-name"
+	ListMembersOrderingLogin          ListMembersOrdering = "login"
+	ListMembersOrderingMinusLogin     ListMembersOrdering = "-login"
 )
 
 func (e ListMembersOrdering) ToPointer() *ListMembersOrdering {
@@ -35,6 +39,14 @@ func (e *ListMembersOrdering) UnmarshalJSON(data []byte) error {
 	case "updated_at":
 		fallthrough
 	case "-updated_at":
+		fallthrough
+	case "name":
+		fallthrough
+	case "-name":
+		fallthrough
+	case "login":
+		fallthrough
+	case "-login":
 		*e = ListMembersOrdering(v)
 		return nil
 	default:
